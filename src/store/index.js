@@ -6,12 +6,27 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    readyNumber: null,
+    readyNumberCount: null,
+    onNumber: null,
+    onNumberCount: null,
+    finishIds: null,
+    finishdata: null,
+    allCount: null,
+    // 
     serviceId: null,
     // name: null,
     role: null,
     token: null,
   },
   getters: {
+    readyNumber: (state) => state.readyNumber,
+    readyNumberCount: (state) => state.readyNumberCount,
+    onNumber: (state) => state.onNumber,
+    onNumberCount: (state) => state.onNumberCount,
+    finishIds: (state) => state.finishIds,
+    finishdata: (state) => state.finishdata,
+    allCount: (state) => state.allCount,
     isLogin(state) {
       return state.token === null ? false : true;
     },
@@ -20,6 +35,21 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    setreadyNumber(state, datas) {
+      state.readyNumber = datas.data.dataList;
+      state.readyNumberCount = datas.data.data;
+    },
+    setonNumber(state, datas) {
+      state.onNumber = datas.data.dataList;
+      state.onNumberCount = datas.data.data;
+    },
+    setfinishIds(state, datas) {
+      state.finishIds = datas.data.dataList,
+      state.finishdata = datas.data.data,
+      state.allCount = datas.data.allCount
+      // state.onNumber = datas.data;
+      // state.onNumberCount = datas.data.length;
+    },
     setToken(state, _token) {
       state.token = _token;
       localStorage.setItem("token", JSON.stringify(_token));
@@ -44,6 +74,18 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async getreadyNumber({ commit }) {
+      const datas = await axios.get("http://localhost:5000/api/ReadyIds");
+      commit('setreadyNumber', datas);
+    },
+    async getonNumber({ commit }) {
+      const datas = await axios.get("http://localhost:5000/api/NumberOn");
+      commit('setonNumber', datas);
+    },
+    async getfinishIds({ commit }) {
+      const datas = await axios.get("http://localhost:5000/api/FinishIds");
+      commit('setfinishIds', datas);
+    },
     setToken: ({ commit }, _token) => {
       commit("setToken", _token);
     },

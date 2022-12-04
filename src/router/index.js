@@ -60,7 +60,7 @@ const routes = [
         path: "number",
         name: "Number",
         component: Number,
-        meta: { requiresAuth: true, roleSuper: "B" },
+        meta: { requiresAuth: true },
       },
     ],
   },

@@ -48,8 +48,8 @@
         <table class="NumTable2">
             <thead>
                 <tr>
-                    <th colspan="2" class="thRadiusL lookup">조회완료</th>
-                    <th class="thRadiusR phoneNum">5</th>
+                    <th colspan="2" class="thRadiusL lookup">번호</th>
+                    <th class="thRadiusR phoneNum">{{this.onNumberCount.toLocaleString()}}</th>
                 </tr>
                 <tr> 
                     <th>번호</th>
@@ -58,56 +58,39 @@
                 </tr>
             </thead>
             <tbody>
+                <template v-for="(item,i) in onNumber">
+                    <div></div>
+                    <tr>
+                        <td>{{(i+1)}}</td>
+                        <td>{{item.blog_id}}</td>
+                        <td>{{item.Number}}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tbox2 NoNum">
+        <table class="NumTable2">
+            <thead>
                 <tr>
-                    <td>10</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
+                    <th colspan="2" class="thRadiusL lookup">조회완료</th>
+                    <th class="thRadiusR phoneNum">{{this.finishdata.toLocaleString()}}/{{this.allCount.toLocaleString()}}</th>
                 </tr>
-                <tr>
-                    <td>9</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
+                <tr> 
+                    <th>번호</th>
+                    <th>ID</th>
+                    <th>전화번호</th>
                 </tr>
-                <tr>
-                    <td>8</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>KingJeb</td>
-                    <td>010-1234-5678</td>
-                </tr>
+            </thead>
+            <tbody>
+                <template v-for="(item,i) in finishIds">
+                    <div></div>
+                    <tr>
+                        <td>{{(i+1)}}</td>
+                        <td>{{item.blog_id}}</td>
+                    </tr>
+                </template>
 
             </tbody>
         </table>
@@ -121,7 +104,7 @@
             <thead>
                 <tr>
                     <th class="thRadiusL">조회예정</th>
-                    <th class="thRadiusR">1,000</th>
+                    <th class="thRadiusR">{{this.readyNumberCount.toLocaleString()}}</th>
                 </tr>
                 <tr>
                     <th>번호</th>
@@ -129,46 +112,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>10</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>KingJeb</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>KingJeb</td>
-                </tr>
+                <template v-for="(item,i) in readyNumber">
+                    <div></div>
+                    <tr>
+                        <td>{{(i+1)}}</td>
+                        <td>{{item.blog_id}}</td>
+                    </tr>
+                </template>
             </tbody>
         </table>
     </div>
@@ -177,8 +127,25 @@
 
 <script>
 import Tabs from "@/components/Tabs.vue";
+import { mapGetters } from 'vuex';
 export default {
   name: "Number",
   components: { Tabs },
+  computed: {
+    ...mapGetters({
+        readyNumber: `readyNumber`,
+        readyNumberCount: `readyNumberCount`,
+        onNumber: `onNumber`,
+        onNumberCount: `onNumberCount`,
+        finishIds: `finishIds`,
+        finishdata: `finishdata`,
+        allCount: `allCount`,
+    }),
+  },
+  async created() {
+    await this.$store.dispatch(`getreadyNumber`);
+    await this.$store.dispatch(`getonNumber`);
+    await this.$store.dispatch(`getfinishIds`);
+  }
 }
 </script>
