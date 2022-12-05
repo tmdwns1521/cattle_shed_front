@@ -48,12 +48,12 @@
         <table class="NumTable2">
             <thead>
                 <tr>
-                    <th colspan="2" class="thRadiusL lookup">번호</th>
-                    <th class="thRadiusR phoneNum">{{this.onNumberCount.toLocaleString()}}</th>
+                    <th colspan="2" class="thRadiusL lookup" style="width: 200px;">번호</th>
+                    <th class="thRadiusR phoneNum" style="width: 220px;">{{this.onNumberCount.toLocaleString()}}</th>
                 </tr>
                 <tr> 
-                    <th>번호</th>
-                    <th>ID</th>
+                    <th style="width: 80px;">번호</th>
+                    <th style="width: 200px;">ID</th>
                     <th>전화번호</th>
                 </tr>
             </thead>
@@ -61,9 +61,9 @@
                 <template v-for="(item,i) in onNumber">
                     <div></div>
                     <tr>
-                        <td>{{(i+1)}}</td>
-                        <td>{{item.blog_id}}</td>
-                        <td>{{item.Number}}</td>
+                        <td style="width: 16.6%;">{{(i+1)}}</td>
+                        <td style="width: 41.5%;">{{item.blog_id}}</td>
+                        <td style="width: 300px;">{{item.Number}}</td>
                     </tr>
                 </template>
             </tbody>
@@ -74,21 +74,22 @@
         <table class="NumTable2">
             <thead>
                 <tr>
-                    <th colspan="2" class="thRadiusL lookup">조회완료</th>
-                    <th class="thRadiusR phoneNum">{{this.finishdata.toLocaleString()}}/{{this.allCount.toLocaleString()}}</th>
+                    <th colspan="2" class="thRadiusL lookup" style="width: 135px;">조회완료</th>
+                    <th class="thRadiusR phoneNum" style="width: 220px;">{{this.finishdata.toLocaleString()}}/{{this.allCount.toLocaleString()}}</th>
                 </tr>
                 <tr> 
-                    <th>번호</th>
-                    <th>ID</th>
-                    <th>전화번호</th>
+                    <th style="width: 80px;">번호</th>
+                    <th style="width: 200px;">ID</th>
+                    <th style="width: 200px;">전화번호</th>
                 </tr>
             </thead>
             <tbody>
                 <template v-for="(item,i) in finishIds">
                     <div></div>
                     <tr>
-                        <td>{{(i+1)}}</td>
-                        <td>{{item.blog_id}}</td>
+                        <td style="width: 17%;">{{(i+1)}}</td>
+                        <td style="width: 41.4%;">{{item.blog_id}}</td>
+                        <td style="width: 200px;">{{item.Number}}</td>
                     </tr>
                 </template>
 
@@ -103,20 +104,20 @@
             <input type="button" value="저장">
             <thead>
                 <tr>
-                    <th class="thRadiusL">조회예정</th>
-                    <th class="thRadiusR">{{this.readyNumberCount.toLocaleString()}}</th>
+                    <th class="thRadiusL" style="width: 100px;">조회예정</th>
+                    <th class="thRadiusR" style="width: 200px;">{{this.readyNumberCount.toLocaleString()}}</th>
                 </tr>
                 <tr>
-                    <th>번호</th>
-                    <th>ID</th>
+                    <th style="width: 80px;">번호</th>
+                    <th style="width: 200px;">ID</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="overflow-y: scroll; height: 795px; display:table-caption;">
                 <template v-for="(item,i) in readyNumber">
                     <div></div>
                     <tr>
-                        <td>{{(i+1)}}</td>
-                        <td>{{item.blog_id}}</td>
+                        <td style="width: 35%;">{{(i+1)}}</td>
+                        <td style="width: 200px;">{{item.blog_id}}</td>
                     </tr>
                 </template>
             </tbody>

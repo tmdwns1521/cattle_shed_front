@@ -118,8 +118,11 @@
     .number-page [class ^= 'tbox']{
         float: left; box-sizing: border-box;
     }
-    .number-page [class ^= 'tbox']:not(:first-child){
-        margin-left: 90px; 
+    .number-page .tbox2{
+        margin-left: 70px; 
+    }
+    .number-page .tbox3{
+        margin-left: 30px;
     }
     .number-page [class ^='tbox'] tbody tr{
         border-bottom: 1px solid #78C5D6;
@@ -141,7 +144,7 @@
         border-radius: 0 15px 0 0;
     }
     .number-page .tbox1{
-        margin-right: 15px; position: relative; margin-left: 2%;
+        margin-right: 15px; position: relative; margin-left: 1%;
     }
     .number-page .PMbtnBox{
         position: absolute; top: 59px; right: -55px;
@@ -182,8 +185,14 @@
     .number-page .tbox2 input:hover{
         background: #0094FF; color: #fff; box-sizing: border-box;
     }
+    .number-page .tbox2 .NumTable2 tbody{
+        overflow-y: scroll; height: 798px; display: table-caption;
+    }
     .number-page .tbox2 .NumTable2 thead tr th{
         border-bottom: 1px solid #fff;
+    }
+    .number-page .tbox1 .NumTable2 tbody tr:first-of-type td:first-child{
+        width: 132px;
     }
     .number-page .tbox1 .NumTable1 tbody tr td:not(:first-child),
     .number-page .tbox2 .NumTable2 thead tr:last-child th:not(:first-child),
