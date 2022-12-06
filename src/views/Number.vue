@@ -14,23 +14,23 @@
                         <td><input type="text" style="width: 174px;"></td>
                     </tr>
                     <tr>
-                        <td>KingJeb</td>
+                        <td>A</td>
                         <td>123123</td>
                     </tr>
                     <tr>
-                        <td>KingJeb</td>
+                        <td>B</td>
                         <td>123123</td>
                     </tr>
                     <tr>
-                        <td>KingJeb</td>
+                        <td>C</td>
                         <td>123123</td>
                     </tr>
                     <tr>
-                        <td>KingJeb</td>
+                        <td>D</td>
                         <td>123123</td>
                     </tr>
                     <tr>
-                        <td>KingJeb</td>
+                        <td>E</td>
                         <td>123123</td>
                     </tr>
                 </tbody>
@@ -74,22 +74,20 @@
         <table class="NumTable2">
             <thead>
                 <tr>
-                    <th colspan="2" class="thRadiusL lookup" style="width: 135px;">조회완료</th>
+                    <th class="thRadiusL lookup" style="width: 135px;">조회완료</th>
                     <th class="thRadiusR phoneNum" style="width: 220px;">{{this.finishdata.toLocaleString()}}/{{this.allCount.toLocaleString()}}</th>
                 </tr>
                 <tr> 
                     <th style="width: 80px;">번호</th>
                     <th style="width: 200px;">ID</th>
-                    <th style="width: 200px;">전화번호</th>
                 </tr>
             </thead>
             <tbody>
                 <template v-for="(item,i) in finishIds">
                     <div></div>
                     <tr>
-                        <td style="width: 17%;">{{(i+1)}}</td>
-                        <td style="width: 41.4%;">{{item.blog_id}}</td>
-                        <td style="width: 200px;">{{item.Number}}</td>
+                        <td style="width: 40.3%;">{{(i+1)}}</td>
+                        <td style="width: 200px;">{{item.blog_id}}</td>
                     </tr>
                 </template>
 
@@ -117,7 +115,7 @@
                     <div></div>
                     <tr>
                         <td style="width: 35%;">{{(i+1)}}</td>
-                        <td style="width: 200px;">{{item.blog_id}}</td>
+                        <td style="width: 250px;">{{item.blog_id}}</td>
                     </tr>
                 </template>
             </tbody>

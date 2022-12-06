@@ -113,7 +113,7 @@
 @media screen and (min-width: 1280px){
 
     .number-page{
-        margin-top: 90px;
+        height: 900px; margin: 90px 0 60px 0;
     }
     .number-page [class ^= 'tbox']{
         float: left; box-sizing: border-box;
