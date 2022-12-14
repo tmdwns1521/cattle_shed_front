@@ -2,8 +2,14 @@
     .header1{
         max-width: 1820px;
     }
+    .header2{
+        max-width: 1920px; width: 100%;
+    }
 }
 
+.header2{
+    background: #34383c;
+}
 
 .left-nav{
     max-width: 1480px; width: 100%; margin-left: 50px;
@@ -15,5 +21,26 @@
     display: block; content: ''; visibility: hidden; clear: both;
 }
 .navbar-nav li{
-    float: left; width: 15%;
+    float: left; width: 10%; text-align: center; border-left: 1px solid #888;
+}
+.navbar-nav li:last-child{
+    border-right: 1px solid #888;
+}
+.navbar-nav li a{
+    font-size: 18px !important;
+}
+.adminIstrator{
+    color: white; justify-content: end !important; font-size: 20px; margin-left: 30px;
+}
+.left-nav .nav-item a {
+    color: #fff; font-weight: normal; padding: 10px 0;
+}
+.left-nav .nav-item.active a {
+    color: #03a9f5;
+}
+.adminIstrator span{
+    color: #03a9f5;
+}
+.dropdown-toggle::after {
+    color: #fff;
 }

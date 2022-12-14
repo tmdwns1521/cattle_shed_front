@@ -8,11 +8,12 @@
 
 <script>
 import Header from "@/components/Nav/Header.vue";
+import Header2 from "@/components/Nav/Header2.vue";
 import Footer from "@/components/Nav/Footer.vue";
 
 export default {
   name: "Default",
-  components: { Header, Footer },
+  components: { Header, Header2, Footer },
 };
 </script>
 

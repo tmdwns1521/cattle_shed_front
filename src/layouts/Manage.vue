@@ -22,11 +22,11 @@
 <script>
 import Left from "@/components/Nav/Left.vue";
 import Footer from "@/components/Nav/Footer.vue";
-import Header from "../components/Nav/Header.vue";
+import Header from "../components/Nav/Header2.vue";
 
 export default {
   name: "Management",
-  components: { Left, Header, Footer },
+  components: { Left, Header, Footer }
 };
 </script>
 
