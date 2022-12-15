@@ -44,8 +44,8 @@
     <input type="button" value="-"> -->
 
     <div class="tbox2">
-        <input type="button" value="파일 저장">
-        <table class="NumTable2">
+        <input type="button" value="파일 저장" @click="makeExcelFile4">
+        <table class="NumTable2" id="table">
             <thead>
                 <tr>
                     <th colspan="2" class="thRadiusL lookup" style="width: 200px;">번호</th>
@@ -124,11 +124,38 @@
 </section>
 </template>
 
+
 <script>
 import Tabs from "@/components/Tabs.vue";
 import { mapGetters } from 'vuex';
 export default {
   name: "Number",
+  data () {
+    return {
+    }
+  },
+  methods: {
+    makeExcelFile4 () {
+      let tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">'
+      tab_text += '<head><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">'
+      tab_text += '<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'
+      tab_text += '<x:Name>Test Sheet</x:Name>'
+      tab_text += '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>'
+      tab_text += '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>'
+      tab_text += "<table>"
+      const temp = document.getElementById('table').innerHTML
+      // console.log(temp)
+      tab_text += temp
+      tab_text += '</table></body></html>'
+      console.log(tab_text)
+      const fileName = '아이디+전화번호Table.xls'
+      const a_tag = document.createElement('a')
+      const blob = new Blob([tab_text], { type: 'application/vnd.ms-excel;charset=utf-8;' })
+      a_tag.href = window.URL.createObjectURL(blob)
+      a_tag.download = fileName
+      a_tag.click()
+    }
+  },
   components: { Tabs },
   computed: {
     ...mapGetters({
@@ -146,5 +173,7 @@ export default {
     await this.$store.dispatch(`getonNumber`);
     await this.$store.dispatch(`getfinishIds`);
   }
+  
 }
+
 </script>

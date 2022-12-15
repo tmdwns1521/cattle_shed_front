@@ -10,7 +10,12 @@
 .header2{
     background: #34383c;
 }
-
+.adminIstrator{
+    color: white; justify-content: end !important; font-size: 18px; margin-left: 30px;
+}
+.adminIstrator span{
+    color: #03a9f5;
+}
 .left-nav{
     max-width: 1480px; width: 100%; margin-left: 50px;
 }
@@ -27,20 +32,23 @@
     border-right: 1px solid #888;
 }
 .navbar-nav li a{
-    font-size: 18px !important;
-}
-.adminIstrator{
-    color: white; justify-content: end !important; font-size: 20px; margin-left: 30px;
+    font-size: 16px !important;
 }
 .left-nav .nav-item a {
-    color: #fff; font-weight: normal; padding: 10px 0;
+    color: #fff; font-weight: normal; padding: 15px 0;
 }
 .left-nav .nav-item.active a {
     color: #03a9f5;
 }
-.adminIstrator span{
-    color: #03a9f5;
-}
 .dropdown-toggle::after {
-    color: #fff;
+    display: none;
+}
+.Azone::after{
+    display: block; content: ''; visibility: hidden; clear: both;
+}
+.Azone div{
+    float: left;
+}
+.Azone a{
+    margin-left: 20px; text-decoration: none; color: #fff;
 }

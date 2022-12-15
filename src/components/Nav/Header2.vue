@@ -9,32 +9,38 @@
             </div>
               <nav class="left-nav">
                 <b-navbar-nav>
+                  
                   <b-nav-item
                     to="/manage/sales"
                     :class="path.includes('/sales') ? 'active' : ''"
-                    v-if="$store.getters.isSuper"
-                  >
+                    v-if="$store.getters.isSuper">
                     <span>매출관리</span>
                   </b-nav-item>
+
                   <b-nav-item
                     to="/manage/order"
                     :class="path.includes('/order') ? 'active' : ''"
                     v-if="$store.getters.isSuper">
                     <span>주문관리</span>
                   </b-nav-item>
+
                   <b-nav-item to="/manage/number"
                     :class="path.includes('/number') ? 'active' : ''"
                     v-if="$store.getters.isSuper">
                     <span>번호관리</span>
                   </b-nav-item>
+
                 </b-navbar-nav>
               </nav>
-            <b-nav-item-dropdown right v-if="$store.getters.isLogin">
+            <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone">
               <template #button-content>
-                <span style="color: white;">{{ $store.state.serviceId }}</span>
+                <div>
+                  <span style="color: white;">{{ $store.state.serviceId }}</span>
+                </div>
+                <div>
+                  <a href="/" @click="logout()">로그아웃</a>
+                </div>
               </template>
-              <b-dropdown-item href="/manage">관리페이지</b-dropdown-item>
-              <b-dropdown-item href="/" @click="logout()">로그아웃</b-dropdown-item>
             </b-nav-item-dropdown>
             <!-- <b-nav-item-dropdown right>
               <template #button-content>
@@ -69,6 +75,8 @@
         },
       },
   };
+
+  
   
   
   </script>
