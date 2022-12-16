@@ -47,7 +47,7 @@
     display: block; content: ''; visibility: hidden; clear: both;
 }
 .Azone div{
-    float: left; width: 20px;
+    float: left; width: 50%;
 }
 .Azone a{
     margin-left: 20px; text-decoration: none; color: #fff;
