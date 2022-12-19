@@ -9,7 +9,6 @@
             </div>
               <nav class="left-nav">
                 <b-navbar-nav>
-                  
                   <b-nav-item
                     to="/manage/sales"
                     :class="path.includes('/sales') ? 'active' : ''"
