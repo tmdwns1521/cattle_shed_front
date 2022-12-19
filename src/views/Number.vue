@@ -45,7 +45,7 @@
 
     <div class="tbox2" id="app">
         <input type="button" value="파일 저장" @click="downloadText">
-        <table class="NumTable2" id="table">
+        <table class="NumTable2" id="Numtable">
             <thead>
                 <tr>
                     <th colspan="2" class="thRadiusL lookup" style="width: 200px;">번호</th>
@@ -156,7 +156,7 @@ export default {
     //   a_tag.click()
     // },
     downloadText: function(){
-      let temp = document.getElementById('table').innerText
+      let temp = document.getElementById('Numtable').innerText
       var blob = new Blob([ temp ], { "type" : "text/plain" });
       let link = document.createElement('a')
       link.href = window.URL.createObjectURL(blob)
