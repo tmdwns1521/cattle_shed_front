@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :topBanner="false" />
+    <Header2 :topBanner="false" />
     <div class="m-auto">
       <b-row class="m-0">
         <b-col cols="2">
@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import Left from "@/components/Nav/Left.vue";
+import Header2 from "@/components/Nav/Header2.vue";
 import Footer from "@/components/Nav/Footer.vue";
-import Header from "@/components/Nav/Header2.vue";
+
 
 export default {
   name: "Management",
-  components: { Left, Header, Footer }
+  components: { Header2, Footer }
 };
 </script>
 

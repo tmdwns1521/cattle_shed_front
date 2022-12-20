@@ -7,28 +7,27 @@
             <div class="adminIstrator">
               <span>ADMIN</span>ISTRATOR
             </div>
-              <nav class="left-nav">
-                <b-navbar-nav>
-                  <b-nav-item
-                    to="/manage/sales"
-                    :class="path.includes('/sales') ? 'active' : ''"
-                    v-if="$store.getters.isSuper">
-                    <span>매출관리</span>
-                  </b-nav-item>
+            <nav class="left-nav">
+              <b-navbar-nav>
+                <b-nav-item
+                  to="/manage/sales"
+                  :class="path.includes('/sales') ? 'active' : ''"> <!-- v-if="$store.getters.isSuper" -->
+                  <span>매출관리</span>
+                </b-nav-item>
 
-                  <b-nav-item
-                    to="/manage/order"
-                    :class="path.includes('/order') ? 'active' : ''"
-                    v-if="$store.getters.isSuper">
-                    <span>주문관리</span>
-                  </b-nav-item>
+                <b-nav-item
+                  to="/manage/order"
+                  :class="path.includes('/order') ? 'active' : ''"
+                  >
+                  <span>주문관리</span>
+                </b-nav-item>
 
-                  <b-nav-item to="/manage/number"
-                    :class="path.includes('/number') ? 'active' : ''"
-                    v-if="$store.getters.isSuper">
-                    <span>번호관리</span>
-                  </b-nav-item>
-
+                <b-nav-item 
+                  to="/manage/number"
+                  :class="path.includes('/number') ? 'active' : ''"
+                  >
+                  <span>번호관리</span>
+                </b-nav-item>
                 </b-navbar-nav>
               </nav>
             <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone">
@@ -58,7 +57,7 @@
   <script>
   import TopBanner from "@/components/Banner/TopBanner.vue";
   export default {
-    name: "Header2",
+    name: "Header",
     components: { TopBanner },
     props: {
       topBanner: Boolean,

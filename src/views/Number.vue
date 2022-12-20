@@ -1,5 +1,5 @@
 <template>
-    <section class="number-page">
+    <section class="number-page">       
         <div class="tbox1">
             <table class="NumTable1">
                 <thead>
@@ -90,7 +90,6 @@
                         <td style="width: 200px;">{{item.blog_id}}</td>
                     </tr>
                 </template>
-
             </tbody>
         </table>
     </div>
@@ -130,12 +129,42 @@ import Tabs from "@/components/Tabs.vue";
 import { mapGetters } from 'vuex';
 export default {
   name: "Number",
+  components: { Tabs },
   data () {
     return {
     }
   },
   methods: {
-    // makeExcelFile4 () {
+    /* text파일 저장하기 */ 
+    downloadText: function(){
+      let temp = document.getElementById('Numtable').innerText
+      var blob = new Blob([ temp ], { "type" : "text/plain" });
+      let link = document.createElement('a')
+      link.href = window.URL.createObjectURL(blob)
+      link.download = 'ID,전화번호.txt'
+      link.click()
+    },
+  },
+  
+  computed: {
+    //table 데이터 받기
+    ...mapGetters({
+        readyNumber: `readyNumber`,
+        readyNumberCount: `readyNumberCount`,
+        onNumber: `onNumber`,
+        onNumberCount: `onNumberCount`,
+        finishIds: `finishIds`,
+        finishdata: `finishdata`,
+        allCount: `allCount`
+    })
+  },
+  async created() {
+    await this.$store.dispatch(`getreadyNumber`);
+    await this.$store.dispatch(`getonNumber`);
+    await this.$store.dispatch(`getfinishIds`);
+  }
+  // table 엑셀파일로 내려받기
+  // downloadText () {
     //   let tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">'
     //   tab_text += '<head><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">'
     //   tab_text += '<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'
@@ -155,33 +184,6 @@ export default {
     //   a_tag.download = fileName
     //   a_tag.click()
     // },
-    downloadText: function(){
-      let temp = document.getElementById('Numtable').innerText
-      var blob = new Blob([ temp ], { "type" : "text/plain" });
-      let link = document.createElement('a')
-      link.href = window.URL.createObjectURL(blob)
-      link.download = 'ID,전화번호.txt'
-      link.click()
-    },
-  },
-  components: { Tabs },
-  computed: {
-    ...mapGetters({
-        readyNumber: `readyNumber`,
-        readyNumberCount: `readyNumberCount`,
-        onNumber: `onNumber`,
-        onNumberCount: `onNumberCount`,
-        finishIds: `finishIds`,
-        finishdata: `finishdata`,
-        allCount: `allCount`,
-    }),
-  },
-  async created() {
-    await this.$store.dispatch(`getreadyNumber`);
-    await this.$store.dispatch(`getonNumber`);
-    await this.$store.dispatch(`getfinishIds`);
-  }
-  
 }
 
 </script>

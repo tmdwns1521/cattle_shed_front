@@ -2,16 +2,13 @@
     .header1{
         max-width: 1820px;
     }
-    .header2{
-        max-width: 1920px; width: 100%;
-    }
 }
 
 .header2{
-    background: #34383c;
+    max-width: 1920px; background: #34383c; width: 100%;
 }
 .adminIstrator{
-    color: white; justify-content: end !important; font-size: 18px; margin-left: 30px;
+    color: white; justify-content: center !important; font-size: 18px; margin-left: 30px;
 }
 .adminIstrator span{
     color: #03a9f5;
@@ -34,21 +31,21 @@
 .navbar-nav li a{
     font-size: 16px !important;
 }
-.left-nav .nav-item a {
+.left-nav .nav-item a{
     color: #fff; font-weight: normal; padding: 15px 0;
 }
-.left-nav .nav-item.active a {
+.left-nav .nav-item.active a{
     color: #03a9f5;
 }
-.dropdown-toggle::after {
+.header2 .dropdown-toggle::after {
     display: none;
 }
-.Azone::after{
+.header2 .Azone::after{
     display: block; content: ''; visibility: hidden; clear: both;
 }
-.Azone div{
+.header2 .Azone div{
     float: left; width: 50%;
 }
-.Azone a{
+.header2 .Azone a{
     margin-left: 20px; text-decoration: none; color: #fff;
 }

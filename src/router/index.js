@@ -61,9 +61,9 @@ const routes = [
         name: "Number",
         component: Number,
         meta: { requiresAuth: true },
-      },
-    ],
-  },
+      }
+    ]
+  }
 ];
 
 const router = new VueRouter({
