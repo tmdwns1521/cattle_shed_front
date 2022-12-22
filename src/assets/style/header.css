@@ -5,16 +5,21 @@
 }
 
 .header2{
-    max-width: 1920px; background: #34383c; width: 100%;
+    position: relative; background-color: #34383c; min-width: 1900px;
+}
+.logoCenter:after{
+    display: block; content: ''; visibility: hidden; clear: both;
 }
 .adminIstrator{
-    color: white; justify-content: center !important; font-size: 18px; margin-left: 30px;
+    float: left; width: 230px; height: 50px; padding-top: 15px;
+    border-right: 1px solid #55595c; text-align: center;
+    color: #fff;
 }
 .adminIstrator span{
     color: #03a9f5;
 }
 .left-nav{
-    max-width: 1480px; width: 75%; margin-left: 50px;
+    width: 1457px; float: left;
 }
 .navbar-nav{
     display: block;
@@ -23,16 +28,14 @@
     display: block; content: ''; visibility: hidden; clear: both;
 }
 .navbar-nav li{
-    float: left; width: 10%; text-align: center; border-left: 1px solid #888;
-}
-.navbar-nav li:last-child{
-    border-right: 1px solid #888;
+    float: left; position: relative; border-right: 1px solid #55595c;
 }
 .navbar-nav li a{
-    font-size: 16px !important;
+    font-size: 14px !important;
 }
 .left-nav .nav-item a{
-    color: #fff; font-weight: normal; padding: 15px 0;
+    display: block; height: 100%; width: 130px; line-height: 30px;
+    color: #fff; text-align: center;
 }
 .left-nav .nav-item.active a{
     color: #03a9f5;
@@ -40,12 +43,15 @@
 .header2 .dropdown-toggle::after {
     display: none;
 }
+.header2 .Azone{
+    width: 200px;
+}
 .header2 .Azone::after{
     display: block; content: ''; visibility: hidden; clear: both;
 }
 .header2 .Azone div{
-    float: left; width: 50%;
+    float: left; width: 80px;
 }
 .header2 .Azone a{
-    margin-left: 20px; text-decoration: none; color: #fff;
+    margin-left: 13px; text-decoration: none; color: #fff; font-size: 14px;
 }

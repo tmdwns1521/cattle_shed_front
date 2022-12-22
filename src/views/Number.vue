@@ -43,7 +43,7 @@
     <!-- <input type="button" value="+">
     <input type="button" value="-"> -->
 
-    <div class="tbox2" id="app">
+    <div class="tbox2">
         <input type="button" value="파일 저장" @click="downloadText">
         <table class="NumTable2" id="Numtable">
             <thead>

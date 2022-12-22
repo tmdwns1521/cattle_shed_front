@@ -11,7 +11,7 @@
               <b-navbar-nav>
                 <b-nav-item
                   to="/manage/sales"
-                  :class="path.includes('/sales') ? 'active' : ''"> <!-- v-if="$store.getters.isSuper" -->
+                  :class="path.includes('/sales') ? 'active' : ''"> <!-- ? v-if="$store.getters.isSuper" 관리자만 볼수 있게 해주는 코드-->
                   <span>매출관리</span>
                 </b-nav-item>
 
