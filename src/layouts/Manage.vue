@@ -4,13 +4,8 @@
     <div class="m-auto">
       <b-row class="m-0">
         <b-col cols="2">
-          <Left />
         </b-col>
-        <b-col
-          cols="10"
-          style="background: #f3f8f7; min-height: 75vh"
-          class="p-4"
-        >
+        <b-col cols="10" style="background: #f3f8f7; min-height: 75vh" class="p-4">
           <router-view />
         </b-col>
       </b-row>

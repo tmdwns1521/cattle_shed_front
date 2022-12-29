@@ -15,6 +15,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "./assets/style/header.css";
 import "./assets/style/main_3.css";
 import "./assets/style/Number.css";
+import "./assets/style/SendEmail.css";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";

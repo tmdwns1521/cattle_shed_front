@@ -34,13 +34,10 @@ export default {
           ...options,
         };
         const msgVNode = this.$createElement("div", {
-          class: "mt-2",
-          domProps: {
-            innerHTML: `
-
-            <section class="text-center text-17 text-lg-15">${msg}</section>
-          `,
-          },
+            class: "mt-2",
+            domProps: {
+              innerHTML: `<section class="text-center text-17 text-lg-15">${msg}</section>`,
+            },
         });
         return await this.$bvModal.msgBoxOk([msgVNode], opt);
       };

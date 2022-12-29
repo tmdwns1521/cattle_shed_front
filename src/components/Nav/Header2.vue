@@ -28,6 +28,12 @@
                   >
                   <span>번호관리</span>
                 </b-nav-item>
+                <b-nav-item 
+                  to="/manage/email"
+                  :class="path.includes('/email') ? 'active' : ''"
+                  >
+                  <span>메일발송</span>
+                </b-nav-item>
                 </b-navbar-nav>
               </nav>
             <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone">
@@ -56,6 +62,8 @@
   
   <script>
   import TopBanner from "@/components/Banner/TopBanner.vue";
+
+  
   export default {
     name: "Header",
     components: { TopBanner },
