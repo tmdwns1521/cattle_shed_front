@@ -9,31 +9,26 @@
             </div>
             <nav class="left-nav">
               <b-navbar-nav>
-                <b-nav-item
-                  to="/manage/sales"
-                  :class="path.includes('/sales') ? 'active' : ''"> <!-- ? v-if="$store.getters.isSuper" 관리자만 볼수 있게 해주는 코드-->
+                <b-nav-item to="/manage/sales" :class="path.includes('/sales') ? 'active' : ''"> <!-- ? v-if="$store.getters.isSuper" 관리자만 볼수 있게 해주는 코드-->
                   <span>매출관리</span>
                 </b-nav-item>
 
-                <b-nav-item
-                  to="/manage/order"
-                  :class="path.includes('/order') ? 'active' : ''"
-                  >
+                <b-nav-item to="/manage/order" :class="path.includes('/order') ? 'active' : ''">
                   <span>주문관리</span>
                 </b-nav-item>
 
-                <b-nav-item 
-                  to="/manage/number"
-                  :class="path.includes('/number') ? 'active' : ''"
-                  >
+                <b-nav-item to="/manage/number" :class="path.includes('/number') ? 'active' : ''">
                   <span>번호관리</span>
                 </b-nav-item>
-                <b-nav-item 
-                  to="/manage/email"
-                  :class="path.includes('/email') ? 'active' : ''"
-                  >
+
+                <b-nav-item to="/manage/email" :class="path.includes('/email') ? 'active' : ''">
                   <span>메일발송</span>
                 </b-nav-item>
+
+                <b-nav-item to="/manage/manus" :class="path.includes('/manus') ? 'active' : ''">
+                  <span>원고작성</span>
+                </b-nav-item>
+
                 </b-navbar-nav>
               </nav>
             <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone">

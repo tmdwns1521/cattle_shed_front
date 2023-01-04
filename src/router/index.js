@@ -11,6 +11,7 @@ import Sales from "@/views/Sales.vue";
 import Order from "@/views/Order.vue";
 import Number from "@/views/Number.vue";
 import Email from "@/views/Email.vue";
+import Manus from "@/views/Manus.vue";
 import Login from "@/views/Login.vue";
 import Signup from "@/views/Signup.vue";
 import store from "../store";
@@ -67,6 +68,12 @@ const routes = [
         path: "email",
         name: "Email",
         component: Email,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: "manus",
+        name: "Manus",
+        component: Manus,
         meta: { requiresAuth: true },
       }
     ]

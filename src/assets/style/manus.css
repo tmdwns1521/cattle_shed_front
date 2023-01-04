@@ -1,0 +1,34 @@
+.ManuSection{
+    max-width: 1800px; width: 100%;
+}
+.ManuSection::after{
+    display: block; content: ''; visibility: hidden; clear: both;
+}
+
+.ManuSection .manform1, 
+.ManuSection .manform2{
+    display: block; background: #fff; width: 50%; float: left;
+}
+.ManuSection .manform2{
+    display: none;
+}
+.ManuSection .manform1:after{
+    display: block; content: ''; visibility: hidden; clear: both;
+}
+.ManuSection .manform1 .maInput1,
+.ManuSection .manform1 .maInput2{
+    width: 20%; height: 600px;
+}
+.ManuSection .manform1 .maInput1{
+    float: left;
+}
+.ManuSection .manform1 .maInput2{
+    margin-left: 15px; float: left;
+}
+.ManuSection .manform1 div{
+    float: left; width: 58%;
+}
+.ManuSection .manform1 .maBtn,
+.ManuSection .manform2 .maBtn{
+    border: none; background: #00d1ae; width: 20%;
+}
