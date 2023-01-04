@@ -145,7 +145,7 @@ export default {
       link.click()
     },
   },
-  
+
   computed: {
     //table 데이터 받기
     ...mapGetters({
