@@ -1,5 +1,5 @@
 .ManuSection{
-    max-width: 1700px; width: 100%; margin: 60px auto 0; 
+    max-width: 1700px; width: 100%;
 }
 
 .ManuSection::after{
@@ -42,7 +42,7 @@
     float: left;
 }
 .ManuSection .manform1 .maInput2{
-    margin-left: 10px; float: left;
+    margin-left: 10px; float: left; text-align: center;
 }
 .ManuSection .manform1 fieldset > div{
     float: left; width: 47%; background: #e2eae8; height: 420px; margin-left: 15px;
