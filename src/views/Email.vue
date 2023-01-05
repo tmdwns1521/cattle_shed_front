@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="mailSection">
         <h2>Send Email</h2>
         <div>
           <label class="idlabel" for="M_id">ID</label>
