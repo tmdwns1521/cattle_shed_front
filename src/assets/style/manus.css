@@ -207,7 +207,7 @@
 /* ! form3 */
 
 .ManuSection .manform3{
-    width: 72%; float: left;
+    width: 50%; float: left;
 }
 .ManuSection .manform3:after{
     display: block; content: ''; visibility: hidden; clear: both;
@@ -223,7 +223,7 @@
     margin-left: 10px; float: left; text-align: center;
 }
 .ManuSection .manform3 fieldset > div{
-    float: left; width: 32%; background: #e2eae8; height: 800px; margin-left: 15px;
+    width: 48%; background: #e2eae8; height: 800px; margin-left: 15px;
 }
 .ManuSection .manform3 fieldset > div div:first-child,
 .ManuSection .manform3 fieldset > div div:nth-child(2),
@@ -290,9 +290,7 @@
     display: inline-block; width: 28%; border: 1px solid #d1d1d1;
     box-sizing: border-box; padding-top: 40px;
 }
-.ManuSection > div:last-child div:first-child{
-    margin-bottom: 40px;
-}
+
 .ManuSection > div:last-child div:first-child input[type=text]{
     width: 400px; margin-bottom: 20px;
 }
@@ -304,7 +302,7 @@
     background: #333; color: #fff;
 }
 .ManuSection > div:last-child div:last-child{
-    max-width: 500px; margin: 0 auto;
+    margin: 0 auto;
 }
 .ManuSection > div:last-child div:last-child textarea{
     width: 500px; height: 50px; margin-bottom: 20px;
