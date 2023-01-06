@@ -3,9 +3,10 @@
         <ul class="manuTab">
             <li class="tabBtn active" data-tab="manutab1">Form1</li>
             <li class="tabBtn" data-tab="manutab2">Form2</li>
+            <li class="tabBtn" data-tab="manutab3">Form3</li>
         </ul>
 
-        <form class="tabPg active manform1" id="manutab1" action="">
+        <form class="tabPg active manform1" id="manutab1">
             <fieldset>
                 <textarea class="maInput1"></textarea>
                 <textarea class="maInput2"></textarea>
@@ -15,10 +16,9 @@
                     </div>
 
                     <div>
-                        <span style="display: block; margin-bottom: 10px;">고정키워드</span>
                         <textarea id="rock_keyword1" type="text" style="vertical-align: middle;"></textarea> 
                         <span> -> </span>
-                        <input id="rock_keyword2" style="width: 140px;" type="text">
+                        <input id="rock_keyword2" style="width: 140px; height: 100px;" type="text" placeholder="변환할 키워드">
                     </div>
 
                     <div>
@@ -28,15 +28,17 @@
 
                     <div>
                         <input id="mobileCheck" type="checkbox">
-                        <label for="mobileManu">모바일</label>
+                        <label for="mobileCheck">모바일</label>
                         
                         <input id="videoChecked" type="checkbox">
-                        <label for="" style="margin-right: 10px;">동영상</label>
-                        <input id="adChecked" type="checkbox"><label for="">광고</label> <input id="adText" type="text">
+                        <label for="videoChecked" style="margin-right: 10px;">동영상</label>
+
+                        <input id="adChecked" type="checkbox"><label for="adChecked">광고</label> <input id="adText" type="text">
                     </div>
 
                     <div>
                         <input type="button" @click="makeText" value="원고제작">
+                        <textarea name="" id="" cols="30"></textarea> <!--? 메모장  -->
                     </div>
 
                     <!-- <div>
@@ -46,13 +48,16 @@
             </fieldset>
         </form>
 
-        <form class="tabPg manform2" id="manutab2" action="">
+        <form class="tabPg manform2" id="manutab2">
             <fieldset>
                 <div>
-                    <textarea name="" id=""></textarea>
-                    <textarea name="" id=""></textarea>
-                    <input type="button" value="+">
-                    <textarea name="" id=""></textarea>
+                    <div id="dynamic">
+                        <textarea></textarea>
+                        <textarea></textarea>
+                        <textarea></textarea>
+                    </div>
+                    <input type="button" value="+" id="listBtn1">
+                    <input type="button" value="-" id="listBtn2">
                 </div>
                 <div>
                     <textarea name="" id=""></textarea>
@@ -64,10 +69,9 @@
                     </div>
 
                     <div>
-                        <span style="display: block; margin-bottom: 10px;">고정키워드</span>
                         <textarea type="text" style="vertical-align: middle;"></textarea> 
                         <span> -> </span>
-                        <input style="width: 140px;" type="text">
+                        <input id="rock_keyword2" style="width: 140px; height: 100px;" type="text" placeholder="변환할 키워드">
                     </div>
 
                     <div>
@@ -89,7 +93,50 @@
                     </div>
                     <div>
                         <label for=""> 원고 갯수 :</label> <input type="text">
+                        <textarea name="" id="" cols="30"></textarea> <!--? 메모장  -->
                     </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <form class="tabPg manform3" id="manutab3">
+            <fieldset>
+                <textarea class="maInput1"></textarea>
+                <textarea class="maInput2"></textarea>
+                <div>
+                    <div>
+                        <label for="">키워드 :</label>  <input id="change_keyword" type="text">
+                    </div>
+
+                    <div>
+                        <textarea id="rock_keyword1" type="text" style="vertical-align: middle;"></textarea> 
+                        <span> -> </span>
+                        <input id="rock_keyword2" style="width: 140px; height: 100px;" type="text" placeholder="변환할 키워드">
+                    </div>
+
+                    <div>
+                        <span>이미지 갯수 : </span>
+                        <input id="img_int" type="text">
+                    </div>
+
+                    <div>
+                        <input id="mobileCheck" type="checkbox">
+                        <label for="mobileCheck">모바일</label>
+                        
+                        <input id="videoChecked" type="checkbox">
+                        <label for="videoChecked" style="margin-right: 10px;">동영상</label>
+
+                        <input id="adChecked" type="checkbox"><label for="adChecked">광고</label> <input id="adText" type="text">
+                    </div>
+
+                    <div>
+                        <input type="button" @click="makeText" value="원고제작">
+                        <textarea name="" id="" cols="30"></textarea> <!--? 메모장  -->
+                    </div>
+
+                    <!-- <div>
+                        <label for=""> 원고 갯수 :</label> <input type="text">
+                    </div> -->
                 </div>
             </fieldset>
         </form>
@@ -111,8 +158,6 @@
 <script>
 import Tabs from "@/components/Tabs.vue";
 import $ from 'jquery';
-
-
 
 export default {
     name:"Manus",
@@ -141,6 +186,17 @@ export default {
                 $('#' + $(this).attr('data-tab')).addClass('active')
             });
         }
+        $(document).ready(function(){
+            let i=1;
+            $("#listBtn1").click(function(){
+                $("#dynamic").append("<textarea class='addtextarea"+i+"'></textarea>")
+            });
+            i++;
+
+            $("#listBtn2").click(function(){
+                $("#dynamic textarea:last-child" ).remove()
+            });
+        });
     },
     methods: {
         async saveWord() {
