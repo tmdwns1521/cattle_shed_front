@@ -37,7 +37,7 @@
                     </div>
 
                     <div>
-                        <input type="button" @click="makeText" value="원고제작">
+                        <input type="button" @click="makeText()" value="원고제작">
                         <textarea name="" id="" cols="30"></textarea> <!--? 메모장  -->
                     </div>
 
@@ -52,44 +52,44 @@
             <fieldset>
                 <div>
                     <div id="dynamic">
-                        <textarea></textarea>
-                        <textarea></textarea>
-                        <textarea></textarea>
+                        <textarea class="addtextarea2"></textarea>
+                        <textarea class="addtextarea2"></textarea>
+                        <textarea class="addtextarea2"></textarea>
                     </div>
                     <input type="button" value="+" id="listBtn1">
                     <input type="button" value="-" id="listBtn2">
                 </div>
                 <div>
-                    <textarea name="" id=""></textarea>
+                    <textarea name="" id="form2Text" style="text-align: center;"></textarea>
                     <input type="button" value="치환하기">
                 </div>
                 <div>
                     <div>
-                        <label for="">키워드 :</label> <input type="text">
+                        <label for="">키워드 :</label> <input id="change_keyword2" type="text">
                     </div>
 
                     <div>
-                        <textarea type="text" style="vertical-align: middle;"></textarea> 
+                        <textarea id="rock_keyword1_1" type="text" style="vertical-align: middle;"></textarea> 
                         <span> -> </span>
-                        <input id="rock_keyword2" style="width: 140px; height: 100px;" type="text" placeholder="변환할 키워드">
+                        <input id="rock_keyword2_1" style="width: 140px; height: 100px;" type="text" placeholder="변환할 키워드">
                     </div>
 
                     <div>
                         <span>이미지 갯수 : </span>
-                        <input type="text">
+                        <input id="img_int_1" type="text">
                     </div>
 
                     <div>
-                        <input id="mobileManu" type="checkbox">
+                        <input id="mobileCheck_1" type="checkbox">
                         <label for="mobileManu">모바일</label>
 
-                        <input id="videoManu" type="checkbox">
+                        <input id="videoChecked_1" type="checkbox">
                         <label for="videoManu" style="margin-right: 10px;">동영상</label>
 
-                        <input id="FTC" type="checkbox"><label for="FTC">공정위</label> <input type="text">
+                        <input id="adChecked_1" type="checkbox"><label for="FTC">공정위</label> <input id="adText_1" type="text">
                     </div>
                     <div>
-                        <input type="button" value="원고제작">
+                        <input type="button" @click="makeTextList()" value="원고제작">
                     </div>
                     <div>
                         <label for=""> 원고 갯수 :</label> <input type="text">
@@ -100,53 +100,21 @@
         </form>
 
         <form class="tabPg manform3" id="manutab3">
-            <fieldset>
-                <textarea class="maInput1"></textarea>
-                <textarea class="maInput2"></textarea>
-                <div>
-                    <div>
-                        <label for="">키워드 :</label>  <input id="change_keyword" type="text">
-                    </div>
-
-                    <div>
-                        <textarea id="rock_keyword1" type="text" style="vertical-align: middle;"></textarea> 
-                        <span> -> </span>
-                        <input id="rock_keyword2" style="width: 140px; height: 100px;" type="text" placeholder="변환할 키워드">
-                    </div>
-
-                    <div>
-                        <span>이미지 갯수 : </span>
-                        <input id="img_int" type="text">
-                    </div>
-
-                    <div>
-                        <input id="mobileCheck" type="checkbox">
-                        <label for="mobileCheck">모바일</label>
-                        
-                        <input id="videoChecked" type="checkbox">
-                        <label for="videoChecked" style="margin-right: 10px;">동영상</label>
-
-                        <input id="adChecked" type="checkbox"><label for="adChecked">광고</label> <input id="adText" type="text">
-                    </div>
-
-                    <div>
-                        <input type="button" @click="makeText" value="원고제작">
-                        <textarea name="" id="" cols="30"></textarea> <!--? 메모장  -->
-                    </div>
-
-                    <!-- <div>
-                        <label for=""> 원고 갯수 :</label> <input type="text">
-                    </div> -->
+            <fieldset style="display: flex;">
+                <textarea id="form3Data" style="width: 48%; height: 800px;"></textarea>
+                <div style="display: grid; widows: 48%;">
+                    <input type="button" @click="changeLine()" value="원고제작"></input>
+                    <textarea id="form3Text" style="width: 100%; margin: 0; height: 770px;"></textarea>
                 </div>
             </fieldset>
         </form>
 
-        <div>
-            <div>
-                <input id="searchData" type="text"><input type="button" @click="findWord" value="조회"><input type="button" @click="saveWord" value="저장">
+        <div style="width: 50%; text-align: left; padding-left: 20px;">
+            <div style="display: inline-block;">
+                <input id="searchData" type="text"><input type="button" @click="findWord()" value="조회"><input type="button" @click="saveWord()" value="저장">
             </div>
-            <div>
-                <div id="editable" style="text-align: left" contenteditable="true">
+            <div style="display: inline; width: 550px;">
+                <div id="editable" style="text-align: left; margin: 0;" contenteditable="true">
                 </div>
                 <!-- <div id="editable" contenteditable="true">
                 </div> -->
@@ -212,8 +180,20 @@ export default {
                 data
             );
         },
+        async changeLine() {
+            let texts = document.getElementById('form3Data').value;
+            const data = {
+                texts,
+            }
+            const result = await this.$axios.post(
+                "http://49.247.32.231:5000/api/newText",
+                data
+            );
+            document.getElementById('form3Text').innerHTML = result.data.result
+        },
         async findWord() {
             const searchData = document.getElementById('searchData').value;
+            console.log(searchData);
             if (searchData != ''){
                 let EditBox = document.getElementById('editable').innerText;
                 let newData = EditBox.split('\n');
@@ -233,6 +213,39 @@ export default {
                 document.getElementById('editable').innerHTML = result.data.result.join("<br>")
             }
             
+        },
+        async makeTextList() {
+            let Beforetext = document.getElementsByClassName('addtextarea2');
+            console.log(Beforetext);
+            let TextList = [];
+            for (let tl of Beforetext) {
+                TextList.push(tl.value);
+            }
+            TextList = TextList.join('||');
+            const change_keyword = document.getElementById('change_keyword2').value;
+            const rock_keyword1 = document.getElementById('rock_keyword1_1').value;
+            const rock_keyword2 = document.getElementById('rock_keyword2_1').value;
+            const img_int = Number(document.getElementById('img_int_1').value);
+            const videoCheck = document.getElementById('videoChecked_1').checked;
+            const adCheck = document.getElementById('adChecked_1').checked;
+            const adText = document.getElementById('adText_1').value;
+            const mobileCheck = document.getElementById('mobileCheck_1').checked;
+            const data = {
+                a: TextList,
+                img_int,
+                change_keyword,
+                rock_keyword1,
+                rock_keyword2,
+                videoCheck,
+                adCheck,
+                adText,
+                mobileCheck
+            }
+            const result = await this.$axios.post(
+                "http://49.247.32.231:5000/api/script_substitution",
+                data
+            );
+            document.getElementById('form2Text').innerHTML = result.data.result
         },
         async makeText() {
             const Beforetext = document.getElementsByClassName('maInput1')[0].value;
