@@ -18,6 +18,20 @@
 .adminIstrator span{
     color: #03a9f5;
 }
+
+/* ! hover nav list */
+
+.navList ul{
+    display: none; width: 130px; height: 100px; background: rgba(0, 0, 0, 0.6); color: #fff; margin-top: 8px !important;
+    position: absolute; z-index: 3;
+}
+.navList:hover ul{
+    display: block;
+}
+.navList ul li{
+    border: none;
+}
+
 .left-nav{
     width: 1457px; float: left;
 }
@@ -28,13 +42,13 @@
     display: block; content: ''; visibility: hidden; clear: both;
 }
 .navbar-nav li{
-    float: left; position: relative; border-right: 1px solid #55595c;
+    float: left; position: relative; border-right: 1px solid #55595c; height: 50px;
 }
 .navbar-nav li a{
     font-size: 14px !important;
 }
 .left-nav .nav-item a{
-    display: block; height: 100%; width: 130px; line-height: 30px;
+    display: block; height: 100%; width: 130px; line-height: 33px;
     color: #fff; text-align: center;
 }
 .left-nav .nav-item.active a{
@@ -55,3 +69,6 @@
 .header2 .Azone a{
     margin-left: 13px; text-decoration: none; color: #fff; font-size: 14px;
 }
+
+
+

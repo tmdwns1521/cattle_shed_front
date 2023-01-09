@@ -61,7 +61,6 @@
                 </div>
                 <div>
                     <textarea name="" id="form2Text" style="text-align: center;"></textarea>
-                    <input type="button" value="치환하기">
                 </div>
                 <div>
                     <div>
@@ -99,27 +98,36 @@
             </fieldset>
         </form>
 
-        <form class="tabPg manform3" id="manutab3">
+        <form class="tabPg manform3" id="manutab3" onsubmit="return false;">
             <fieldset style="display: flex;">
-                <textarea id="form3Data" style="width: 48%; height: 800px;"></textarea>
+                <textarea id="form3Data" style="width: 50%; height: 800px;"></textarea>
                 <div style="display: grid; widows: 48%;">
-                    <input type="button" @click="changeLine()" value="원고제작"></input>
-                    <textarea id="form3Text" style="width: 100%; margin: 0; height: 770px;"></textarea>
+                    <input type="button" @click="changeLine()" value="원고제작">
+                    <textarea id="form3Text" style="height: 770px;"></textarea>
                 </div>
             </fieldset>
-        </form>
 
-        <div style="width: 50%; text-align: left; padding-left: 20px;">
-            <div style="display: inline-block;">
-                <input id="searchData" type="text"><input type="button" @click="findWord()" value="조회"><input type="button" @click="saveWord()" value="저장">
-            </div>
-            <div style="display: inline; width: 550px;">
-                <div id="editable" style="text-align: left; margin: 0;" contenteditable="true">
+            <ul lass="manuTab2">
+                <li class="tabbtn active" data-tab="form3tab1">조회</li>
+                <li class="tabbtn" data-tab="form3tab2">백업</li>
+            </ul>
+
+            <div class="inquiry tabpg active" id="form3tab1">
+                <div class="inqChl" style="display: inline-block;">
+                    <input @keyup.enter="findWord()" id="searchData" type="text"><input type="button" @click="findWord()" value="조회">
+                    <input type="button" @click="saveWord()" value="저장">
                 </div>
-                <!-- <div id="editable" contenteditable="true">
-                </div> -->
+                <div>
+                    <div id="editable" style="text-align: left; margin: 0;" contenteditable="true"></div>
+                </div>
             </div>
-        </div>
+
+            <div class="tabpg" id="form3tab2">
+                <div>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+        </form>
     </section>
 </template>
 
@@ -136,16 +144,20 @@ export default {
     created() {
         let tabBtn = null;
         let tabPg = null;
-            
+        let tabbtn = null;
+        let tabpg = null;
+        
         $(document).ready(function(){
             init();
-            tabpageJS(tabBtn,tabPg);
+            tabpageJS(tabBtn,tabPg,tabbtn,tabpg);
         });
         function init(){
             tabBtn = $(".tabBtn");
             tabPg = $(".tabPg");
+            tabbtn = $(".tabbtn");
+            tabpg = $(".tabpg");
         }
-        function tabpageJS(tabBtn,tabPg){
+        function tabpageJS(tabBtn,tabPg,tabbtn,tabpg){
             $(tabBtn).click(function(){
                 $(tabBtn).removeClass('active');
                 $(this).addClass('active');
@@ -153,7 +165,18 @@ export default {
                 $(tabPg).removeClass('active');
                 $('#' + $(this).attr('data-tab')).addClass('active')
             });
+
+            $(tabbtn).click(function(){
+                $(tabbtn).removeClass('active');
+                $(this).addClass('active');
+            
+                $(tabpg).removeClass('active');
+                $('#' + $(this).attr('data-tab')).addClass('active')
+            });
         }
+
+
+
         $(document).ready(function(){
             let i=1;
             $("#listBtn1").click(function(){
@@ -162,7 +185,7 @@ export default {
             i++;
 
             $("#listBtn2").click(function(){
-                $("#dynamic textarea:last-child" ).remove()
+                $("#dynamic textarea:last-child").remove()
             });
         });
     },

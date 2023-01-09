@@ -31,14 +31,14 @@
     border: 1px solid #d1d1d1; padding: 20px 10px;
 }
 .ManuSection .manform1{
-    width: 72%; float: left;
+    width: 100%; float: left;
 }
 .ManuSection .manform1:after{
     display: block; content: ''; visibility: hidden; clear: both;
 }
 .ManuSection .manform1 .maInput1,
 .ManuSection .manform1 .maInput2{
-    width: 33%; height: 800px;
+    width: 37.8%; height: 800px;
 }
 .ManuSection .manform1 .maInput1{
     float: left;
@@ -47,7 +47,7 @@
     margin-left: 10px; float: left; text-align: center;
 }
 .ManuSection .manform1 fieldset > div{
-    float: left; width: 32%; background: #e2eae8; height: 800px; margin-left: 15px;
+    float: left; width: 23%; background: #e2eae8; height: 800px; margin-left: 15px;
 }
 .ManuSection .manform1 fieldset > div div:first-child,
 .ManuSection .manform1 fieldset > div div:nth-child(2),
@@ -112,7 +112,7 @@
 /* ! form2 */
 
 .ManuSection .manform2{
-    width: 72%; float: left;
+    width: 100%; float: left;
 }
 .ManuSection .manform2 fieldset > div:first-child,
 .ManuSection .manform2 fieldset > div:nth-child(2){
@@ -122,7 +122,7 @@
     margin-bottom: 20px;
 }
 .ManuSection .manform2 fieldset > div:first-child textarea{
-    display: block; height: 107px; width: 428px;
+    display: block; height: 107px; width: 690px;
 }
 .ManuSection .manform2 fieldset > div:first-child div textarea:not(:last-child){
     margin-bottom: 20px;
@@ -140,7 +140,7 @@
     background: #333; color: #fff; font-size: 16px;
 }   
 .ManuSection .manform2 fieldset > div:nth-child(2) textarea{
-    margin: 0 10px 20px; width: 428px; height: 730px; display: block;
+    margin: 0 10px 20px; width: 690px; height: 800px; display: block;
 }
 .ManuSection .manform2 fieldset > div:nth-child(2) input[type=button]{
     width: 300px; height: 40px; border: 1px solid #333; background: none;
@@ -150,7 +150,7 @@
     background: #333; border: none; color: #fff; border-radius: 10px;
 }
 .ManuSection .manform2 fieldset > div:nth-child(3){
-    float: left; width: 33%; background: #e2eae8; height: 800px;
+    float: left; width: 23%; background: #e2eae8; height: 800px;
 }
 .ManuSection .manform2 fieldset > div:nth-child(3) div:first-child,
 .ManuSection .manform2 fieldset > div:nth-child(3) div:nth-child(2),
@@ -207,7 +207,7 @@
 /* ! form3 */
 
 .ManuSection .manform3{
-    width: 50%; float: left;
+    width: 100%; float: left;
 }
 .ManuSection .manform3:after{
     display: block; content: ''; visibility: hidden; clear: both;
@@ -221,6 +221,9 @@
 }
 .ManuSection .manform3 .maInput2{
     margin-left: 10px; float: left; text-align: center;
+}
+.ManuSection .manform3 fieldset{
+    float: left; width: 70%;
 }
 .ManuSection .manform3 fieldset > div{
     width: 48%; background: #e2eae8; height: 800px; margin-left: 15px;
@@ -274,36 +277,68 @@
 .ManuSection .manform3 div .txtInput{
     display: block;
 }
+#form3tab2{
+    border: 1px solid #d1d1d1; width: 30%; height: 772px; box-sizing: border-box;
+    padding: 10px;
+}
+#form3tab2 div textarea{
+    width: 100%; height: 750px;
+}
 
+
+.ManuSection .manform3 ul{
+    max-width: 200px; width: 100%; display: flex;
+}
+.ManuSection .manform3 ul:after{
+    display: block; content: ''; visibility: hidden; clear: both;
+}
+.ManuSection .manform3 ul li{
+    width: 50%; float: left; text-align: center;
+}
+
+.ManuSection .manform3 ul li:first-child,
+.ManuSection .manform3 ul li:last-child{
+    border: 1px solid #333; cursor: pointer; box-sizing: border-box;
+}
+.ManuSection .manform3 ul li.active{
+    background: #333; color: #fff;
+}
+
+.ManuSection .manform3 > div{
+    display: none;
+}
+.ManuSection .manform3 > div.active{
+    display: inline-block;
+}
 
 
 /* ! section last div */
 
-.ManuSection > div > div{
-    text-align: center; display: block;
-}
-.ManuSection > div div:last-child textarea{
-    display: block;
+.ManuSection .manform3 .inquiry .inqChl{
+    text-align: center;
 }
 
-.ManuSection > div:last-child{
-    display: inline-block; width: 28%; border: 1px solid #d1d1d1;
-    box-sizing: border-box; padding-top: 40px;
+.ManuSection .manform3 .inquiry{
+    width: 30%; border: 1px solid #d1d1d1;
+    box-sizing: border-box; padding: 40px 20px 20px;
 }
 
-.ManuSection > div:last-child div:first-child input[type=text]{
-    width: 400px; margin-bottom: 20px;
+.ManuSection .manform3 .inquiry .inqChl input[type=text]{
+    width: 320px; margin-bottom: 20px;
 }
-.ManuSection > div:last-child div:first-child input[type=button]{
-    width: 100px; border: none; height: 30px; border: 1px solid #333;
+.ManuSection .manform3 .inquiry .inqChl input[type=button]{
+    width: 85px; border: none; height: 30px; border: 1px solid #333;
     background: none; 
 }
-.ManuSection > div:last-child div:first-child input[type=button]:hover{
+.ManuSection .manform3 .inquiry .inqChl input[type=button]:last-child{
+    margin-left: 15px;
+}
+.ManuSection .manform3 .inquiry .inqChl input[type=button]:hover{
     background: #333; color: #fff;
 }
-.ManuSection > div:last-child div:last-child{
-    margin: 0 auto;
+.ManuSection .manform3 .inquiry .inqChl input:last-child{
+    margin-bottom: 20px;
 }
-.ManuSection > div:last-child div:last-child textarea{
-    width: 500px; height: 50px; margin-bottom: 20px;
+.ManuSection .manform3 .inquiry > div:last-of-type{
+    margin: 0 auto;
 }

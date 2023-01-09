@@ -3,20 +3,22 @@
       <TopBanner :show="topBanner" class="topBanner" />
       <header class="shadow-sm position-relative" >
         <div class="header2">
-          <div class="align-items-center d-flex logoCenter">
-            <div class="adminIstrator">
-              <span>ADMIN</span>ISTRATOR
-            </div>
+          <div class="d-flex logoCenter">
+            <div class="adminIstrator"><span>ADMIN</span>ISTRATOR</div>
             <nav class="left-nav">
               <b-navbar-nav>
-                <b-nav-item to="/manage/sales" :class="path.includes('/sales') ? 'active' : ''"> <!-- ? v-if="$store.getters.isSuper" 관리자만 볼수 있게 해주는 코드-->
-                  <span>매출관리</span>
-                </b-nav-item>
+                <b-nav-item class="navList"> <span>매주관리</span>
+                    <ul>
+                      <b-nav-item to="/manage/sales" :class="path.includes('/sales') ? 'active' : ''"> <!-- ? v-if="$store.getters.isSuper" 관리자만 볼수 있게 해주는 코드-->
+                         <span>매출관리</span>
+                      </b-nav-item>
 
-                <b-nav-item to="/manage/order" :class="path.includes('/order') ? 'active' : ''">
-                  <span>주문관리</span>
+                      <b-nav-item to="/manage/order" :class="path.includes('/order') ? 'active' : ''">
+                        <span>주문관리</span>
+                      </b-nav-item>
+                    </ul>
                 </b-nav-item>
-
+                
                 <b-nav-item to="/manage/number" :class="path.includes('/number') ? 'active' : ''">
                   <span>번호관리</span>
                 </b-nav-item>
@@ -33,10 +35,10 @@
               </nav>
             <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone">
               <template #button-content>
-                <div>
+                <div style="line-height: 50px;">
                   <span style="color: white;">{{ $store.state.serviceId }}</span>
                 </div>
-                <div>
+                <div style="line-height: 50px;">
                   <a href="/" @click="logout()">로그아웃</a>
                 </div>
               </template>
