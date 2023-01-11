@@ -654,7 +654,20 @@ export default {
       window.scrollTo(0, 0);
     },
     async submit() {
-      console.log("신청완료");
+      const name = document.getElementById('name-input').value;
+      const company = document.getElementById('company-input').value;
+      const place = document.getElementById('place-input').value;
+      const tel = document.getElementById('tel-input').value;
+      const data = {
+        name,
+        company,
+        place,
+        tel
+      }
+      const result = await this.$axios.post(
+          "http://49.247.32.231:5000/api/Maketingdbs",
+          data
+      );
     },
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;

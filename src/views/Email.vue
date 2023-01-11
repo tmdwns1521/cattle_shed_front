@@ -53,22 +53,23 @@ export default {
     }
   },
   methods:{
-    sendEmail: function(){
-      console.log(this.M_id, this.M_pwd, this.title, this.editor);
-      var url = 'https://jsonplaceholder.typicode.com/users';
-      var data = {
-        M_id: this.M_id,
-        M_pwd: this.M_pwd,
-        title: this.title,
-        editbox: this.editor
+    sendEmail: async function(){
+      const user = this.M_id;
+      const pass = this.M_pwd;
+      const subject = this.title;
+      const html = document.getElementsByClassName('ProseMirror toastui-editor-contents')[0].innerHTML;
+      const idList = document.getElementsByClassName('IDBox')[0].value
+      const data = {
+        user,
+        pass,
+        subject,
+        html,
+        idList
       }
-      axios.post(url, data)
-      .then(function(response){
-        console.log(response);
-      })
-      .catch(function(error){
-        console.log(error);
-      })
+      const result = await this.$axios.post(
+          "http://49.247.32.231:5000/api/sendMail",
+          data
+      );
     }
   }
 }
