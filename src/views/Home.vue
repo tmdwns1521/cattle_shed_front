@@ -66,6 +66,28 @@
                         </b-form-group>
                       </validation-provider>
                       <validation-provider
+                        name="지역"
+                        :rules="{ required: true, min: 1 }"
+                        v-slot="validationContext"
+                      >
+                        <b-form-group id="place-input-group" class="mb-3">
+                          <b-form-input
+                            id="place-input"
+                            name="place-input"
+                            v-model="input.place"
+                            placeholder="지역 *"
+                            :state="getValidationState(validationContext)"
+                            aria-describedby="place-input-feedback"
+                          ></b-form-input>
+                          <b-form-invalid-feedback
+                            id="place-input-feedback"
+                            >{{
+                              validationContext.errors[0]
+                            }}</b-form-invalid-feedback
+                          >
+                        </b-form-group>
+                      </validation-provider>
+                      <validation-provider
                         name="연락처"
                         :rules="{
                           required: true,
@@ -91,6 +113,7 @@
                           }}</b-form-invalid-feedback>
                         </b-form-group>
                       </validation-provider>
+                      
                     </div>
                     <div>
                       <validation-provider
@@ -189,6 +212,28 @@
                     <b-form-invalid-feedback id="company-input-feedback">{{
                       validationContext.errors[0]
                     }}</b-form-invalid-feedback>
+                  </b-form-group>
+                </validation-provider>
+                <validation-provider
+                  name="지역"
+                  :rules="{ required: true, min: 1 }"
+                  v-slot="validationContext"
+                >
+                  <b-form-group id="place-input-group" class="mb-3">
+                    <b-form-input
+                      id="place-input"
+                      name="place-input"
+                      v-model="input.place"
+                      placeholder="지역 *"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="place-input-feedback"
+                    ></b-form-input>
+                    <b-form-invalid-feedback
+                      id="place-input-feedback"
+                      >{{
+                        validationContext.errors[0]
+                      }}</b-form-invalid-feedback
+                    >
                   </b-form-group>
                 </validation-provider>
                 <validation-provider
@@ -598,6 +643,7 @@ export default {
         name: null,
         phone: null,
         company: null,
+        place: null,
       },
       check: [],
       disabled: false,
