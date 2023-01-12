@@ -668,6 +668,8 @@ export default {
           "http://49.247.32.231:5000/api/Maketingdbs",
           data
       );
+      alert("상담 신청이 완료 되었습니다.")
+      location.reload();
     },
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;

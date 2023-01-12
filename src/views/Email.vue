@@ -70,6 +70,8 @@ export default {
           "http://49.247.32.231:5000/api/sendMail",
           data
       );
+      alert("메일이 발송 되었습니다.")
+      location.reload();
     }
   }
 }
