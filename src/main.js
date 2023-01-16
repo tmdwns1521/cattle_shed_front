@@ -5,6 +5,7 @@ import store from "./store";
 import axios from "axios";
 import AxiosPlugin from "vue-axios-cors";
 import commons from "./lib/commons";
+import $ from "jquery";
 
 // Style
 import "normalize.css";

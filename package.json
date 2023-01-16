@@ -10,6 +10,7 @@
         "axios": "^0.27.2",
         "bootstrap": "^5.2.3",
         "bootstrap-vue": "^2.23.1",
+        "bxslider": "^4.2.14",
         "core-js": "^3.6.5",
         "jquery": "^3.6.2",
         "normalize.css": "^8.0.1",

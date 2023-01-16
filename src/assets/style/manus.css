@@ -1,5 +1,9 @@
+ul{
+    list-style: none; margin-bottom: 0; padding-left: 0;
+}
+
 .ManuSection{
-    max-width: 1920px; width: 100%;
+    max-width: 1920px; width: 100%; margin-bottom: 30px;
 }
 
 .ManuSection::after{
@@ -324,7 +328,7 @@
 }
 
 .ManuSection .manform3 .inquiry .inqChl input[type=text]{
-    width: 320px; margin-bottom: 20px;
+    width: 320px;
 }
 .ManuSection .manform3 .inquiry .inqChl input[type=button]{
     width: 85px; border: none; height: 30px; border: 1px solid #333;
@@ -336,9 +340,7 @@
 .ManuSection .manform3 .inquiry .inqChl input[type=button]:hover{
     background: #333; color: #fff;
 }
-.ManuSection .manform3 .inquiry .inqChl input:last-child{
-    margin-bottom: 20px;
-}
+
 .ManuSection .manform3 .inquiry > div:last-of-type{
     margin: 0 auto;
 }

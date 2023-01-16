@@ -175,8 +175,6 @@ export default {
             });
         }
 
-
-
         $(document).ready(function(){
             let i=1;
             $("#listBtn1").click(function(){

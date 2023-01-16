@@ -33,7 +33,7 @@
 
                 </b-navbar-nav>
               </nav>
-            <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone">
+            <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone" style="list-style: none;">
               <template #button-content>
                 <div style="line-height: 50px;">
                   <span style="color: white;">{{ $store.state.serviceId }}</span>
