@@ -79,7 +79,6 @@
         </div>
     </section>
     
-
     <div class="blogimgBox">
         <img src="@/assets/images/main_5.png" alt="">
     </div>
