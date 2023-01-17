@@ -1,26 +1,93 @@
+*{
+    font-family: 'GmarketSansMedium' !important;
+}
+body{
+    line-height: 1;
+}
+footer a{
+    text-decoration: none;
+}
 
 /* ! 모바일 사이즈 */
 @media screen and (max-width: 767px) {
     .main_1{
-        max-width: 731px; width: 100%; margin: 0 auto; height: 350px;
-        background-image: url('../images/main_bg.png'); background-repeat: no-repeat;
-        background-size: contain; resize: both;
+        max-width: 731px; width: 100%; margin: 0 auto 40px; padding-bottom: 20px;
+        background: center / cover url('../images/main_bg.png'); background-repeat: no-repeat;
+        resize: both;
     }
     .main_1 header{
-        margin-left: 8%; padding-top: 10%; font-size: 16px; margin-bottom: 20px;
+        margin-left: 8%; padding-top: 1%; margin-bottom: 15px;
     }
     .main_1 header h1 a{
-        color: #fff; text-decoration: none;
+        color: #fff; text-decoration: none; font-size: 14px;
+    }
+    header nav label.mui{
+        position: fixed; top: 30px; right: 3%; width: 30px; height: 28px; background-color: transparent;
+        border: none; text-indent: -9999px; z-index: 3; cursor: pointer;
+    }
+    header nav label.mui span{
+        display:block; width:100%; height: 4px; background-color: white; border-radius: 10px;
+    }
+    header nav label.mui span:nth-child(1),
+    header nav label.mui span:nth-child(3){
+        transform: rotate(0deg); transition-duration: .3s;
+    }
+    header nav label.mui span:nth-child(2){
+        margin: 5px 0;
+    }
+    .header nav label.close span:nth-child(1){
+        position:absolute; transform: rotate(45deg); transition-duration:.3s;
+        background-color: #fff;
+    }
+    .header nav label.close span:nth-child(2){
+        display: none;
+    }
+    .header nav label.close span:nth-child(3){
+        position:absolute; transform: rotate(-45deg); transition-duration:.3s;
+        background-color: #fff;
+    }
+    header nav label.mui span:not(:last-of-type){
+        margin-bottom: 5px;
+    }
+    /* header nav label.mui +input[type='checkbox']#line-wrap:checked + ul{
+        height: 740px;
+    } */
+    header nav ul{
+        position: fixed; left:100%; width:100%; padding: 103px 0 600px; text-align: center;
+        background: rgba(10, 11, 75, 0.85); transition-duration: 0.4s; top: 0; z-index: 2;
+    }
+    header nav ul.on{
+        left: 0;
+    }
+    header nav > ul > li{
+        margin-bottom: 40px; font-size: 30px; color: #fff;
+    }
+    header nav > ul > li a{
+        text-decoration: none; color: black; font-weight: bold;
+    }
+    header nav > ul > li > a{
+        font-size: 18px; font-weight: normal; color: #fff;
     }
     .main_1 div{
         margin-left: 8%;
     }
     .main_1 div h2{
-        font-size: 20px; color: #fff; margin-bottom: 20px;
+        font-size: 12px; color: #fff; margin-bottom: 5px;
     }
-    .main_1 div input{
-        width: 100px; height: 25px; font-size: 14px; color: #0A0026; border-radius: 30px;
+    .main_1 div p{
+        font-size: 12px; color: #fff;
+    }
+    .main_1 div a{
+        width: 100px; line-height: 25px; font-size: 14px; color: #0A0026;
+        border-radius: 30px; display: block; text-align: center;
         background: #C5CBFD; border: none; font-weight: bold; cursor: pointer;
+        text-decoration: none; 
+    }
+    .main_2 h2{
+        font-size: 20px; margin-bottom: 30px; font-weight: bold;
+    }
+    .main_2 h2 mark{
+        background: none; font-style: normal; color: rgb(228, 52, 52);
     }
     .main_2{
         max-width: 1440px; width: 90%; margin: 0 auto; text-align: center; margin-bottom: 60px;
@@ -28,81 +95,38 @@
     .main_2 img{
         width: 100%;
     }
-    .main_3{
-        margin-bottom: 60px;
-        height: 386px; background-repeat: no-repeat;
-    }
-    .main_3 > div{
-        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
-         height: 550px;
-    }
-    .main_3 > div div:first-child{
-        display: none;
-    }
-    .main_3 > div div:first-child p{
-        font-size: 20px;
-    }
-    .main_3 > div div:first-child p:first-of-type{
-        color: #A1B0FF; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child h2{
-        color: #fff; font-size: 32px; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child p:last-of-type{
-        color: #fff;
-    }
-    .main_3 > div div:last-child{
-        width: 80%; padding-left: 20%;
-    }
-    .main_3 > div div:last-child span{
-        font-size: 12px; color: #000626; margin-bottom: 60px; display: inline-block;
-        font-weight: bold;
-    }
-    .main_3 > div div:last-child img{
-        margin-left: 10%; width: 10%;
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2){
-        margin-bottom: 30px; 
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2),
-    .main_3 > div div:last-child form input:nth-child(3) {
-        display: block; width: 100%; font-size: 18px; border: none; border-bottom: 1px solid #ACACAC;
-        color: #000;
-    }
-    .main_3 > div div:last-child form input:nth-child(3){
-        margin-bottom: 30px;
-    }
-    .main_3 > div div:last-child form label{
-        font-size: 10px;
-    }
-    .main_3 > div div:last-child form input:last-child{
-        display: block; margin-top: 60px; width: 100%; height: 50px; border-radius: 15px;
-        border: none; background: #504F87; color: #fff; font-size: 20px; font-weight: bold;
-    }
+    
     .kakaobg{
         max-width: 1920px; width: 100%; margin: 0 auto;
         background: center / cover url(../images/kakao_bg.png) no-repeat;
     }
-    .main_4{
+    .main_3{
         max-width: 1100px; width: 100%; margin: 0 auto;
         margin-bottom: 30px; padding-bottom: 30px;
     }
-    .main_4 > div{
+    .main_3 > div{
         text-align: center;
     }
-    .main_4 > div:first-child img{
+    .main_3 > div:first-child img{
         width: 70%;
     }
-    .main_4 > div:last-child{
+    .main_3 > div:last-child{
         padding-left: 5%; 
     }
-    .main_4 > div:last-child img{
+    .main_3 > div:last-child img{
         width: 70%;
     }
     .bx-controls{
         display: none;
+    }
+    .reV{
+        text-align: center;
+    }
+    .reV h2{
+        font-size: 24px; font-weight: bold; margin-bottom: 15px;
+    }
+    .reV p{
+        font-size: 12px;
     }
     .reviewbox{
         max-width: 1100px; width: 100%; margin: 0 auto 30px; text-align: center;
@@ -110,17 +134,20 @@
     .reviewbox img{
         width: 100%;
     }
-    .main_5{
+    .main_4{
         max-width: 768px; width: 100%; margin: 0 auto; height: 778px;
         background: center / cover url(../images/main_bg3.png); background-repeat: no-repeat; 
     }
-    .main_5 > div {
-        max-width: 550px; width: 100%; margin: 0 auto; text-align: center; padding-top: 100px;
+    .main_4 h2{
+        text-align: center; color: #fff; padding-top: 60px; font-size: 30px; font-weight: bold;
     }
-    .main_5 > div > div{
+    .main_4 > div {
+        max-width: 550px; width: 100%; margin: 0 auto; text-align: center; padding-top: 60px;
+    }
+    .main_4 > div > div{
         margin-bottom: 60px;
     }
-    .main_5 > div a{
+    .main_4 > div a{
         width: 33.33%; line-height: 50px; color: #012600; font-size: 20px; border-radius: 100px;
         border: none; background: #C5CBFD; font-weight: bold; cursor: pointer; display: inline-block;
     }
@@ -130,152 +157,200 @@
     .blogimgBox img{
         width: 100%;
     }
-    footer a{
-        text-decoration: none;
+    .main_5{
+        margin-bottom: 60px;
+        height: 386px; background-repeat: no-repeat;
     }
-    .footer{
-        max-width: 1279px; width: 100%; height: 350px;
-        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    .main_5 > div{
+        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
+         height: 550px;
     }
-    .footer div{
-        max-width: 250px; margin: 0 auto; text-align: center; color: #fff;
+    .main_5 > div div:first-child{
+        display: none;
     }
-    .footer div:first-child{
-        border-bottom: 1px solid #A1B0FF; padding-top: 100px; font-size: 20px;
-        margin-bottom: 20px;
+    .main_5 > div div:first-child p{
+        font-size: 20px;
     }
-    .footer div:first-child h1{
-        margin-bottom: 20px;
+    .main_5 > div div:first-child p:first-of-type{
+        color: #A1B0FF; margin-bottom: 20px;
     }
-    .footer div:first-child h1 a{
+    .main_5 > div div:first-child h2{
+        color: #fff; font-size: 32px; margin-bottom: 20px;
+    }
+    .main_5 > div div:first-child p:last-of-type{
         color: #fff;
     }
-    .footer div:last-child p{
+    .main_5 > div div:last-child{
+        width: 80%; padding-left: 20%;
+    }
+    .main_5 > div div:last-child span{
+        font-size: 12px; color: #000626; margin-bottom: 60px; display: inline-block;
+        font-weight: bold;
+    }
+    .main_5 > div div:last-child img{
+        margin-left: 10%; width: 10%;
+    }
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2){
+        margin-bottom: 30px; 
+    }
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2),
+    .main_5 > div div:last-child form input:nth-child(3) {
+        display: block; width: 100%; font-size: 18px; border: none; border-bottom: 1px solid #ACACAC;
+        color: #000;
+    }
+    .main_5 > div div:last-child form input:nth-child(3){
+        margin-bottom: 30px;
+    }
+    .main_5 > div div:last-child form label{
+        font-size: 10px;
+    }
+    .main_5 > div div:last-child form input:last-child{
+        display: block; margin-top: 60px; width: 100%; height: 50px; border-radius: 15px;
+        border: none; background: #504F87; color: #fff; font-size: 20px; font-weight: bold;
+    }
+    #map{
+        height: 500px; margin-bottom: 30px;
+    }
+    .footer{
+        max-width: 1279px; width: 100%; height: 296px;
+        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    }
+    .footer > div{
+        max-width: 380px; margin: 0 auto; text-align: center; color: #fff;
+    }
+    .footer > div div:first-child{
+        border-bottom: 1px solid #A1B0FF; padding-top: 95px; font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .footer > div div:first-child h1{
+        margin-bottom: 20px;
+    }
+    .footer > div div:first-child h1 a{
+        color: #fff;
+    }
+    .footer > div div:last-child nav ul{
+        margin-bottom: 20px; display: flex; justify-content: center;
+    }
+    .footer > div div:last-child nav ul::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    
+    .footer > div div:last-child nav ul li{
+        float: left; 
+    }
+    .footer > div div:last-child nav ul li:not(:first-child){
+        margin-left: 5%;
+    }
+    .footer > div div:last-child nav ul li a{
+        color: #fff; font-size: 12px;
+    }
+
+    .footer > div div:last-child p{
         font-size: 12px;
     }
-    .footer div:last-child p:first-child,
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
+    .footer > div div:last-child p:first-child,
+    .footer > div div:last-child p:nth-child(2),
+    .footer > div div:last-child p:nth-child(3){
         display: inline-block; margin-bottom: 10px;
     }
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
+    .footer > div div:last-child p:nth-child(2),
+    .footer > div div:last-child p:nth-child(3){
         margin-left: 30px;
     }
-    .footer div:last-child p:nth-child(4){
+    .footer > div div:last-child p:nth-child(4){
         margin-bottom: 20px; line-height: 20px;
     }
 }
 
-/* ! 테블릿 사이즈 */
 
+/* ! 테블릿 사이즈 */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .main_1{
-        max-width: 1920px; width: 100%; margin: 0 auto; height: 600px;
-        background-image: url('../images/main_bg.png'); background-repeat: no-repeat;
-        background-size: contain; resize: both;
+        max-width: 1920px; width: 100%; margin: 0 auto 50px; padding-bottom: 40px;
+        background: center / cover url(../images/main_bg.png); background-repeat: no-repeat;
     }
     .main_1 header{
-        margin-left: 12.5%; padding-top: 8%; font-size: 24px; margin-bottom: 60px;
+        margin-left: 5%; padding-top: 40px; margin-bottom: 30px;
+    }
+    .main_1 header::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .main_1 header h1{
+        float: left; margin-right: 4%; font-size: 25px;
     }
     .main_1 header h1 a{
         color: #fff; text-decoration: none;
     }
+    .main_1 header nav ul::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .main_1 header nav ul li{
+        float: left; margin-left: 4%;
+    }
+    .main_1 header nav ul li a{
+        font-size: 14px; color: #fff; text-decoration: none;
+    }
     .main_1 div{
-        margin-left: 12.5%;
+        margin-left: 5%;
     }
     .main_1 div h2{
-        font-size: 30px; color: #fff; margin-bottom: 30px;
+        font-size: 16px; color: #fff; margin-bottom: 10px;
     }
-    .main_1 div input{
-        width: 150px; height: 40px; font-size: 18px; color: #0A0026; border-radius: 30px;
+    .main_1 div p{
+        font-size: 16px; color: #fff;
+    }
+    .main_1 div a{
+        width: 100px; line-height: 25px; font-size: 14px; color: #0A0026;
+        border-radius: 30px; display: block; text-align: center;
         background: #C5CBFD; border: none; font-weight: bold; cursor: pointer;
+        text-decoration: none; 
     }
     .main_2{
         max-width: 1440px; width: 90%; margin: 0 auto; text-align: center; margin-bottom: 60px;
     }
+
+    .main_2 h2{
+        font-size: 30px; margin-bottom: 30px; font-weight: bold;
+    }
+    .main_2 h2 mark{
+        background: none; font-style: normal; color: rgb(228, 52, 52);
+    }
     .main_2 img{
         width: 100%;
-    }
-    .main_3{
-        margin-bottom: 60px;
-        height: 550px; background-repeat: no-repeat;
-    }
-    .main_3 > div{
-        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
-        display: flex; align-items: center; height: 550px;
-    }
-    .main_3 > div div:first-child{
-        display: none;
-    }
-    .main_3 > div div:first-child p{
-        font-size: 20px;
-    }
-    .main_3 > div div:first-child p:first-of-type{
-        color: #A1B0FF; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child h2{
-        color: #fff; font-size: 32px; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child p:last-of-type{
-        color: #fff;
-    }
-    .main_3 > div div:last-child{
-        width: 90%; padding-left: 20%;
-    }
-    .main_3 > div div:last-child span{
-        font-size: 15px; color: #000626; margin-bottom: 60px; display: inline-block;
-        font-weight: bold;
-    }
-    .main_3 > div div:last-child img{
-        margin-left: 20%; width: 8%;
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2){
-        margin-bottom: 50px; 
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2),
-    .main_3 > div div:last-child form input:nth-child(3) {
-        display: block; width: 76%; font-size: 24px; border: none; border-bottom: 1px solid #ACACAC;
-        color: #000;
-    }
-    .main_3 > div div:last-child form input:nth-child(3){
-        margin-bottom: 30px;
-    }
-    .main_3 > div div:last-child form label{
-        font-size: 14px; margin-left: 10px;
-    }
-    .main_3 > div div:last-child form input:last-child{
-        display: block; margin-top: 60px; width: 76%; height: 50px; border-radius: 15px; cursor: pointer;
-        border: none; background: #504F87; color: #fff; font-size: 24px; font-weight: bold;
     }
     .kakaobg{
         max-width: 1920px; width: 100%; margin: 0 auto;
         background: center / cover url(../images/kakao_bg.png) no-repeat;
     }
-    .main_4{
+    .main_3{
         max-width: 1100px; width: 100%; margin: 0 auto;
         margin-bottom: 30px; padding-bottom: 30px;
     }
-    .main_4 > div{
+    .main_3 > div{
         text-align: center;
     }
-    .main_4 > div:first-child img{
+    .main_3 > div:first-child img{
         width: 40%;
     }
-    .main_4 > div:last-child{
+    .main_3 > div:last-child{
         padding-left: 25%;
     }
-    .main_4 > div:last-child img{
+    .main_3 > div:last-child img{
         width: 70%;
     }
     .bx-controls{
         display: none;
     }
     .reV{
-        max-width: 1920px; width: 100%; background-repeat: no-repeat;
-        background-image: url(../images/main_reV.png); 
+        text-align: center;
+    }
+    .reV h2{
+        font-size: 30px; font-weight: bold; margin-bottom: 15px;
+    }
+    .reV p{
+        font-size: 18px;
     }
     .reviewbox{
         max-width: 1100px; width: 100%; margin: 0 auto 60px; text-align: center; height: 550px;
@@ -283,14 +358,17 @@
     .reviewbox img{
         width: 100%;
     }
-    .main_5{
+    .main_4{
         max-width: 1920px; width: 100%; margin: 0 auto 60px; height: 778px;
         background-image: url(../images/main_bg3.png); background-repeat: no-repeat; 
     }
-    .main_5 > div {
+    .main_4 h2{
+        text-align: center; color: #fff; padding-top: 60px; font-size: 30px; font-weight: bold;
+    }
+    .main_4 > div {
         max-width: 550px; width: 100%; margin: 0 auto; text-align: center; padding-top: 30px;
     }
-    .main_5 > div > div{
+    .main_4 > div > div{
         margin-bottom: 60px;
     }
     .blogimgBox{
@@ -299,146 +377,203 @@
     .blogimgBox img{
         width: 100%;
     }
-
-    .footer{
-        max-width: 1279px; width: 100%; height: 350px;
-        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    .main_5{
+        margin-bottom: 60px;
+        height: 550px; background-repeat: no-repeat;
     }
-    .footer div{
-        max-width: 670px; margin: 0 auto; text-align: center; color: #fff;
+    .main_5 > div{
+        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
+        display: flex; align-items: center; height: 550px;
     }
-    .footer div:first-child{
-        border-bottom: 1px solid #A1B0FF; padding-top: 100px; font-size: 25px;
-        margin-bottom: 50px;
+    .main_5 > div div:first-child{
+        display: none;
     }
-    .footer div:first-child h1{
-        margin-bottom: 50px;
+    .main_5 > div div:first-child p{
+        font-size: 20px;
     }
-    .footer div:first-child h1 a{
+    .main_5 > div div:first-child p:first-of-type{
+        color: #A1B0FF; margin-bottom: 20px;
+    }
+    .main_5 > div div:first-child h2{
+        color: #fff; font-size: 32px; margin-bottom: 20px;
+    }
+    .main_5 > div div:first-child p:last-of-type{
         color: #fff;
     }
-    .footer div:last-child p{
-        font-size: 16px;
+    .main_5 > div div:last-child{
+        width: 90%; padding-left: 20%;
     }
-    .footer div:last-child p:first-child,
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
-        display: inline-block; margin-bottom: 30px;
+    .main_5 > div div:last-child span{
+        font-size: 15px; color: #000626; margin-bottom: 60px; display: inline-block;
+        font-weight: bold;
     }
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
-        margin-left: 30px;
+    .main_5 > div div:last-child img{
+        margin-left: 20%; width: 8%;
     }
-    .footer div:last-child p:nth-child(4){
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2){
+        margin-bottom: 50px; 
+    }
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2),
+    .main_5 > div div:last-child form input:nth-child(3) {
+        display: block; width: 76%; font-size: 24px; border: none; border-bottom: 1px solid #ACACAC;
+        color: #000;
+    }
+    .main_5 > div div:last-child form input:nth-child(3){
         margin-bottom: 30px;
+    }
+    .main_5 > div div:last-child form label{
+        font-size: 14px; margin-left: 10px;
+    }
+    .main_5 > div div:last-child form input:last-child{
+        display: block; margin-top: 60px; width: 76%; height: 50px; border-radius: 15px; cursor: pointer;
+        border: none; background: #504F87; color: #fff; font-size: 24px; font-weight: bold;
+    }
+    #map{
+        height: 500px; margin-bottom: 20px;
+    }
+    .footer{
+        max-width: 1920px; width: 100%; height: 220px; margin: 0 auto;
+        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    }
+    .footer > div{
+        max-width: 1100px; margin: 0 auto; color: #fff;
+        display: flex; align-items: center; padding-top: 10%;
+
+    }
+    .footer > div:after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .footer > div > div{
+        float: left;
+    }
+    .footer > div > div:first-child{
+        width: 50%; text-align: center;
+    }
+    .footer > div > div:first-child h1 a{
+        color: #fff; font-size: 30px;
+    }
+    .footer > div > div:last-child{
+        width: 50%;
+    }
+    .footer > div > div:last-child nav ul{
+        margin-bottom: 20px;
+    }
+    .footer > div > div:last-child nav ul::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .footer > div > div:last-child nav ul li{
+        float: left; 
+    }
+    .footer > div > div:last-child nav ul li:not(:first-child){
+        margin-left: 5%;
+    }
+    .footer > div > div:last-child nav ul li a{
+        color: #fff; font-size: 12px;
+    }
+
+    .footer > div > div:last-child p{
+        font-size: 12px;
+    }
+    .footer > div > div:last-child p:first-of-type,
+    .footer > div > div:last-child p:nth-of-type(2){
+        display: inline-block; margin-bottom: 0;
+    }
+    .footer > div > div:last-child p:nth-child(3){
+        margin-left: 30px;
     }
 
 }
 
-/* ! 데스크탑 사이즈 */
 
+/* ! 데스크탑 사이즈 */
 @media screen and (min-width: 1280px) and (max-width: 1599px){
     .main_1{
-        max-width: 1920px; width: 100%; margin: 0 auto; height: 90vh; margin-bottom: 60px;
+        max-width: 1920px; width: 100%; margin: 0 auto; height: 460px; margin-bottom: 30px;
         background-image: url('../images/main_bg.png'); background-repeat: no-repeat;
         background-size: contain; resize: both;
     }
     .main_1 header{
-        margin-left: 12.5%; padding-top: 70px; font-size: 28px; margin-bottom: 256px;
+        margin-left: 6%; padding-top: 70px;  margin-bottom: 80px;
+    }
+    .main_1 header::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .main_1 header h1{
+        float: left; margin-right: 5%; font-size: 25px;
     }
     .main_1 header h1 a{
         color: #fff; text-decoration: none;
     }
+
+    .main_1 header nav ul::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .main_1 header nav ul li{
+        float: left; margin-left: 5%;
+    }
+    .main_1 header nav ul li a{
+        font-size: 20px; color: #fff; text-decoration: none;
+    }
     .main_1 div{
-        margin-left: 12.5%;
+        margin-left: 6%;
     }
     .main_1 div h2{
-        font-size: 40px; color: #fff; margin-bottom: 30px;
+        font-size: 22px; color: #fff; margin-bottom: 10px;
     }
-    .main_1 div input{
-        width: 200px; height: 50px; font-size: 20px; color: #0A0026; border-radius: 30px;
-        background: #C5CBFD; border: none; font-weight: bold; cursor: pointer; 
+    .main_1 div p{
+        font-size: 22px; color: #fff;
+    }
+    .main_1 div a{
+        width: 150px; line-height: 40px; font-size: 20px; color: #0A0026;
+        border-radius: 30px; display: block; text-align: center;
+        background: #C5CBFD; border: none; font-weight: bold; cursor: pointer;
+        text-decoration: none; 
     }
     .main_2{
-        max-width: 1440px; width: 100%; margin: 0 auto; text-align: center; margin-bottom: 60px;
+        max-width: 1440px; width: 90%; margin: 0 auto; text-align: center; margin-bottom: 60px;
+    }
+    .main_2 h2{
+        font-size: 30px; margin-bottom: 30px; font-weight: bold;
+    }
+    .main_2 h2 mark{
+        background: none; font-style: normal; color: rgb(228, 52, 52);
     }
     .main_2 img{
         width: 100%;
-    }
-    .main_3{
-    background-image: url(../images/main_bg2.png); margin-bottom: 60px;
-     height: 702px; background-repeat: no-repeat; background-size: contain;
-    }
-    .main_3 > div{
-        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
-        display: flex; align-items: center; height: 550px;
-    }
-    .main_3 > div div:first-child{
-        width: 50%; padding-left: 5%;
-    }
-    .main_3 > div div:first-child p{
-        font-size: 16px;
-    }
-    .main_3 > div div:first-child p:first-of-type{
-        color: #A1B0FF; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child h2{
-        color: #fff; font-size: 28px; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child p:last-of-type{
-        color: #fff;
-    }
-    .main_3 > div div:last-child{
-        width: 70%; padding-left: 13%;
-    }
-    .main_3 > div div:last-child span{
-        font-size: 18px; color: #000626; margin-bottom: 60px; display: inline-block;
-    }
-    .main_3 > div div:last-child img{
-        margin-left: 30%;
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2){
-        margin-bottom: 30px; 
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2),
-    .main_3 > div div:last-child form input:nth-child(3) {
-        display: block; width: 76%; font-size: 20px; border: none; border-bottom: 1px solid #ACACAC;
-        color: #000;
-    }
-    .main_3 > div div:last-child form input:nth-child(3){
-        margin-bottom: 30px;
-    }
-    .main_3 > div div:last-child form label{
-        font-size: 14px;
-    }
-    .main_3 > div div:last-child form input:last-child{
-        display: block; margin-top: 60px; width: 76%; height: 50px; border-radius: 15px; cursor: pointer;
-        border: none; background: #504F87; color: #fff; font-size: 20px; font-weight: bold;
     }
     .kakaobg{
         max-width: 1920px; width: 100%; margin: 0 auto;
         background: center / cover url(../images/kakao_bg.png) no-repeat;
     }
-    .main_4{
+    .main_3{
         max-width: 1100px; width: 100%; margin: 0 auto;
         margin-bottom: 60px; display: flex; justify-content: center; align-items: center;
     }
-    .main_4::after{
+    .main_3::after{
         display: block; content: ''; visibility: hidden; clear: both;
     }
-    .main_4 > div:first-child img{
+    .main_3 > div:first-child img{
         width: 100%;
     }
-    .main_4 > div:last-child img{
+    .main_3 > div:last-child img{
         width: 80%; 
     }
     .bx-controls{
         display: none;
     }
-    .main_4 .bxslider{
+    .main_3 .bxslider{
         margin-left: 15%;
+    }
+    .reV{
+        text-align: center;
+    }
+    .reV h2{
+        font-size: 30px; font-weight: bold; margin-bottom: 15px;
+    }
+    .reV p{
+        font-size: 18px;
     }
     .reviewbox{
         max-width: 1100px; width: 100%; margin: 0 auto 60px; text-align: center; height: 557px;
@@ -446,20 +581,20 @@
     .reviewbox img{
         width: 100%;
     }
-    .main_5{
+    .main_4{
         max-width: 1920px; width: 100%; margin: 0 auto 60px; height: 778px;
         background-image: url(../images/main_bg3.png); background-repeat: no-repeat; 
     }
-    .main_5 > div {
+    .main_4 h2{
+        text-align: center; color: #fff; padding-top: 60px; font-size: 30px; font-weight: bold;
+    }
+    .main_4 > div {
         max-width: 550px; width: 100%; margin: 0 auto; text-align: center; padding-top: 30px;
     }
-    .main_5 > div > div{
+    .main_4 > div > div{
         margin-bottom: 60px;
     }
-    .main_5 > div a{
-        width: 33.33%; line-height: 50px; color: #012600; font-size: 20px; border-radius: 100px;
-        border: none; background: #C5CBFD; font-weight: bold; cursor: pointer; display: inline-block;
-    }
+
 
     .blogimgBox{
         max-width: 1100px; width: 100%; margin: 0 auto 60px; text-align: center;
@@ -467,52 +602,141 @@
     .blogimgBox img{
         width: 100%;
     }
-
-    .footer{
-        max-width: 1920px; width: 100%; height: 428px;
-        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    .main_5{
+        background-image: url(../images/main_bg2.png); margin-bottom: 60px;
+        height: 702px; background-repeat: no-repeat; background-size: contain;
     }
-    .footer div{
-        max-width: 1100px; margin: 0 auto; text-align: center; color: #fff;
+    .main_5 > div{
+        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
+        display: flex; align-items: center; height: 550px;
     }
-    .footer div:first-child{
-        border-bottom: 1px solid #A1B0FF; padding-top: 100px; font-size: 32px;
-        margin-bottom: 50px;
+    .main_5 > div div:first-child{
+        width: 50%; padding-left: 5%;
     }
-    .footer div:first-child h1{
-        margin-bottom: 50px;
+    .main_5 > div div:first-child p{
+        font-size: 16px;
     }
-    .footer div:first-child h1 a{
+    .main_5 > div div:first-child p:first-of-type{
+        color: #A1B0FF; margin-bottom: 20px;
+    }
+    .main_5 > div div:first-child h2{
+        color: #fff; font-size: 28px; margin-bottom: 20px;
+    }
+    .main_5 > div div:first-child p:last-of-type{
         color: #fff;
     }
-    .footer div:last-child p{
-        font-size: 20px;
+    .main_5 > div div:last-child{
+        width: 70%; padding-left: 13%;
     }
-    .footer div:last-child p:first-child,
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
-        display: inline-block; margin-bottom: 30px;
+    .main_5 > div div:last-child span{
+        font-size: 18px; color: #000626; margin-bottom: 60px; display: inline-block;
     }
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
-        margin-left: 30px;
+    .main_5 > div div:last-child img{
+        margin-left: 30%;
     }
-    .footer div:last-child p:nth-child(4){
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2){
+        margin-bottom: 30px; 
+    }
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2),
+    .main_5 > div div:last-child form input:nth-child(3) {
+        display: block; width: 76%; font-size: 20px; border: none; border-bottom: 1px solid #ACACAC;
+        color: #000;
+    }
+    .main_5 > div div:last-child form input:nth-child(3){
         margin-bottom: 30px;
+    }
+    .main_5 > div div:last-child form label{
+        font-size: 14px;
+    }
+    .main_5 > div div:last-child form input:last-child{
+        display: block; margin-top: 60px; width: 76%; height: 50px; border-radius: 15px; cursor: pointer;
+        border: none; background: #504F87; color: #fff; font-size: 20px; font-weight: bold;
+    }
+    #map{
+        height: 500px; margin-bottom: 20px;
+    }
+
+    .footer{
+        max-width: 1920px; width: 100%; height: 220px; margin: 0 auto;
+        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    }
+    .footer > div{
+        max-width: 1100px; margin: 0 auto; color: #fff;
+        display: flex; align-items: center; padding-top: 6%;
+
+    }
+    .footer > div:after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .footer > div > div{
+        float: left;
+    }
+    .footer > div > div:first-child{
+        width: 50%; text-align: center;
+    }
+    .footer > div > div:first-child h1 a{
+        color: #fff; font-size: 30px;
+    }
+    .footer > div > div:last-child{
+        width: 50%;
+    }
+    .footer > div > div:last-child nav ul{
+        margin-bottom: 20px;
+    }
+    .footer > div > div:last-child nav ul::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .footer > div > div:last-child nav ul li{
+        float: left; 
+    }
+    .footer > div > div:last-child nav ul li:not(:first-child){
+        margin-left: 5%;
+    }
+    .footer > div > div:last-child nav ul li a{
+        color: #fff;
+    }
+
+    .footer > div > div:last-child p{
+        font-size: 18px;
+    }
+    .footer > div > div:last-child p:first-of-type,
+    .footer > div > div:last-child p:nth-of-type(2){
+        display: inline-block; 
+    }
+    .footer > div > div:last-child p:nth-child(3){
+        margin-left: 30px;
     }
 }
 
 @media screen and (min-width: 1600px){
     .main_1{
-        max-width: 1920px; width: 100%; margin: 0 auto; height: 921px; margin-bottom: 60px;
-        background-image: url('../images/main_bg.png'); background-repeat: no-repeat; resize: both;
+        max-width: 1920px; width: 100%; margin: 0 auto; height: 585px; margin-bottom: 60px;
+        background: url('../images/main_bg.png'); background-repeat: no-repeat; resize: both;
         background-size: contain;
     }
     .main_1 header{
-        margin-left: 12.5%; padding-top: 70px; font-size: 28px; margin-bottom: 256px;
+        margin-left: 12.5%; padding-top: 70px; font-size: 28px; margin-bottom: 100px;
+    }
+    .main_1 header::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .main_1 header h1{
+        float: left; margin-right: 8%;
     }
     .main_1 header h1 a{
         color: #fff; text-decoration: none;
+    }
+
+    .main_1 header nav ul::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .main_1 header nav ul li{
+        float: left; margin-left: 5%;
+    }
+    .main_1 header nav ul li a{
+        font-size: 20px; color: #fff; text-decoration: none;
     }
     .main_1 div{
         margin-left: 12.5%;
@@ -520,92 +744,58 @@
     .main_1 div h2{
         font-size: 40px; color: #fff; margin-bottom: 30px;
     }
-    .main_1 div input{
-        width: 200px; height: 50px; font-size: 20px; color: #0A0026; border-radius: 30px;
-        background: #C5CBFD; border: none; font-weight: bold; cursor: pointer; 
+     .main_1 div p{
+        color: #fff; font-size: 30px;
+     }
+    .main_1 div a{
+        width: 200px; line-height: 50px; font-size: 20px; color: #0A0026;
+        border-radius: 30px; display: block; text-align: center;
+        background: #C5CBFD; border: none; font-weight: bold; cursor: pointer;
+        text-decoration: none;
     }
     .main_2{
         max-width: 1440px; width: 100%; margin: 0 auto; text-align: center; margin-bottom: 60px;
     }
+    .main_2 h2{
+        font-size: 30px; margin-bottom: 30px; font-weight: bold;
+    }
+    .main_2 h2 mark{
+        background: none; font-style: normal; color: rgb(228, 52, 52);
+    }
     .main_2 img{
         width: 100%;
-    }
-    .main_3{
-        max-width: 1920px; width: 100%; margin: 0 auto;
-        background-image: url(../images/main_bg2.png); margin-bottom: 60px;
-        height: 792px; background-repeat: no-repeat; background-size: contain;
-    }
-    .main_3 > div{
-        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
-        display: flex; align-items: center; height: 770px;
-    }
-    .main_3 > div div:first-child{
-        width: 50%;
-    }
-    .main_3 > div div:first-child p{
-        font-size: 20px;
-    }
-    .main_3 > div div:first-child p:first-of-type{
-        color: #A1B0FF; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child h2{
-        color: #fff; font-size: 32px; margin-bottom: 20px;
-    }
-    .main_3 > div div:first-child p:last-of-type{
-        color: #fff;
-    }
-    .main_3 > div div:last-child{
-        width: 70%; padding-left: 20%;
-    }
-    .main_3 > div div:last-child span{
-        font-size: 1.5rem; color: #000626; margin-bottom: 60px; display: inline-block;
-    }
-    .main_3 > div div:last-child img{
-        margin-left: 18%;
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2){
-        margin-bottom: 50px; 
-    }
-    .main_3 > div div:last-child form input:first-child,
-    .main_3 > div div:last-child form input:nth-child(2),
-    .main_3 > div div:last-child form input:nth-child(3) {
-        display: block; width: 76%; font-size: 24px; border: none; border-bottom: 1px solid #ACACAC;
-        color: #000;
-    }
-    .main_3 > div div:last-child form input:nth-child(3){
-        margin-bottom: 30px;
-    }
-    .main_3 > div div:last-child form label{
-        font-size: 16px;
-    }
-    .main_3 > div div:last-child form input:last-child{
-        display: block; margin-top: 60px; width: 76%; height: 50px; border-radius: 15px; cursor: pointer;
-        border: none; background: #504F87; color: #fff; font-size: 24px; font-weight: bold;
     }
     .kakaobg{
         max-width: 1920px; width: 100%; margin: 0 auto;
         background: center / cover url(../images/kakao_bg.png) no-repeat;
     }
-
-    .main_4{
+    .main_3{
         max-width: 1100px; width: 100%; margin: 0 auto;
         margin-bottom: 60px; display: flex; justify-content: center; align-items: center;
     }
-    .main_4::after{
+    .main_3::after{
         display: block; content: ''; visibility: hidden; clear: both;
     }
-    .main_4 > div:first-child img{
+    .main_3 > div:first-child img{
         width: 100%;
     }
-    .main_4 > div:last-child img{
+    .main_3 > div:last-child img{
         width: 80%; 
     }
     .bx-controls{
         display: none;
     }
-    .main_4 .bxslider{
+    .main_3 .bxslider{
         margin-left: 15%;
+    }
+    .reV{
+        text-align: center;
+    }
+    .reV h2{
+        font-size: 30px; font-weight: bold; margin-bottom: 15px;
+    }
+    .reV p{
+        font-size: 18px;
     }
     .reviewbox{
         max-width: 1100px; width: 100%; margin: 0 auto 60px; text-align: center;
@@ -613,19 +803,18 @@
     .reviewbox img{
         width: 100%;
     }
-    .main_5{
+    .main_4{
         max-width: 1920px; width: 100%; margin: 0 auto 60px; height: 778px;
         background-image: url(../images/main_bg3.png); background-repeat: no-repeat; 
     }
-    .main_5 > div {
-        max-width: 550px; width: 100%; margin: 0 auto; text-align: center; padding-top: 130px;
+    .main_4 h2{
+        text-align: center; color: #fff; padding-top: 60px; font-size: 30px; font-weight: bold;
     }
-    .main_5 > div > div{
+    .main_4 > div {
+        max-width: 550px; width: 100%; margin: 0 auto; text-align: center; padding-top: 60px;
+    }
+    .main_4 > div > div{
         margin-bottom: 60px;
-    }
-    .main_5 > div a{
-        width: 33.33%; line-height: 50px; color: #012600; font-size: 20px; border-radius: 100px;
-        border: none; background: #C5CBFD; font-weight: bold; cursor: pointer; display: inline-block;
     }
 
     .blogimgBox{
@@ -634,37 +823,111 @@
     .blogimgBox img{
         width: 100%;
     }
-
-    .footer{
-        max-width: 1920px; width: 100%; height: 428px;
-        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    .main_5{
+        max-width: 1920px; width: 100%; margin: 0 auto;
+        background-image: url(../images/main_bg2.png); margin-bottom: 60px;
+        height: 792px; background-repeat: no-repeat; background-size: contain;
     }
-    .footer div{
-        max-width: 1100px; margin: 0 auto; text-align: center; color: #fff;
+    .main_5 > div{
+        max-width: 1440px; width: 100%; margin: 0 auto; vertical-align: middle;
+        display: flex; align-items: center; height: 770px;
     }
-    .footer div:first-child{
-        border-bottom: 1px solid #A1B0FF; padding-top: 100px; font-size: 32px;
-        margin-bottom: 50px;
+    .main_5 > div div:first-child{
+        width: 50%;
     }
-    .footer div:first-child h1{
-        margin-bottom: 50px;
-    }
-    .footer div:first-child h1 a{
-        color: #fff;
-    }
-    .footer div:last-child p{
+    .main_5 > div div:first-child p{
         font-size: 20px;
     }
-    .footer div:last-child p:first-child,
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
-        display: inline-block; margin-bottom: 30px;
+    .main_5 > div div:first-child p:first-of-type{
+        color: #A1B0FF; margin-bottom: 20px;
     }
-    .footer div:last-child p:nth-child(2),
-    .footer div:last-child p:nth-child(3){
-        margin-left: 30px;
+    .main_5 > div div:first-child h2{
+        color: #fff; font-size: 32px; margin-bottom: 20px;
     }
-    .footer div:last-child p:nth-child(4){
+    .main_5 > div div:first-child p:last-of-type{
+        color: #fff;
+    }
+    .main_5 > div div:last-child{
+        width: 70%; padding-left: 20%;
+    }
+    .main_5 > div div:last-child span{
+        font-size: 1.5rem; color: #000626; margin-bottom: 60px; display: inline-block;
+    }
+    .main_5 > div div:last-child img{
+        margin-left: 18%;
+    }
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2){
+        margin-bottom: 50px; 
+    }
+    .main_5 > div div:last-child form input:first-child,
+    .main_5 > div div:last-child form input:nth-child(2),
+    .main_5 > div div:last-child form input:nth-child(3) {
+        display: block; width: 76%; font-size: 24px; border: none; border-bottom: 1px solid #ACACAC;
+        color: #000;
+    }
+    .main_5 > div div:last-child form input:nth-child(3){
         margin-bottom: 30px;
+    }
+    .main_5 > div div:last-child form label{
+        font-size: 16px;
+    }
+    .main_5 > div div:last-child form input:last-child{
+        display: block; margin-top: 60px; width: 76%; height: 50px; border-radius: 15px; cursor: pointer;
+        border: none; background: #504F87; color: #fff; font-size: 24px; font-weight: bold;
+    }
+    #map{
+        height: 500px; margin-bottom: 60px;
+    }
+
+    .footer{
+        max-width: 1920px; width: 100%; height: 300px; margin: 0 auto;
+        background-image: url(../images/footer_bg.png); background-repeat: no-repeat;
+    }
+    .footer > div{
+        max-width: 1100px; margin: 0 auto; color: #fff;
+        display: flex; align-items: center; padding-top: 6%;
+
+    }
+    .footer > div:after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .footer > div > div{
+        float: left;
+    }
+    .footer > div > div:first-child{
+        width: 50%; text-align: center;
+    }
+    .footer > div > div:first-child h1 a{
+        color: #fff; font-size: 30px;
+    }
+    .footer > div > div:last-child{
+        width: 50%;
+    }
+    .footer > div > div:last-child nav ul{
+        margin-bottom: 20px;
+    }
+    .footer > div > div:last-child nav ul::after{
+        display: block; content: ''; visibility: hidden; clear: both;
+    }
+    .footer > div > div:last-child nav ul li{
+        float: left; 
+    }
+    .footer > div > div:last-child nav ul li:not(:first-child){
+        margin-left: 5%;
+    }
+    .footer > div > div:last-child nav ul li a{
+        color: #fff;
+    }
+
+    .footer > div > div:last-child p{
+        font-size: 18px;
+    }
+    .footer > div > div:last-child p:first-of-type,
+    .footer > div > div:last-child p:nth-of-type(2){
+        display: inline-block; 
+    }
+    .footer > div > div:last-child p:nth-child(3){
+        margin-left: 30px;
     }
 }

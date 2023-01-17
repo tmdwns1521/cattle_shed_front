@@ -3,45 +3,35 @@
   <section class="main_1">
         <header>
             <h1><a href="/">오늘부터 마케팅</a></h1>
+            <nav>
+              <label for="line-wrap" class="mui">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+              <ul>
+                <li><a href="/#one_1">서비스소개</a></li>
+                <li><a href="/#one_2">성공사례</a></li>
+                <li><a href="/#one_3">진행절차</a></li>
+                <li><a href="/#one_5">상담신청</a></li>
+                <li><a href="/#map">찾아오는 길</a></li>
+              </ul>
+            </nav>
         </header>
         <div>
             <h2>370만 소상공인을 위한 솔루션</h2>
-   <input type="button" value="문의하기" onclick="window.scrollTo(1350,1350);"  >
+            <p>매출 상승의 비결!</p>
+            <a href="/#one_5">문의하기</a>
         </div>
     </section>
 
-    <div class="main_2">
+    <div id="one_1" class="main_2">
+        <h2>잘 팔리는 옆가게 <mark> 어떤 마케팅</mark>을 할까?</h2>
         <img src="@/assets/images/main_2.png" alt="마케팅 솔루션 이미지">
     </div>
 
-    <section class="main_3">
-        <div>
-            <div>
-                <p>검색하는 잠재고객에게 매장을 알리고<br>
-                    리뷰/후기를 노출해 가게의 신뢰도를 높여보세요.</p>
-                <h2>퍼포먼스 마케팅이 궁금하신가요?<br>
-                    언제든지 문의 주세요.</h2>
-                <p>브랜드의 성장 가능성을 열고,<br>
-                    매출 상승의 가속화를직접 경험하세요.</p>
-            </div>
-            <div>
-                <span>상위노출 효과를 직접 경험하세요!</span> <img src="@/assets/images/don.png">
-                <form>
-                    <input type="text" placeholder="이름">
-                    <input type="tel" placeholder="전화번호">
-                    <input type="text" placeholder="업체명">
-
-                    <input type="checkbox" name="" id="checkbox">
-                    <label for="checkbox">개인정보 수집 이용 및 마케팅 활용 전체 동의</label>
-
-                    <input type="button" value="무료상담 신청하기">
-                </form>
-            </div>
-        </div>
-    </section>
-    
     <div class="kakaobg">
-        <div class="main_4">
+        <div class="main_3">
             <div><img src="@/assets/images/main_kakao1.png" alt=""></div>
             <div class="bxslider">
                 <div><img src="@/assets/images/kakaotalk_img1.png" alt="kakaotalk_img1"></div>
@@ -52,38 +42,67 @@
         </div>
     </div>
 
-    <div class="reV">
+    <div id="one_2" class="reV">
+        <h2>확실한 블로그 광고!</h2>
+        <p>검색하는 잠재고객에게 매장을 알리고 리뷰/후기를 노출해 가게의 신뢰도를 높여보세요.</p>
         <div class="reviewbox">
             <img src="@/assets/images/main_reV.png" alt="">
         </div>
     </div>
 
-    <section class="main_5">
-        <div>
-            <ul class="bxslider">
-                <li><img src="@/assets/images/main_3.png" alt=""></li>
-                <li><img src="@/assets/images/main_4.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider1.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider2.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider3.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider4.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider5.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider6.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider7.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider8.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider9.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider10.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider11.png" alt=""></li>
-                <li><img src="@/assets/images/2_slider12.png" alt=""></li>
-            </ul>
-        </div>
+    <section class="main_4">
+      <h2>상세페이지 제작서비스</h2>
+      <div>
+        <ul class="bxslider">
+          <li><img src="@/assets/images/main_3.png" alt="main_3.png"></li>
+          <li><img src="@/assets/images/main_4.png" alt="main_4.png"></li>
+          <li><img src="@/assets/images/2_slider1.png" alt="slider1.png"></li>
+          <li><img src="@/assets/images/2_slider2.png" alt="slider2.png"></li>
+          <li><img src="@/assets/images/2_slider3.png" alt="slider3.png"></li>
+          <li><img src="@/assets/images/2_slider4.png" alt="slider4.png"></li>
+          <li><img src="@/assets/images/2_slider5.png" alt="slider5.png"></li>
+          <li><img src="@/assets/images/2_slider6.png" alt="slider6.png"></li>
+          <li><img src="@/assets/images/2_slider7.png" alt="slider7.png"></li>
+          <li><img src="@/assets/images/2_slider8.png" alt="slider8.png"></li>
+          <li><img src="@/assets/images/2_slider9.png" alt="slider9.png"></li>
+          <li><img src="@/assets/images/2_slider10.png" alt="slider10.png"></li>
+          <li><img src="@/assets/images/2_slider11.png" alt="slider11.png"></li>
+          <li><img src="@/assets/images/2_slider12.png" alt="slider12.png"></li>
+        </ul>
+      </div>
     </section>
     
-    <div class="blogimgBox">
-        <img src="@/assets/images/main_5.png" alt="">
+    <div id="one_3" class="blogimgBox">
+      <img src="@/assets/images/main_5.png" alt="">
     </div>
-    </div>
+    
+    <section id="one_5" class="main_5">
+      <div>
+          <div>
+              <h2>퍼포먼스 마케팅이 궁금하신가요?<br>
+                  언제든지 문의 주세요.</h2>
+              <p>브랜드의 성장 가능성을 열고,<br>
+                  매출 상승의 가속화를직접 경험하세요.</p>
+          </div>
+          <div>
+              <span>마케팅 효과를 직접 경험하세요!</span> <img src="@/assets/images/don.png">
+              <form>
+                  <input type="text" placeholder="이름">
+                  <input type="tel" placeholder="전화번호">
+                  <input type="text" placeholder="업체명">
+
+                  <input type="checkbox" name="" id="checkbox">
+                  <label for="checkbox">개인정보 수집 이용 및 마케팅 활용 전체 동의</label>
+
+                  <input type="button" value="무료상담 신청하기">
+              </form>
+          </div>
+      </div>
+  </section>
+  <div id="map"></div>
+  </div>
 </template>
+
 
 <script>
 import BottomBanner from "@/components/Banner/BottomBanner.vue";
@@ -118,6 +137,40 @@ export default {
     };
   },
   mounted(){
+    $(document).ready(function(){
+      /* ------ navigation background css ------ */
+      $('nav label').click(function(){
+        $('nav label').stop().toggleClass('close');
+        $('nav > ul').stop().toggleClass('on');
+      });
+    
+        /* -------- navigation sub ul -------- */
+    
+        $('header').on({
+            'mouseenter':function(){if($('header').hasClass('scr')){
+                $('header').find('ul').children('li').addClass('show');}},
+            'mouseleave':function(){if($('header').hasClass('scr')){
+                $('header').find('ul').children('li').removeClass('show');}}
+        })
+      
+      $('ul > li').on({
+        'mouseenter':function(){if($(window).scrollTop()<50){$(this).addClass('show');}},
+        'mouseleave':function(){if($(window).scrollTop()<50){ $(this).removeClass('show') }}
+      })
+
+      function headerscroll() {
+        if($(window).scrollTop()>50){
+          $('header').addClass('scr');
+        }else{
+          $('header').removeClass('scr');
+        }
+      }
+
+
+      $(window).scroll(function(){
+        headerscroll();
+      });
+    }),
     $(document).ready(function(){
       $('.bxslider').bxSlider({
         auto: true,
@@ -169,4 +222,6 @@ export default {
   },
 };
 </script>
+
+
 

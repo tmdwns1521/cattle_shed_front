@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "NanumSquareRound";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff")
     format("woff");
@@ -7,7 +14,7 @@
 }
 
 * {
-  font-family: "NanumSquareRound", sans-serif;
+  font-family: "GmarketSansMedium", sans-serif;
 }
 
 @for $var from 1 to 10 {
