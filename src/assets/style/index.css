@@ -25,7 +25,7 @@ footer a{
         margin-top: 0; margin-left: 8%; padding: 11px 0 9px; margin-bottom: 0;
     }
     .main_1 header h1 a{
-        text-decoration: none; color: #fff;
+        text-decoration: none; color: #fff; font-size: 30px;
     }
     header nav label.mui{
         position: absolute; top: 15px; right: 3%; width: 30px; height: 28px; background-color: transparent;
@@ -242,7 +242,7 @@ footer a{
         margin-bottom: 20px;
     }
     .footer > div div:first-child h1 a{
-        color: #fff;
+        color: #fff; font-size: 30px;
     }
     .footer > div div:first-child h1 img{
         width: 100px;
@@ -298,7 +298,7 @@ footer a{
         float: left; margin-right: 4%; margin-bottom: 0;
     }
     .main_1 header h1 a{
-        text-decoration: none; color: #fff;
+        text-decoration: none; color: #fff; font-size: 37px;
     }
     header nav label.mui{
         display: none;
@@ -462,7 +462,7 @@ footer a{
     }
     .footer > div{
         max-width: 1100px; margin: 0 auto; color: #fff;
-        display: flex; align-items: center; padding-top: 7%;
+        display: flex; align-items: center; padding-top: 10%;
 
     }
     .footer > div:after{
@@ -475,11 +475,11 @@ footer a{
     .footer > div > div:first-child{
         width: 50%; text-align: center;
     }
-    .footer > div div:first-child h1 img{
-        width: 100px;
+    .footer > div div:first-child h1 a{
+        color: #fff; font-size: 40px;
     }
     .footer > div > div:last-child{
-        width: 50%;
+        width: 60%;
     }
     .footer > div > div:last-child nav ul{
         margin-bottom: 20px;
@@ -488,19 +488,17 @@ footer a{
         display: block; content: ''; visibility: hidden; clear: both;
     }
     .footer > div > div:last-child nav ul li{
-        float: left; 
+        float: left;
     }
     .footer > div > div:last-child nav ul li:not(:first-child){
         margin-left: 5%;
     }
     .footer > div > div:last-child nav ul li a{
-        color: #fff; font-size: 12px;
+        color: #fff; font-size: 16px;
     }
-    .footer > div div:first-child h1 a{
-        color: #fff;
-    }
+    
     .footer > div > div:last-child p{
-        font-size: 12px;
+        font-size: 16px;
     }
     .footer > div > div:last-child p:first-of-type,
     .footer > div > div:last-child p:nth-of-type(2){
@@ -529,7 +527,7 @@ footer a{
         float: left; margin-right: 5%; margin-bottom: 0;
     }
     .main_1 header h1 a{
-        text-decoration: none; color: #fff;
+        text-decoration: none; color: #fff; font-size: 40px;
     }
     header nav label.mui{
         display: none;
@@ -694,7 +692,7 @@ footer a{
     }
     .footer > div{
         max-width: 1100px; margin: 0 auto; color: #fff;
-        display: flex; align-items: center; padding-top: 4.5%;
+        display: flex; align-items: center; padding-top: 6%;
 
     }
     .footer > div:after{
@@ -707,7 +705,7 @@ footer a{
         width: 50%; text-align: center;
     }
     .footer > div div:first-child h1 a{
-        color: #fff;
+        color: #fff; font-size: 60px;
     }
     .footer > div > div:last-child{
         width: 50%;
@@ -725,7 +723,7 @@ footer a{
         margin-left: 5%;
     }
     .footer > div > div:last-child nav ul li a{
-        color: #fff;
+        color: #fff; font-size: 16px;
     }
 
     .footer > div > div:last-child p{
@@ -762,7 +760,7 @@ footer a{
         display: none;
     }
     .main_1 header h1 a{
-        text-decoration: none; color: #fff;
+        text-decoration: none; color: #fff; font-size: 40px;
     }
     .main_1 header nav{
         width: 80%;
@@ -958,7 +956,7 @@ footer a{
         margin-left: 5%;
     }
     .footer > div > div:last-child nav ul li a{
-        color: #fff;
+        color: #fff; font-size: 16px;
     }
 
     .footer > div > div:last-child p{
