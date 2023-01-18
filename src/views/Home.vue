@@ -1,29 +1,31 @@
 <template>
-  <div>
-  <section class="main_1">
+  <div >
+    <div class="TOPdiv">
+      <section class="main_1">
         <header>
-            <h1><a href="/">오늘부터 마케팅</a></h1>
-            <nav>
-              <label for="line-wrap" class="mui">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-              <ul>
-                <li><a href="/#one_1">서비스소개</a></li>
-                <li><a href="/#one_2">성공사례</a></li>
-                <li><a href="/#one_3">진행절차</a></li>
-                <li><a href="/#one_5">상담신청</a></li>
-                <li><a href="/#map">찾아오는 길</a></li>
-              </ul>
-            </nav>
+          <h1><a href="/">리뷰어</a></h1>
+          <nav>
+            <label for="line-wrap" class="mui">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+            <ul>
+              <li><a href="/#one_1">서비스소개</a></li>
+              <li><a href="/#one_2">성공사례</a></li>
+              <li><a href="/#one_3">진행절차</a></li>
+              <li><a href="/#one_5">상담신청</a></li>
+              <li><a href="/#map">찾아오는 길</a></li>
+            </ul>
+          </nav>
         </header>
         <div>
-            <h2>370만 소상공인을 위한 솔루션</h2>
-            <p>매출 상승의 비결!</p>
-            <a href="/#one_5">문의하기</a>
+          <h2>370만 소상공인을 위한 솔루션</h2>
+          <p>매출 상승의 비결!</p>
+          <a href="/#one_5">문의하기</a>
         </div>
-    </section>
+      </section>
+    </div>
 
     <div id="one_1" class="main_2">
         <h2>잘 팔리는 옆가게 <mark> 어떤 마케팅</mark>을 할까?</h2>
