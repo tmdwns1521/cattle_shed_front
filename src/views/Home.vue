@@ -142,34 +142,7 @@ export default {
       $('nav label').click(function(){
         $('nav label').stop().toggleClass('close');
         $('nav > ul').stop().toggleClass('on');
-      });
-    
-        /* -------- navigation sub ul -------- */
-    
-        $('header').on({
-            'mouseenter':function(){if($('header').hasClass('scr')){
-                $('header').find('ul').children('li').addClass('show');}},
-            'mouseleave':function(){if($('header').hasClass('scr')){
-                $('header').find('ul').children('li').removeClass('show');}}
-        })
-      
-      $('ul > li').on({
-        'mouseenter':function(){if($(window).scrollTop()<50){$(this).addClass('show');}},
-        'mouseleave':function(){if($(window).scrollTop()<50){ $(this).removeClass('show') }}
-      })
-
-      function headerscroll() {
-        if($(window).scrollTop()>50){
-          $('header').addClass('scr');
-        }else{
-          $('header').removeClass('scr');
-        }
-      }
-
-
-      $(window).scroll(function(){
-        headerscroll();
-      });
+      });      
     }),
     $(document).ready(function(){
       $('.bxslider').bxSlider({
