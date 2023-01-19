@@ -171,6 +171,49 @@ footer a{
     .blogimgBox img{
         width: 100%;
     }
+
+    .bannerSection{
+        max-width: 1920px; width: 100%; margin: 0 auto;
+        background: #1F204D; text-align: center; padding-bottom: 20px; margin-bottom: 60px;
+    }
+    .bannerSection h2{
+        max-width: 400px; width: 100%; margin: 0 auto; font-size: 30px; color: #00A3FF; padding: 20px 0;
+        border-bottom: 2px solid #00A3FF; margin-bottom: 20px;
+    }
+    .bannerSection p{
+        font-size: 18px; color: #fff; margin-bottom: 50px;
+    }
+    .moving1{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner1.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    .moving2{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner2.png') 0 center / 1920px repeat-x;
+        animation: movbanner2 33s linear infinite;
+    }
+    .moving3{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner3.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    @keyframes movbanner1 {
+        0%{
+            background-position: 0 center;
+        }
+        100%{
+            background-position: -1920px center;
+        }
+    }
+    @keyframes movbanner2 {
+        0%{
+            background-position: -1920px center;
+        }
+        100%{
+            background-position: 0 center;
+        }
+    }
     .main_5{
         margin-bottom: 60px;
         height: 386px; background-repeat: no-repeat;
@@ -400,6 +443,49 @@ footer a{
     .blogimgBox img{
         width: 100%;
     }
+
+    .bannerSection{
+        max-width: 1920px; width: 100%; margin: 0 auto;
+        background: #1F204D; text-align: center; padding-bottom: 20px; margin-bottom: 60px;
+    }
+    .bannerSection h2{
+        max-width: 600px; width: 100%; margin: 0 auto; font-size: 40px; color: #00A3FF; padding: 20px 0;
+        border-bottom: 2px solid #00A3FF; margin-bottom: 20px;
+    }
+    .bannerSection p{
+        font-size: 28px; color: #fff; margin-bottom: 50px;
+    }
+    .moving1{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner1.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    .moving2{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner2.png') 0 center / 1920px repeat-x;
+        animation: movbanner2 33s linear infinite;
+    }
+    .moving3{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner3.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    @keyframes movbanner1 {
+        0%{
+            background-position: 0 center;
+        }
+        100%{
+            background-position: -1920px center;
+        }
+    }
+    @keyframes movbanner2 {
+        0%{
+            background-position: -1920px center;
+        }
+        100%{
+            background-position: 0 center;
+        }
+    }
     .main_5{
         margin-bottom: 60px;
         height: 550px; background-repeat: no-repeat;
@@ -427,7 +513,7 @@ footer a{
         width: 90%; padding-left: 20%;
     }
     .main_5 > div div:last-child span{
-        font-size: 15px; color: #000626; margin-bottom: 60px; display: inline-block;
+        font-size: 22px; color: #000626; margin-bottom: 60px; display: inline-block;
         font-weight: bold;
     }
     .main_5 > div div:last-child img{
@@ -622,14 +708,55 @@ footer a{
     .main_4 > div > div{
         margin-bottom: 60px;
     }
-
-
     .blogimgBox{
         max-width: 1100px; width: 100%; margin: 0 auto 60px; text-align: center;
     }
     .blogimgBox img{
         width: 100%;
     }
+    .bannerSection{
+        max-width: 1920px; width: 100%; margin: 0 auto;
+        background: #1F204D; text-align: center; padding-bottom: 20px; margin-bottom: 60px;
+    }
+    .bannerSection h2{
+        max-width: 1100px; width: 100%; margin: 0 auto; font-size: 40px; color: #00A3FF; padding: 20px 0;
+        border-bottom: 2px solid #00A3FF; margin-bottom: 20px;
+    }
+    .bannerSection p{
+        font-size: 28px; color: #fff; margin-bottom: 50px;
+    }
+    .moving1{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner1.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    .moving2{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner2.png') 0 center / 1920px repeat-x;
+        animation: movbanner2 33s linear infinite;
+    }
+    .moving3{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner3.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    @keyframes movbanner1 {
+        0%{
+            background-position: 0 center;
+        }
+        100%{
+            background-position: -1920px center;
+        }
+    }
+    @keyframes movbanner2 {
+        0%{
+            background-position: -1920px center;
+        }
+        100%{
+            background-position: 0 center;
+        }
+    }
+
     .main_5{
         background-image: url(../images/main_bg2.png); margin-bottom: 60px;
         height: 702px; background-repeat: no-repeat; background-size: contain;
@@ -859,6 +986,49 @@ footer a{
     .blogimgBox img{
         width: 100%;
     }
+    .bannerSection{
+        max-width: 1920px; width: 100%; margin: 0 auto;
+        background: #1F204D; text-align: center; padding-bottom: 20px; margin-bottom: 60px;
+    }
+    .bannerSection h2{
+        max-width: 1440px; width: 100%; margin: 0 auto; font-size: 40px; color: #00A3FF; padding: 20px 0;
+        border-bottom: 2px solid #00A3FF; margin-bottom: 20px;
+    }
+    .bannerSection p{
+        font-size: 28px; color: #fff; margin-bottom: 50px;
+    }
+    .moving1{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner1.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    .moving2{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner2.png') 0 center / 1920px repeat-x;
+        animation: movbanner2 33s linear infinite;
+    }
+    .moving3{
+        max-width: 1920px; width: 100%; height: 85px;
+        background: url('../images/CIbanner3.png') 0 center / 1920px repeat-x;
+        animation: movbanner1 33s linear infinite;
+    }
+    @keyframes movbanner1 {
+        0%{
+            background-position: 0 center;
+        }
+        100%{
+            background-position: -1920px center;
+        }
+    }
+    @keyframes movbanner2 {
+        0%{
+            background-position: -1920px center;
+        }
+        100%{
+            background-position: 0 center;
+        }
+    }
+
     .main_5{
         max-width: 1920px; width: 100%; margin: 0 auto;
         background-image: url(../images/main_bg2.png); margin-bottom: 60px;
@@ -970,3 +1140,7 @@ footer a{
         margin-left: 30px;
     }
 }
+
+
+
+/* -webkit-animation: qz-landing-marquee-rtl 30s linear infinite; */

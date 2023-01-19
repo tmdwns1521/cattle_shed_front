@@ -74,11 +74,20 @@
       </div>
     </section>
     
-    <div id="one_3" class="blogimgBox">
-      <img src="@/assets/images/main_5.png" alt="">
-    </div>
+  <div id="one_3" class="blogimgBox">
+    <img src="@/assets/images/main_5.png" alt="">
+  </div>
     
-    <section id="one_5" class="main_5">
+  <section class="bannerSection">
+      <h2>클라이언트</h2>
+      <p>리뷰어와 함께 하는 클라이언트들을 소개합니다.</p>
+      <div class="moving1"></div>
+      <div class="moving2"></div>
+      <div class="moving3"></div>
+
+  </section>
+    
+  <section id="one_5" class="main_5">
       <div>
           <div>
               <h2>퍼포먼스 마케팅이 궁금하신가요?<br>
@@ -101,10 +110,10 @@
           </div>
       </div>
   </section>
+
   <div id="map"></div>
   </div>
 </template>
-
 
 <script>
 import BottomBanner from "@/components/Banner/BottomBanner.vue";
@@ -112,6 +121,7 @@ import Check from "@/components/Modal/Check.vue";
 import Slick from "vue-slick";
 import "slick-carousel/slick/slick.css";
 import "../assets/style/import.css";
+
 
 export default {
   name: "Home",
@@ -196,6 +206,8 @@ export default {
     },
   },
 };
+
+
 </script>
 
 
