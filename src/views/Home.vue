@@ -84,7 +84,6 @@
       <div class="moving1"></div>
       <div class="moving2"></div>
       <div class="moving3"></div>
-
   </section>
     
   <section id="one_5" class="main_5">
