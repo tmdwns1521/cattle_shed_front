@@ -19,14 +19,35 @@
             </ul>
           </nav>
         </header>
-        <div>
+        <div> 
           <h2>370만 소상공인을 위한 솔루션</h2>
           <p>매출 상승의 비결!</p>
           <a href="/#one_5">문의하기</a>
+          
         </div>
       </section>
     </div>
 
+    <section class="influence_heart">
+      <h2><mark>인플루언서</mark>를 찾으시나요?</h2>
+      <div class="influence"></div>
+      <a href="/#one_5">비용 및 광고 문의</a>
+      
+
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </section>
     
     <div id="one_1" class="main_2">
         <h2>잘 팔리는 옆가게 <mark> 어떤 마케팅</mark>을 할까?</h2>
@@ -78,6 +99,20 @@
   <div id="one_3" class="blogimgBox">
     <img src="@/assets/images/main_5.png" alt="">
   </div>
+
+  <div class="onlineBox">
+    <h2>온라인 마케팅</h2>
+    <div>
+      <img src="@/assets/images/online-marketing.png" alt="">
+      <span>ONLINE MARKETING</span>
+      <span></span>
+    </div>
+    
+    <div>
+      <p>리뷰어는 고객님들의 작은 소리에도<br>귀를 기울이며 소통할 것입니다.</p>
+      <p>온라인 마케팅은 기업으로부터 확산되는 일방적인 것이 아니라,<br>고객님과의 일방적인 소통이 이루어지는 것 입니다.</p>
+    </div>
+  </div>
     
   <section class="bannerSection">
       <h2>클라이언트</h2>
@@ -121,7 +156,6 @@ import Check from "@/components/Modal/Check.vue";
 import Slick from "vue-slick";
 import "slick-carousel/slick/slick.css";
 import "../assets/style/import.css";
-
 
 export default {
   name: "Home",
