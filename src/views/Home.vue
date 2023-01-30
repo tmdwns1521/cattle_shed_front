@@ -48,7 +48,7 @@
       <div class="heart"></div>
       <div class="heart"></div>
     </section>
-    
+
     <div id="one_1" class="main_2">
         <h2>잘 팔리는 옆가게 <mark> 어떤 마케팅</mark>을 할까?</h2>
         <img src="@/assets/images/main_2.png" alt="마케팅 솔루션 이미지">
