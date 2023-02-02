@@ -8,7 +8,8 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
   </head>
 <body>
@@ -19,40 +20,4 @@
     <!-- built files will be auto injected -->
 
   </body>
-
-
-
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da599293d059bbfb4bb80977e9f645eb"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(37.514243, 126.898605),
-			level: 3
-		};
-
-		var map = new kakao.maps.Map(container, options);
-
-    // 마커가 표시될 위치입니다 
-    var markerPosition  = new kakao.maps.LatLng(37.514243, 126.898605); 
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-    position: markerPosition
-  });
-
-// 마커가 지도 위에 표시되도록 설정합니다
-  marker.setMap(map);
-
-  var iwContent = '<div style="padding:5px;">리뷰어</div>', // <a href="https://map.kakao.com/link/map/오늘부터 마케팅,37.514243,126.898605" target="_blank"></a> 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
-
-  // 인포윈도우를 생성합니다
-  var infowindow = new kakao.maps.InfoWindow({
-      position : iwPosition, 
-      content : iwContent 
-  });
-    
-  // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-  infowindow.open(map, marker);
-	</script>
-
 </html>

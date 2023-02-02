@@ -13,6 +13,8 @@ import Number from "@/views/Number.vue";
 import Email from "@/views/Email.vue";
 import Manus from "@/views/Manus.vue";
 import Login from "@/views/Login.vue";
+import QuestionData from "@/views/QuestionData.vue";
+import UserDB from "@/views/UserDB.vue"
 import Signup from "@/views/Signup.vue";
 import store from "../store";
 
@@ -75,7 +77,20 @@ const routes = [
         name: "Manus",
         component: Manus,
         meta: { requiresAuth: true },
+      },
+      {
+        path: "questionData",
+        name: "QuestionData",
+        component: QuestionData,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: "userDB",
+        name: "UserDB",
+        component: UserDB,
+        meta: { requiresAuth: true },
       }
+      
     ]
   }
 ];

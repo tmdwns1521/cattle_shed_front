@@ -1,5 +1,5 @@
 <template>
-    <section class="ManuSection">
+    <section class="ManuSection" cols="10">
         <ul class="manuTab">
             <li class="tabBtn active" data-tab="manutab1">Form1</li>
             <li class="tabBtn" data-tab="manutab2">Form2</li>

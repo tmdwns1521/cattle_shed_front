@@ -133,22 +133,23 @@
           <div>
               <span>마케팅 효과를 직접 경험하세요!</span> <img src="@/assets/images/don.png">
               <form>
-                  <input type="text" placeholder="이름">
-                  <input type="tel" placeholder="전화번호">
-                  <input type="text" placeholder="업체명">
+                  <input id="name-input" type="text" placeholder="이름">
+                  <input id="tel-input" type="tel" placeholder="전화번호">
+                  <input id="company-input" type="text" placeholder="업체명">
 
                   <input type="checkbox" name="" id="checkbox">
                   <label for="checkbox">개인정보 수집 이용 및 마케팅 활용 전체 동의</label>
 
-                  <input type="button" value="무료상담 신청하기">
+                  <input type="button" value="무료상담 신청하기" @click="submit">
               </form>
           </div>
       </div>
   </section>
 
-  <div id="map"></div>
-  </div>
+   <KaKaoMap />
+   </div>
 </template>
+
 
 <script>
 import BottomBanner from "@/components/Banner/BottomBanner.vue";
@@ -156,10 +157,13 @@ import Check from "@/components/Modal/Check.vue";
 import Slick from "vue-slick";
 import "slick-carousel/slick/slick.css";
 import "../assets/style/import.css";
+import KaKaoMap from "@/components/KaKaoMap.vue"
+
+
 
 export default {
   name: "Home",
-  components: { BottomBanner, Check, Slick },
+  components: { BottomBanner, Check, Slick, KaKaoMap },
   data() {
     return {
       main3: {
@@ -205,22 +209,23 @@ export default {
       window.scrollTo(0, 0);
     },
     async submit() {
+
+      alert("상담 신청이 완료 되었습니다.")
+      (window.location.reload(),2500);
+
+
       const name = document.getElementById('name-input').value;
-      const company = document.getElementById('company-input').value;
-      const place = document.getElementById('place-input').value;
       const tel = document.getElementById('tel-input').value;
+      const company = document.getElementById('company-input').value;
       const data = {
         name,
-        company,
-        place,
-        tel
+        tel,
+        company
       }
       const result = await this.$axios.post(
           "http://49.247.32.231:5000/api/Maketingdbs",
           data
-      );
-      alert("상담 신청이 완료 되었습니다.")
-      location.reload();
+      );  
     },
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;

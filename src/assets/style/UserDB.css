@@ -1,0 +1,66 @@
+.DataSection2{
+    max-width: 1440px; width: 100%; margin: 0 auto; text-align: center;
+}
+.DataSection2 > div h2{
+    margin-bottom: 20px;
+}
+.DataSection2 > div h2 a{
+    font-size: 40px; color: rgb(39, 27, 104); text-decoration: none;
+}
+.DataSection2 table {
+    border-collapse: separate; border-spacing: 0px; border: #c8c8c8;
+    margin-bottom: 50px; display: inline-table; border-top: 2px solid rgb(19, 33, 97);
+}
+.DataSection2 form {
+    width: 100%;
+}
+.DataSection2 table th:not(:first-child),
+.DataSection2 table td:not(:first-child){
+    border-left: 1px solid #fff;
+}
+.DataSection2 table td,th{
+    text-align: center; line-height: 50px; font-size: 20px;
+}
+.DataSection2 table th{
+    width: 155px; background: #acb4d6c8; color: #000; font-weight: normal;
+}
+.DataSection2 table td{
+    width: 155px;
+}
+.DataSection2 table td a{
+    width: 800px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.DataSection2 table tr:nth-child(2n){
+    background-color: #dedef8;
+}
+.DataSection2 table th:nth-child(1),
+.DataSection2 table td:nth-child(1) {
+    width: 4%;
+}
+.DataSection2 table th:nth-child(2),
+.DataSection2 table td:nth-child(2) {
+    width: 10%;
+}
+.DataSection2 table th:nth-child(3),
+.DataSection2 table td:nth-child(3){
+    width: 50%;
+}
+.DataSection2 table th:nth-child(4),
+.DataSection2 table td:nth-child(4){
+    width: 8%;
+}
+.DataSection2 table th:nth-child(5),
+.DataSection2 table td:nth-child(5){
+    width: 5%;
+}
+.DataSection2 table th:nth-child(6),
+.DataSection2 table td:nth-child(6){
+    width: 14%;
+}
+.DataSection2 th, td {
+    padding: 3px 10px;
+} 

@@ -31,6 +31,19 @@
                   <span>원고작성</span>
                 </b-nav-item>
 
+
+                <b-nav-item class="navList"> <span>문의데이터</span>
+                    <ul>
+                      <b-nav-item to="/manage/questionData" :class="path.includes('/questionData') ? 'active' : ''"> <!-- ? v-if="$store.getters.isSuper" 관리자만 볼수 있게 해주는 코드-->
+                         <span>CPA DB</span>
+                      </b-nav-item>
+
+                      <b-nav-item to="/manage/userDB" :class="path.includes('/userDB') ? 'active' : ''">
+                        <span>사용자 DB</span>
+                      </b-nav-item>
+                    </ul>
+                </b-nav-item>
+
                 </b-navbar-nav>
               </nav>
             <b-nav-item-dropdown right v-if="$store.getters.isLogin" class="Azone" style="list-style: none;">
