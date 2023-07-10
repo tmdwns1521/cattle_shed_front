@@ -339,7 +339,6 @@
     }
     .bottomText div:first-child{
         width: 77%; display: flex; justify-content: center; align-items: center;
-        background: url(./../images/bottomBanner.fa9716d9.svg) no-repeat right top;
         line-height: 100px;
     }
     .bottomText div p{
