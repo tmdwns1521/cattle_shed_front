@@ -21,7 +21,7 @@ import Footer from "@/components/Nav/Footer.vue";
 
 export default {
   name: "Management",
-  components: { Header2, Footer }
+  // components: { Header2, Footer }
 };
 </script>
 

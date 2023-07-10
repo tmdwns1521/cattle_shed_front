@@ -2,7 +2,7 @@
   <b-tabs content-class="p-4" no-fade>
     <b-tab title="메인" active>
       <div class="justify-content-between align-items-center mb-3 d-flex">
-        <h2 class="fw-900 m-0">DATA</h2>
+        <h2 class="fw-900 m-0">으뜸농원</h2>
         <b-row class="justify-content-end align-items-center">
           <!-- 달력 검색 -->
           <b-col>
@@ -287,9 +287,9 @@
         </template>
       </b-table>
     </b-tab>
-    <b-tab title="완료">완료</b-tab>
-    <b-tab title="취소">취소</b-tab>
-    <b-tab title="기타상품">기타상품</b-tab>
+<!--    <b-tab title="완료">완료</b-tab>-->
+<!--    <b-tab title="취소">취소</b-tab>-->
+<!--    <b-tab title="기타상품">기타상품</b-tab>-->
   </b-tabs>
 </template>
 
@@ -316,148 +316,76 @@ export default {
           // filterByFormatted: true,
         },
         {
-          key: "ContractNumber",
-          label: "계약번호",
+          key: "entity_identification_number",
+          label: "개체식별번호",
           thClass: "table-secondary",
         },
         {
-          key: "manager",
-          label: "담당자",
+          key: "parent_entity_identification_number",
+          label: "모 개체식별번호",
           thClass: "table-secondary",
         },
         {
-          key: "businessName",
-          label: "상호명",
-          stickyColumn: true,
+          key: "gender",
+          label: "성별",
           thClass: "table-secondary",
         },
         {
-          key: "owner",
-          label: "대표자",
+          key: "month_old",
+          label: "개월령",
           thClass: "table-secondary",
         },
         {
-          key: "contractProduct",
-          label: "계약상품",
+          key: "birth",
+          label: "출생일자",
           thClass: "table-secondary",
         },
         {
-          key: "trafficDataTodayCount",
-          label: "실시간트래픽",
+          key: "report_date",
+          label: "신고일자",
           thClass: "table-secondary",
         },
         {
-          key: "Design",
-          label: "디자인",
+          key: "scheduled_modification_date",
+          label: "수정예정일",
           thClass: "table-secondary",
         },
         {
-          key: "Traffic",
-          label: "트래픽",
+          key: "modification_date",
+          label: "수정일자",
           thClass: "table-secondary",
         },
         {
-          key: "AmountOfPayment",
-          label: "결제금액",
+          key: "appraise",
+          label: "감정",
           thClass: "table-secondary",
         },
         {
-          key: "Approved",
-          label: "확인",
+          key: "scheduled_delivery_day",
+          label: "분만예정일",
           thClass: "table-secondary",
         },
         {
-          key: "phone",
-          label: "연락처",
+          key: "delivery_day",
+          label: "분만일자",
           thClass: "table-secondary",
         },
         {
-          key: "CompanyNumber",
-          label: "사업자등록번호",
+          key: "status",
+          label: "상태",
           thClass: "table-secondary",
         },
         {
-          key: "email",
-          label: "이메일",
+          key: "speed_dial",
+          label: "비고(단축번호)",
           thClass: "table-secondary",
         },
         {
-          key: "address",
-          label: "주소",
+          key: "id",
+          // isRowHeader: true,
+          // sortable: true,
           thClass: "table-secondary",
-        },
-        {
-          key: "url",
-          label: "URL",
-          thClass: "table-secondary",
-        },
-        {
-          key: "blogId",
-          label: "아이디",
-          thClass: "table-secondary",
-        },
-        {
-          key: "blogPW",
-          label: "비밀번호",
-          thClass: "table-secondary",
-        },
-
-        {
-          key: "trafficDataCreated",
-          label: "시작일",
-          thClass: "table-secondary",
-        },
-
-        {
-          key: "Term",
-          label: "계약기간",
-          thClass: "table-secondary",
-        },
-        {
-          key: "trafficDataExpiration",
-          label: "종료일",
-          thClass: "table-secondary",
-        },
-        {
-          key: "cardData.creditCardCompany",
-          label: "카드사/이체은행",
-          thClass: "table-secondary",
-        },
-        {
-          key: "cardData.cardholder",
-          label: "카드소유자/입금자명",
-          thClass: "table-secondary",
-        },
-
-        {
-          key: "cardData.creditCardNumber",
-          label: "카드번호",
-          thClass: "table-secondary",
-        },
-        {
-          key: "cardData.CardValidityPeriod",
-          label: "카드유효기간",
-          thClass: "table-secondary",
-        },
-        {
-          key: "ApprovalNumber",
-          label: "카드승인번호",
-          thClass: "table-secondary",
-        },
-        {
-          key: "installmentMonth",
-          label: "할부개월",
-          thClass: "table-secondary",
-        },
-        {
-          key: "payDate",
-          label: "결제일",
-          thClass: "table-secondary",
-        },
-        {
-          key: "Note",
-          label: "비고",
-          thClass: "table-secondary",
+        // filterByFormatted: true,
         },
       ],
       filter: "",
@@ -479,7 +407,6 @@ export default {
         "http://49.247.32.231:5000/api/MonthsalesData",
         { month: this.date.monthIndex }
       );
-      console.log(data);
 
       this.$emit("onMonthsalesData", data);
     },
