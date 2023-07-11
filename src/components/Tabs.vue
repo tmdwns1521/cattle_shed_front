@@ -403,11 +403,6 @@ export default {
       this.date = date;
       this.selectedDate = this.date.year + "년 " + this.date.month;
 
-      const data = await this.$axios.post(
-        "http://49.247.32.231:5000/api/MonthsalesData",
-        { month: this.date.monthIndex }
-      );
-
       this.$emit("onMonthsalesData", data);
     },
     getSalesData() {

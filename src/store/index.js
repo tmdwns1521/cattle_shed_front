@@ -74,18 +74,6 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async getreadyNumber({ commit }) {
-      const datas = await axios.get("http://49.247.32.231:5000/api/ReadyIds");
-      commit('setreadyNumber', datas);
-    },
-    async getonNumber({ commit }) {
-      const datas = await axios.get("http://49.247.32.231:5000/api/NumberOn");
-      commit('setonNumber', datas);
-    },
-    async getfinishIds({ commit }) {
-      const datas = await axios.get("http://49.247.32.231:5000/api/FinishIds");
-      commit('setfinishIds', datas);
-    },
     setToken: ({ commit }, _token) => {
       commit("setToken", _token);
     },
