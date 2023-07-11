@@ -474,7 +474,7 @@ export default {
             // console.log(item);
             // const data =
             this.$axios
-              .delete("http://49.247.35.197:3001/api/deleteData", {
+              .delete("http://49.247.39.78:3001/api/deleteData", {
                 data: { id: item },
                 headers: {},
               })
@@ -529,7 +529,7 @@ export default {
         appraise,
         delivery_day,
       }
-      await this.$axios.post('http://49.247.35.197:3001/api/createNew', data);
+      await this.$axios.post('http://49.247.39.78:3001/api/createNew', data);
       // console.log(createNew);
       location.reload();
     },
@@ -576,7 +576,7 @@ export default {
         appraise,
         delivery_day,
       }
-      await this.$axios.post('http://49.247.35.197:3001/api/updateNew', data);
+      await this.$axios.post('http://49.247.39.78:3001/api/updateNew', data);
       location.reload();
       this.updateTag = false;
     },
@@ -632,13 +632,13 @@ export default {
     },
     async getCurrentMonthsalesData() {
       const data = await this.$axios.get(
-        "http://49.247.35.197:3001/api/getCattleShed"
+        "http://49.247.39.78:3001/api/getCattleShed"
       );
       this.onList(data);
     },
     async getSalesData() {
       const data = await this.$axios.get(
-        "http://49.247.35.197:3001/api/getCattleShed"
+        "http://49.247.39.78:3001/api/getCattleShed"
       );
       // console.log(data.data);
       this.onList(data);
