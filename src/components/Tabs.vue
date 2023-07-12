@@ -319,16 +319,6 @@ export default {
           thClass: "table-secondary",
         },
         {
-          key: "status",
-          label: "상태",
-          thClass: "table-secondary",
-        },
-        {
-          key: "speed_dial",
-          label: "비고(단축번호)",
-          thClass: "table-secondary",
-        },
-        {
           key: "id",
           // isRowHeader: true,
           // sortable: true,

@@ -635,10 +635,8 @@ export default {
         const birth_year = parseInt(e.month_old / 12);
         const birth_month = e.month_old % 12;
         e.month_old = `${birth_year}년 ${birth_month}개월`
-        e.status = '사육';
         e.gender = e.gender === 'female' ? '암' : '수';
         e.appraise = e.appraise === "false" ? 'X' : 'O';
-        e.speed_dial = e.entity_identification_number.split(' ')[2];
       })
       this.allCow = data.data.length;
       const datas = data.data;
