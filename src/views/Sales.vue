@@ -137,28 +137,6 @@
                 </b-td>
               </b-tr>
               <b-tr>
-                <b-th>출생일자</b-th>
-                <b-td>
-                  <template v-if="!addTag">
-                    <b-form-input
-                      v-if="isEmpty(currentData)"
-                      disabled
-                      :value="empty"
-                      @keyup="birthFormated()"
-                    ></b-form-input>
-                    <b-form-input
-                      v-else
-                      :disabled="!updateTag"
-                      v-model="currentData.birth"
-                      @keyup="birthFormated()"
-                    ></b-form-input>
-                  </template>
-                  <template v-else>
-                    <b-form-input
-                      v-model="newData.birth"
-                      @keyup="birthFormated()"
-                    ></b-form-input> </template
-                ></b-td>
                 <b-th>수정일자</b-th>
                 <b-td>
                   <template v-if="!addTag">
@@ -200,8 +178,50 @@
                     ></b-form-input>
                   </template>
                 </b-td>
+                <b-th>차수</b-th>
+                <b-td>
+                  <template v-if="!addTag">
+                    <b-form-input
+                      v-if="isEmpty(currentData)"
+                      disabled
+                      :value="empty"
+                    ></b-form-input>
+                    <b-form-input
+                      v-else
+                      :disabled="!updateTag"
+                      v-model="currentData.attempts_num"
+                    ></b-form-input>
+                  </template>
+                  <template v-else>
+                    <b-form-input
+                      v-model="newData.attempts_num"
+                    ></b-form-input>
+                  </template>
+                </b-td>
               </b-tr>
               <b-tr>
+                <b-th>출생일자</b-th>
+                <b-td>
+                  <template v-if="!addTag">
+                    <b-form-input
+                      v-if="isEmpty(currentData)"
+                      disabled
+                      :value="empty"
+                      @keyup="birthFormated()"
+                    ></b-form-input>
+                    <b-form-input
+                      v-else
+                      :disabled="!updateTag"
+                      v-model="currentData.birth"
+                      @keyup="birthFormated()"
+                    ></b-form-input>
+                  </template>
+                  <template v-else>
+                    <b-form-input
+                      v-model="newData.birth"
+                      @keyup="birthFormated()"
+                    ></b-form-input> </template
+                ></b-td>
                 <b-th>분만일자</b-th>
                 <b-td>
                   <template v-if="!addTag">
@@ -384,6 +404,7 @@ export default {
         appraise: '',
         delivery_day: '',
         semen_num: '',
+        attempts_num: ''
       },
       paymentType: "card",
       appraiseType: false,
@@ -538,6 +559,7 @@ export default {
       let mo_father_number;
       let father_number;
       let semen_num;
+      let attempts_num;
       const entity_identification_number = this.newData.entity_identification_number;
       const parent_entity_identification_number = this.newData.parent_entity_identification_number;
       if (this.newData.semen_num) {
@@ -564,6 +586,9 @@ export default {
       if (this.genderType) {
         gender = this.genderType;
       }
+      if (this.newData.attempts_num) {
+        attempts_num = this.newData.attempts_num;
+      }
       const data = {
         entity_identification_number,
         gender,
@@ -574,7 +599,8 @@ export default {
         delivery_day,
         father_number,
         mo_father_number,
-        semen_num
+        semen_num,
+        attempts_num
       }
       await this.$axios.post('http://49.247.39.189:5000/api/createNew', data);
       // console.log(createNew);
@@ -594,6 +620,7 @@ export default {
       let mo_father_number;
       let father_number;
       let semen_num;
+      let attempts_num;
       const entity_identification_number = this.currentData.entity_identification_number;
       const parent_entity_identification_number = this.currentData.parent_entity_identification_number;
       if (this.currentData.semen_num) {
@@ -620,6 +647,9 @@ export default {
       if (this.currentData.gender) {
         gender = this.genderType;
       }
+      if (this.currentData.attempts_num) {
+        attempts_num = this.currentData.attempts_num;
+      }
       const data = {
         id: this.currentData.id,
         entity_identification_number,
@@ -631,7 +661,8 @@ export default {
         delivery_day,
         father_number,
         mo_father_number,
-        semen_num
+        semen_num,
+        attempts_num
       }
       await this.$axios.post('http://49.247.39.189:5000/api/updateNew', data);
       await this.updatedData(data);
@@ -658,6 +689,7 @@ export default {
           e.father_number = data.father_number;
           e.mo_father_number = data.mo_father_number;
           e.semen_num = data.semen_num;
+          e.attempts_num = data.attempts_num;
         }
       })
     },

@@ -313,9 +313,14 @@ export default {
           label: "수정일자",
           thClass: "table-secondary",
         },
-          {
+        {
           key: "semen_num",
           label: "정액번호",
+          thClass: "table-secondary",
+        },
+        {
+          key: "attempts_num",
+          label: "차수",
           thClass: "table-secondary",
         },
         {
