@@ -180,6 +180,26 @@
                     ></b-form-input>
                   </template>
                 </b-td>
+                <b-th>정액번호</b-th>
+                <b-td>
+                  <template v-if="!addTag">
+                    <b-form-input
+                      v-if="isEmpty(currentData)"
+                      disabled
+                      :value="empty"
+                    ></b-form-input>
+                    <b-form-input
+                      v-else
+                      :disabled="!updateTag"
+                      v-model="currentData.semen_num"
+                    ></b-form-input>
+                  </template>
+                  <template v-else>
+                    <b-form-input
+                      v-model="newData.semen_num"
+                    ></b-form-input>
+                  </template>
+                </b-td>
               </b-tr>
               <b-tr>
                 <b-th>분만일자</b-th>
@@ -234,6 +254,49 @@
                         >X</b-form-select-option
                       ></b-form-select
                     >
+                  </template>
+                </b-td>
+
+              </b-tr>
+              <b-tr>
+                <b-th>개체 아비번호</b-th>
+                <b-td>
+                  <template v-if="!addTag">
+                    <b-form-input
+                      v-if="isEmpty(currentData)"
+                      disabled
+                      :value="empty"
+                    ></b-form-input>
+                    <b-form-input
+                      v-else
+                      :disabled="!updateTag"
+                      v-model="currentData.father_number"
+                    ></b-form-input>
+                  </template>
+                  <template v-else>
+                    <b-form-input
+                      v-model="newData.father_number"
+                    ></b-form-input>
+                  </template>
+                </b-td>
+                <b-th>모 개체 아비번호</b-th>
+                <b-td>
+                  <template v-if="!addTag">
+                    <b-form-input
+                      v-if="isEmpty(currentData)"
+                      disabled
+                      :value="empty"
+                    ></b-form-input>
+                    <b-form-input
+                      v-else
+                      :disabled="!updateTag"
+                      v-model="currentData.mo_father_number"
+                    ></b-form-input>
+                  </template>
+                  <template v-else>
+                    <b-form-input
+                      v-model="newData.mo_father_number"
+                    ></b-form-input>
                   </template>
                 </b-td>
               </b-tr>
@@ -316,8 +379,11 @@ export default {
         parent_entity_identification_number: '',
         birth: '',
         modification_date: '',
+        mo_father_number: '',
+        father_number: '',
         appraise: '',
         delivery_day: '',
+        semen_num: '',
       },
       paymentType: "card",
       appraiseType: false,
@@ -396,24 +462,33 @@ export default {
       this.currentData.birth = date.toISOString().split('T')[0];
     },
     oninput_entity_identification_number() {
-      const EIN = this.newData.entity_identification_number
+      if (this.newData.entity_identification_number && this.newData.entity_identification_number.length === 12){
+        const EIN = this.newData.entity_identification_number
             .replace(/[^0-9]/g, '')
             .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
-      const EINV = this.currentData.entity_identification_number
+        this.newData.entity_identification_number = EIN;
+      }
+      if (this.currentData.entity_identification_number && this.currentData.entity_identification_number.length === 12) {
+        const EINV = this.currentData.entity_identification_number
             .replace(/[^0-9]/g, '')
             .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
-      this.newData.entity_identification_number = EIN;
-      this.currentData.entity_identification_number = EINV;
+        this.currentData.entity_identification_number = EINV;
+      }
     },
     oninput_parent_entity_identification_number() {
-      const PEIN = this.newData.parent_entity_identification_number
-        .replace(/[^0-9]/g, '')
-        .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
-      const PEINV = this.currentData.parent_entity_identification_number
-        .replace(/[^0-9]/g, '')
-        .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
-      this.newData.parent_entity_identification_number = PEIN
-      this.currentData.parent_entity_identification_number = PEINV
+      if (this.newData.parent_entity_identification_number && this.newData.parent_entity_identification_number.length === 12) {
+        const PEIN = this.newData.parent_entity_identification_number
+            .replace(/[^0-9]/g, '')
+            .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
+        this.newData.parent_entity_identification_number = PEIN
+      }
+      if (this.newData.parent_entity_identification_number && this.currentData.parent_entity_identification_number.length === 12) {
+        const PEINV = this.currentData.parent_entity_identification_number
+            .replace(/[^0-9]/g, '')
+            .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
+
+        this.currentData.parent_entity_identification_number = PEINV
+      }
     },
     // 삭제
     async deleteData(item) {
@@ -460,13 +535,25 @@ export default {
       let appraise;
       let gender;
       let delivery_day;
+      let mo_father_number;
+      let father_number;
+      let semen_num;
       const entity_identification_number = this.newData.entity_identification_number;
       const parent_entity_identification_number = this.newData.parent_entity_identification_number;
+      if (this.newData.semen_num) {
+        semen_num = this.newData.semen_num;
+      }
       if (this.newData.birth) {
         birth = this.newData.birth;
       }
       if (this.newData.modification_date) {
         modification_date = this.newData.modification_date;
+      }
+      if (this.mo_father_number) {
+        mo_father_number = this.newData.mo_father_number;
+      }
+      if (this.father_number) {
+        mo_father_number = this.newData.father_number;
       }
       if (this.newData.delivery_day) {
         delivery_day = this.newData.delivery_day;
@@ -485,6 +572,9 @@ export default {
         modification_date,
         appraise,
         delivery_day,
+        father_number,
+        mo_father_number,
+        semen_num
       }
       await this.$axios.post('http://49.247.39.189:5000/api/createNew', data);
       // console.log(createNew);
@@ -501,8 +591,14 @@ export default {
       let appraise;
       let gender;
       let delivery_day;
+      let mo_father_number;
+      let father_number;
+      let semen_num;
       const entity_identification_number = this.currentData.entity_identification_number;
       const parent_entity_identification_number = this.currentData.parent_entity_identification_number;
+      if (this.currentData.semen_num) {
+        semen_num = this.currentData.semen_num;
+      }
       if (this.currentData.birth) {
         birth = this.currentData.birth;
       }
@@ -511,6 +607,12 @@ export default {
       }
       if (this.currentData.delivery_day) {
         delivery_day = this.currentData.delivery_day;
+      }
+      if (this.mo_father_number) {
+        mo_father_number = this.currentData.mo_father_number;
+      }
+      if (this.father_number) {
+        mo_father_number = this.currentData.father_number;
       }
       if (this.currentData.appraise) {
         appraise = this.appraiseType;
@@ -527,6 +629,9 @@ export default {
         modification_date,
         appraise,
         delivery_day,
+        father_number,
+        mo_father_number,
+        semen_num
       }
       await this.$axios.post('http://49.247.39.189:5000/api/updateNew', data);
       location.reload();

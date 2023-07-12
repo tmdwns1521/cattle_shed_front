@@ -1,5 +1,5 @@
 <template>
-  <b-tabs content-class="p-4" no-fade>
+  <b-tabs content-class="p-2" no-fade>
     <b-tab title="메인" active>
       <div class="justify-content-between align-items-center mb-3 d-flex">
         <h2 class="fw-900 m-0">으뜸농원</h2>
@@ -274,8 +274,18 @@ export default {
           thClass: "table-secondary",
         },
         {
+          key: "father_number",
+          label: "아비번호",
+          thClass: "table-secondary",
+        },
+        {
           key: "parent_entity_identification_number",
           label: "모 개체식별번호",
+          thClass: "table-secondary",
+        },
+        {
+          key: "mo_father_number",
+          label: "모 아비번호",
           thClass: "table-secondary",
         },
         {
@@ -301,6 +311,11 @@ export default {
         {
           key: "modification_date",
           label: "수정일자",
+          thClass: "table-secondary",
+        },
+          {
+          key: "semen_num",
+          label: "정액번호",
           thClass: "table-secondary",
         },
         {
