@@ -634,8 +634,32 @@ export default {
         semen_num
       }
       await this.$axios.post('http://49.247.39.189:5000/api/updateNew', data);
-      location.reload();
+      await this.updatedData(data);
       this.updateTag = false;
+    },
+    async updatedData(data) {
+      this.salesItems.map((e) => {
+        if (e.id === data.id) {
+          e.entity_identification_number = data.entity_identification_number;
+          if (data.gender === 'female') {
+            e.gender = '암';
+          } else {
+            e.gender = '수';
+          }
+          e.parent_entity_identification_number = data.parent_entity_identification_number;
+          e.birth = data.birth;
+          e.modification_date = data.modification_date;
+          if (data.appraise === 'true') {
+            e.appraise = 'O';
+          } else {
+            e.appraise = 'X';
+          }
+          e.delivery_day = data.delivery_day;
+          e.father_number = data.father_number;
+          e.mo_father_number = data.mo_father_number;
+          e.semen_num = data.semen_num;
+        }
+      })
     },
     // 수정 취소
     updateCancel() {
@@ -707,6 +731,7 @@ export default {
     },
 
     onList(data) {
+      console.log(data);
       data.data.forEach(e => {
         if (e.gender === 'male') {
           this.maleCow += 1
