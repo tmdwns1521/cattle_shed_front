@@ -159,28 +159,6 @@
                       @keyup="birthFormated()"
                     ></b-form-input> </template
                 ></b-td>
-                <b-th>신고일자</b-th>
-                <b-td>
-                  <template v-if="!addTag">
-                    <b-form-input
-                      v-if="isEmpty(currentData)"
-                      disabled
-                      :value="empty"
-                      @keyup="reportFormated()"
-                    ></b-form-input>
-                    <b-form-input
-                      v-else
-                      :disabled="!updateTag"
-                      v-model="currentData.report_date"
-                      @keyup="reportFormated()"
-                    ></b-form-input>
-                  </template>
-                  <template v-else>
-                    <b-form-input
-                      v-model="newData.report_date"
-                      @keyup="reportFormated()"
-                    ></b-form-input> </template
-                ></b-td>
                 <b-th>수정일자</b-th>
                 <b-td>
                   <template v-if="!addTag">
@@ -337,7 +315,6 @@ export default {
         gender: '',
         parent_entity_identification_number: '',
         birth: '',
-        report_date: '',
         modification_date: '',
         appraise: '',
         delivery_day: '',
@@ -396,27 +373,6 @@ export default {
       // Format the date as a string in the desired format
       this.newData.modification_date = date.toISOString().split('T')[0];
       this.currentData.modification_date = date.toISOString().split('T')[0];
-    },
-    reportFormated() {
-      if (this.newData.report_date.length !== 8 && this.currentData.report_date !== '' ) return false;
-      const yearA = this.newData.report_date.substring(0, 4);
-      const monthA = this.newData.report_date.substring(4, 6);
-      const dayA = this.newData.report_date.substring(6, 8);
-
-      // 날짜 형식 변경
-      const dateData = `${yearA}.${monthA}.${dayA}`;
-      const parts = dateData.split('.').map(part => part.trim());
-      const year = parts[0];
-      const month = parts[1];
-      const day = parts[2];
-
-      // Create a new Date object with the parsed values
-      const date = new Date(`${year}-${month}-${day} 00:00:00`);
-      date.setDate(date.getDate() + 1);
-
-      // Format the date as a string in the desired format
-      this.newData.report_date = date.toISOString().split('T')[0];
-      this.currentData.report_date = date.toISOString().split('T')[0];
     },
     birthFormated() {
       if (this.newData.birth.length !== 8) return false;
@@ -484,7 +440,7 @@ export default {
                   window.alert("삭제 권한 없음");
                 } else {
                   window.alert("삭제 완료");
-                  this.getSalesData();
+                  window.location.reload();
                 }
               });
             // console.log(data);
@@ -494,7 +450,6 @@ export default {
     // 신규등록 완료
     async addData() {
       let birth;
-      let report_date;
       let modification_date;
       let appraise;
       let gender;
@@ -506,9 +461,6 @@ export default {
       }
       if (this.newData.modification_date) {
         modification_date = this.newData.modification_date;
-      }
-      if (this.newData.report_date) {
-        report_date = this.newData.report_date;
       }
       if (this.newData.delivery_day) {
         delivery_day = this.newData.delivery_day;
@@ -524,7 +476,6 @@ export default {
         gender,
         parent_entity_identification_number,
         birth,
-        report_date,
         modification_date,
         appraise,
         delivery_day,
@@ -540,7 +491,6 @@ export default {
     // 수정 완료
     async updateData() {
       let birth;
-      let report_date;
       let modification_date;
       let appraise;
       let gender;
@@ -552,9 +502,6 @@ export default {
       }
       if (this.currentData.modification_date) {
         modification_date = this.currentData.modification_date;
-      }
-      if (this.currentData.report_date) {
-        report_date = this.currentData.report_date;
       }
       if (this.currentData.delivery_day) {
         delivery_day = this.currentData.delivery_day;
@@ -571,7 +518,6 @@ export default {
         gender,
         parent_entity_identification_number,
         birth,
-        report_date,
         modification_date,
         appraise,
         delivery_day,
@@ -662,7 +608,6 @@ export default {
         const diffMSec = dateB.getTime() - dateA.getTime();
         const diffDate = Math.round((diffMSec / (24 * 60 * 60 * 1000)) / 30);
         e.birth = String(e.birth).split(' ')[0];
-        e.report_date = String(e.report_date).split(' ')[0];
         if (e.modification_date !== null) {
           e.modification_date = String(e.modification_date).split(' ')[0];
         }
