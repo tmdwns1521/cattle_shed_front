@@ -1,6 +1,6 @@
 <template>
   <b-tabs content-class="p-2" no-fade>
-    <b-tab title="메인" active>
+<!--    <b-tab title="메인" active>-->
       <div class="justify-content-between align-items-center mb-3 d-flex">
         <h2 class="fw-900 m-0">으뜸농원</h2>
         <b-row class="justify-content-end align-items-center">
@@ -239,7 +239,7 @@
           </span>
         </template>
       </b-table>
-    </b-tab>
+<!--    </b-tab>-->
 <!--    <b-tab title="완료">완료</b-tab>-->
 <!--    <b-tab title="취소">취소</b-tab>-->
 <!--    <b-tab title="기타상품">기타상품</b-tab>-->
