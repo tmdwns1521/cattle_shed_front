@@ -553,7 +553,7 @@ export default {
         mo_father_number = this.newData.mo_father_number;
       }
       if (this.father_number) {
-        mo_father_number = this.newData.father_number;
+        father_number = this.newData.father_number;
       }
       if (this.newData.delivery_day) {
         delivery_day = this.newData.delivery_day;
@@ -612,7 +612,7 @@ export default {
         mo_father_number = this.currentData.mo_father_number;
       }
       if (this.father_number) {
-        mo_father_number = this.currentData.father_number;
+        father_number = this.currentData.father_number;
       }
       if (this.currentData.appraise) {
         appraise = this.appraiseType;
