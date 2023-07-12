@@ -763,7 +763,6 @@ export default {
     },
 
     onList(data) {
-      console.log(data);
       data.data.forEach(e => {
         if (e.gender === 'male') {
           this.maleCow += 1
@@ -783,14 +782,12 @@ export default {
           const modification_date = new Date(e.modification_date);
           modification_date.setMonth(modification_date.getMonth() + 9);
           modification_date.setDate(modification_date.getDate() + 10);
-          console.log(modification_date);
           e.scheduled_delivery_day = modification_date.toLocaleDateString();
         }
         if (e.delivery_day !== null){
           e.delivery_day = String(e.delivery_day).split(' ')[0];
           const delivery_day = new Date(e.delivery_day);
           delivery_day.setDate(delivery_day.getDate() + 45);
-          console.log(delivery_day);
           e.scheduled_modification_date = delivery_day.toLocaleDateString();
         }
         e.month_old = diffDate + 1;
