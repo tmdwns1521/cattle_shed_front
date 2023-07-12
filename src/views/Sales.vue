@@ -399,15 +399,21 @@ export default {
       const EIN = this.newData.entity_identification_number
             .replace(/[^0-9]/g, '')
             .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
+      const EINV = this.currentData.entity_identification_number
+            .replace(/[^0-9]/g, '')
+            .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
       this.newData.entity_identification_number = EIN;
-      this.currentData.entity_identification_number = EIN;
+      this.currentData.entity_identification_number = EINV;
     },
     oninput_parent_entity_identification_number() {
       const PEIN = this.newData.parent_entity_identification_number
         .replace(/[^0-9]/g, '')
         .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
+      const PEINV = this.currentData.parent_entity_identification_number
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{3})(\d{4})(\d{4})(\d{1})$/, `$1 $2 $3 $4`);
       this.newData.parent_entity_identification_number = PEIN
-      this.currentData.parent_entity_identification_number = PEIN
+      this.currentData.parent_entity_identification_number = PEINV
     },
     // 삭제
     async deleteData(item) {
