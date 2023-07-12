@@ -549,10 +549,10 @@ export default {
       if (this.newData.modification_date) {
         modification_date = this.newData.modification_date;
       }
-      if (this.mo_father_number) {
+      if (this.newData.mo_father_number) {
         mo_father_number = this.newData.mo_father_number;
       }
-      if (this.father_number) {
+      if (this.newData.father_number) {
         father_number = this.newData.father_number;
       }
       if (this.newData.delivery_day) {
@@ -608,10 +608,10 @@ export default {
       if (this.currentData.delivery_day) {
         delivery_day = this.currentData.delivery_day;
       }
-      if (this.mo_father_number) {
+      if (this.currentData.mo_father_number) {
         mo_father_number = this.currentData.mo_father_number;
       }
-      if (this.father_number) {
+      if (this.currentData.father_number) {
         father_number = this.currentData.father_number;
       }
       if (this.currentData.appraise) {
