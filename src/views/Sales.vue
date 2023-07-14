@@ -791,9 +791,9 @@ export default {
           e.scheduled_modification_date = delivery_day.toLocaleDateString();
         }
         e.month_old = diffDate + 1;
-        const birth_year = parseInt(e.month_old / 12);
-        const birth_month = e.month_old % 12;
-        e.month_old = `${birth_year}년 ${birth_month}개월`
+        // const birth_year = parseInt(e.month_old / 12);
+        // const birth_month = e.month_old % 12;
+        // e.month_old = `${birth_year}년 ${birth_month}개월`
         e.gender = e.gender === 'female' ? '암' : '수';
         e.appraise = e.appraise === "false" ? 'X' : 'O';
       })
