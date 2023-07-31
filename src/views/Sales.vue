@@ -377,6 +377,7 @@
       :ModificationRequired="ModificationRequired"
       :thisMonthModification="thisMonthModification"
       :thisMonthDelivery="thisMonthDelivery"
+      :NotAppraise="NotAppraise"
     />
   </div>
 </template>
@@ -394,6 +395,7 @@ export default {
       ModificationRequired: [],
       thisMonthModification: [],
       thisMonthDelivery: [],
+      NotAppraise: [],
       currentData: {},
       cachedData: {},
       femaleCow: 0,
@@ -788,6 +790,10 @@ export default {
       const parts = str.split(".");
       return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
     },
+    parseDateminus(str) {
+      const parts = str.split("-");
+      return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    },
     onList(data) {
       data.data.forEach(e => {
         if (e.gender === 'male') {
@@ -839,10 +845,14 @@ export default {
             this.thisMonthDelivery.push([entity, Month_old, ScheduleDate])
           }
         }
-        // console.log(e.scheduled_delivery_day);
+        // NotAppraise
+        if (e.modification_date !== null && e.appraise === 'X') {
+          this.NotAppraise.push([entity, Month_old, e.modification_date])
+        }
       })
       this.thisMonthModification.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
       this.thisMonthDelivery.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
+      this.NotAppraise.sort((a, b) => this.parseDateminus(a[2]).getTime() - this.parseDateminus(b[2]).getTime());
       this.allCow = data.data.length;
       const datas = data.data;
       const dataList = [];

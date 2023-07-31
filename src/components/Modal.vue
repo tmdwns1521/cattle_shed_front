@@ -26,6 +26,16 @@
         </ul>
       </div>
 
+      <!-- NotAppraise 데이터 -->
+      <div class="data-container">
+        <h3>감정미확인</h3>
+        <ul>
+          <li v-for="item in NotAppraise" :key="item[0]">
+            개체번호: {{ item[0] }} / 예정일: {{ item[2] }}
+          </li>
+        </ul>
+      </div>
+
       <!-- thisMonthDelivery 데이터 -->
       <div class="data-container">
         <h3>이번달 출산예정일</h3>
@@ -43,7 +53,7 @@
 <script>
 export default {
   name: "Modal",
-  props: ["ModificationRequired", "thisMonthModification", "thisMonthDelivery"],
+  props: ["ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise"],
   data() {
     return {
       isOpen: false, // 모달의 초기 상태는 닫혀있음

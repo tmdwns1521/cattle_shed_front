@@ -8,6 +8,7 @@
           :ModificationRequired="ModificationRequired"
           :thisMonthModification="thisMonthModification"
           :thisMonthDelivery="thisMonthDelivery"
+          :NotAppraise="NotAppraise"
         />
         <b-row class="justify-content-end align-items-center">
           <!-- 달력 검색 -->
@@ -258,7 +259,7 @@ import Modal from "@/components/Modal.vue";
 
 export default {
   name: "Tabs",
-  props: ["currentData", "salesItems", "orderItems", "numberItems", "ModificationRequired", "thisMonthModification", "thisMonthDelivery"],
+  props: ["currentData", "salesItems", "orderItems", "numberItems", "ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise"],
   components: {
     MonthPicker,
     Modal
