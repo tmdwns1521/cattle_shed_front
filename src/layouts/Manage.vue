@@ -15,8 +15,8 @@
 </template>
 
 <script>
+// eslint-disable-next-line no-unused-vars
 import Header2 from "@/components/Nav/Header2.vue";
-import Footer from "@/components/Nav/Footer.vue";
 
 
 export default {

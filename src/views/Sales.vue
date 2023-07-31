@@ -374,13 +374,16 @@
       @getCurrentMonthsalesData="getCurrentMonthsalesData"
       @getSalesData="getSalesData"
       :salesItems="salesItems"
+      :ModificationRequired="ModificationRequired"
+      :thisMonthModification="thisMonthModification"
+      :thisMonthDelivery="thisMonthDelivery"
     />
   </div>
 </template>
 
 <script>
 import Tabs from "@/components/Tabs.vue";
-import itmes from "core-js/stable/dom-collections";
+
 export default {
   name: "Sales",
   components: { Tabs },
@@ -388,6 +391,9 @@ export default {
     return {
       id: '',
       salesItems: null,
+      ModificationRequired: [],
+      thisMonthModification: [],
+      thisMonthDelivery: [],
       currentData: {},
       cachedData: {},
       femaleCow: 0,
@@ -419,6 +425,23 @@ export default {
     };
   },
   methods: {
+    isDateInCurrentMonth(dateString) {
+      console.log(dateString);
+      // 주어진 날짜 문자열에서 마침표를 제거하고 "YYYY-MM-DD" 형식으로 변환
+      const cleanedDateString = dateString.replace(/\./g, '-');
+
+      // 주어진 날짜 문자열을 Date 객체로 변환
+      const date = new Date(cleanedDateString);
+
+      // 현재 날짜 정보 가져오기
+      const currentDate = new Date();
+
+      // 주어진 날짜의 년도와 월이 현재 날짜의 년도와 월과 일치하는지 확인
+      return (
+        date.getFullYear() === currentDate.getFullYear() &&
+        date.getMonth() === currentDate.getMonth()
+      );
+    },
     delivery_day_Formated() {
       if (this.newData.delivery_day.length !== 8) return false;
       const yearA = this.newData.delivery_day.substring(0, 4);
@@ -761,7 +784,10 @@ export default {
       // console.log("onMonthsalesData", data);
       this.onList(data);
     },
-
+    parseDate(str) {
+      const parts = str.split(".");
+      return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    },
     onList(data) {
       data.data.forEach(e => {
         if (e.gender === 'male') {
@@ -796,7 +822,27 @@ export default {
         // e.month_old = `${birth_year}년 ${birth_month}개월`
         e.gender = e.gender === 'female' ? '암' : '수';
         e.appraise = e.appraise === "false" ? 'X' : 'O';
+        const entity = (e.entity_identification_number);
+        const Month_old = (e.month_old);
+        const ModificationDate = e.scheduled_modification_date;
+        const ScheduleDate = e.scheduled_delivery_day;
+        if (e.gender === '암' && Month_old >= 13 && e.modification_date === null) {
+          this.ModificationRequired.push([entity, Month_old]);
+        }
+        if (e.scheduled_modification_date !== undefined) {
+          if (this.isDateInCurrentMonth(e.scheduled_modification_date)) {
+            this.thisMonthModification.push([entity, Month_old, ModificationDate])
+          }
+        }
+        if (e.scheduled_delivery_day !== undefined) {
+          if (this.isDateInCurrentMonth(e.scheduled_delivery_day)) {
+            this.thisMonthDelivery.push([entity, Month_old, ScheduleDate])
+          }
+        }
+        // console.log(e.scheduled_delivery_day);
       })
+      this.thisMonthModification.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
+      this.thisMonthDelivery.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
       this.allCow = data.data.length;
       const datas = data.data;
       const dataList = [];

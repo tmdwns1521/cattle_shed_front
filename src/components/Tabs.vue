@@ -3,6 +3,12 @@
 <!--    <b-tab title="메인" active>-->
       <div class="justify-content-between align-items-center mb-3 d-flex">
         <h2 class="fw-900 m-0">으뜸농원</h2>
+        <b-button @click="openModal" style="margin-left: -500px">이번달현황</b-button>
+        <Modal ref="modalRef"
+          :ModificationRequired="ModificationRequired"
+          :thisMonthModification="thisMonthModification"
+          :thisMonthDelivery="thisMonthDelivery"
+        />
         <b-row class="justify-content-end align-items-center">
           <!-- 달력 검색 -->
           <b-col>
@@ -248,12 +254,14 @@
 
 <script>
 import { MonthPicker } from "vue-month-picker";
+import Modal from "@/components/Modal.vue";
 
 export default {
   name: "Tabs",
-  props: ["currentData", "salesItems", "orderItems", "numberItems"],
+  props: ["currentData", "salesItems", "orderItems", "numberItems", "ModificationRequired", "thisMonthModification", "thisMonthDelivery"],
   components: {
     MonthPicker,
+    Modal
   },
   data() {
     return {
@@ -354,6 +362,9 @@ export default {
     };
   },
   methods: {
+    openModal() {
+      this.$refs.modalRef.openModal(); // 모달 열기
+    },
     onRowSelected(items) {
       this.$emit("onRowSelected", items);
     },
