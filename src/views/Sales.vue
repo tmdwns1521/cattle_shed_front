@@ -276,7 +276,6 @@
                     >
                   </template>
                 </b-td>
-
               </b-tr>
               <b-tr>
                 <b-th>개체 아비번호</b-th>
@@ -319,6 +318,38 @@
                     ></b-form-input>
                   </template>
                 </b-td>
+                <b-th>비육확인</b-th>
+                <b-td>
+                  <template v-if="!addTag">
+                    <b-form-input
+                      v-if="isEmpty(currentData)"
+                      disabled
+                      :value="empty"
+                    ></b-form-input>
+                    <b-form-select
+                      v-else
+                      v-model="fattening"
+                      :disabled="!updateTag"
+                    >
+                      <b-form-select-option value=true
+                        >O</b-form-select-option
+                      >
+                      <b-form-select-option value=false
+                        >X</b-form-select-option
+                      >
+                    </b-form-select>
+                  </template>
+                  <template v-else>
+                    <b-form-select v-model="fattening"
+                      ><b-form-select-option value=true
+                        >O</b-form-select-option
+                      >
+                      <b-form-select-option value=false
+                        >X</b-form-select-option
+                      ></b-form-select
+                    >
+                  </template>
+                </b-td>
               </b-tr>
             </b-tbody>
           </b-table-simple>
@@ -344,7 +375,7 @@
               </template>
               <!-- 기본 -->
               <template v-else>
-                <b-btn variant="dark" class="ms-2" @click="addTag = true"
+                <b-btn variant="dark" class="ms-2" @click="newAdd()"
                   >신규등록</b-btn
                 >
                 <b-btn
@@ -378,6 +409,8 @@
       :thisMonthModification="thisMonthModification"
       :thisMonthDelivery="thisMonthDelivery"
       :NotAppraise="NotAppraise"
+      :vaccinationFirst="vaccinationFirst"
+      :vaccinationSecond="vaccinationSecond"
     />
   </div>
 </template>
@@ -395,6 +428,8 @@ export default {
       ModificationRequired: [],
       thisMonthModification: [],
       thisMonthDelivery: [],
+      vaccinationFirst: [],
+      vaccinationSecond: [],
       NotAppraise: [],
       currentData: {},
       cachedData: {},
@@ -416,6 +451,7 @@ export default {
       },
       paymentType: "card",
       appraiseType: false,
+      fattening: false,
       genderType: "female",
       addTag: false,
       updateTag: false,
@@ -427,8 +463,13 @@ export default {
     };
   },
   methods: {
+    newAdd() {
+      this.addTag = !this.addTag;
+      this.fattening = false;
+      this.appraiseType = false;
+      this.genderType = "female";
+    },
     isDateInCurrentMonth(dateString) {
-      console.log(dateString);
       // 주어진 날짜 문자열에서 마침표를 제거하고 "YYYY-MM-DD" 형식으로 변환
       const cleanedDateString = dateString.replace(/\./g, '-');
 
@@ -585,6 +626,7 @@ export default {
       let father_number;
       let semen_num;
       let attempts_num;
+      let fattening;
       const entity_identification_number = this.newData.entity_identification_number;
       const parent_entity_identification_number = this.newData.parent_entity_identification_number;
       if (this.newData.semen_num) {
@@ -604,6 +646,9 @@ export default {
       }
       if (this.newData.delivery_day) {
         delivery_day = this.newData.delivery_day;
+      }
+      if (this.fattening) {
+        fattening = this.fattening;
       }
       if (this.appraiseType) {
         appraise = this.appraiseType;
@@ -625,7 +670,8 @@ export default {
         father_number,
         mo_father_number,
         semen_num,
-        attempts_num
+        attempts_num,
+        fattening
       }
       await this.$axios.post('http://49.247.39.189:5000/api/createNew', data);
       // console.log(createNew);
@@ -646,6 +692,7 @@ export default {
       let father_number;
       let semen_num;
       let attempts_num;
+      let fattening;
       const entity_identification_number = this.currentData.entity_identification_number;
       const parent_entity_identification_number = this.currentData.parent_entity_identification_number;
       if (this.currentData.semen_num) {
@@ -665,6 +712,9 @@ export default {
       }
       if (this.currentData.father_number) {
         father_number = this.currentData.father_number;
+      }
+      if (this.currentData.fattening) {
+        fattening = this.fattening;
       }
       if (this.currentData.appraise) {
         appraise = this.appraiseType;
@@ -687,7 +737,8 @@ export default {
         father_number,
         mo_father_number,
         semen_num,
-        attempts_num
+        attempts_num,
+        fattening
       }
       await this.$axios.post('http://49.247.39.189:5000/api/updateNew', data);
       await this.updatedData(data);
@@ -767,6 +818,23 @@ export default {
           this.managerPriceConfirm += parseInt(item);
         }
       });
+      if ( this.currentData.appraise === 'O') {
+        this.appraiseType = true;
+      } else {
+        this.appraiseType = false;
+      }
+
+      if ( this.currentData.fattening === 'O') {
+        this.fattening = true;
+      } else {
+        this.fattening = false;
+      }
+
+      if ( this.currentData.gender === '암') {
+        this.genderType = "female";
+      } else {
+        this.genderType = "male";
+      }
     },
     async getCurrentMonthsalesData() {
       const data = await this.$axios.get(
@@ -815,6 +883,10 @@ export default {
           modification_date.setMonth(modification_date.getMonth() + 9);
           modification_date.setDate(modification_date.getDate() + 10);
           e.scheduled_delivery_day = modification_date.toLocaleDateString();
+          modification_date.setDate(modification_date.getDate() - 28);
+          e.vaccination_second = modification_date.toLocaleDateString();
+          modification_date.setDate(modification_date.getDate() - 14);
+          e.vaccination_first = modification_date.toLocaleDateString();
         }
         if (e.delivery_day !== null){
           e.delivery_day = String(e.delivery_day).split(' ')[0];
@@ -828,12 +900,23 @@ export default {
         // e.month_old = `${birth_year}년 ${birth_month}개월`
         e.gender = e.gender === 'female' ? '암' : '수';
         e.appraise = e.appraise === "false" ? 'X' : 'O';
-        const entity = (e.entity_identification_number);
+        e.fattening = e.fattening === "false" ? 'X' : 'O';
+        const entity = (e.entity_identification_number.split(' ')[2]);
         const Month_old = (e.month_old);
         const ModificationDate = e.scheduled_modification_date;
         const ScheduleDate = e.scheduled_delivery_day;
         if (e.gender === '암' && Month_old >= 13 && e.modification_date === null) {
           this.ModificationRequired.push([entity, Month_old]);
+        }
+        if (e.scheduled_delivery_day !== undefined) {
+          if (this.isDateInCurrentMonth(e.vaccination_first)) {
+            this.vaccinationFirst.push([entity, Month_old, e.vaccination_first])
+          }
+        }
+        if (e.scheduled_delivery_day !== undefined) {
+          if (this.isDateInCurrentMonth(e.vaccination_second)) {
+            this.vaccinationSecond.push([entity, Month_old, e.vaccination_second])
+          }
         }
         if (e.scheduled_modification_date !== undefined) {
           if (this.isDateInCurrentMonth(e.scheduled_modification_date)) {
@@ -847,10 +930,18 @@ export default {
         }
         // NotAppraise
         if (e.modification_date !== null && e.appraise === 'X') {
-          this.NotAppraise.push([entity, Month_old, e.modification_date])
+          const modificationDate = new Date(e.modification_date);
+          const currentDate = new Date();
+          const differenceInMilliseconds = currentDate - modificationDate;
+          const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+          if (differenceInDays >= 40) {
+            this.NotAppraise.push([entity, Month_old, e.modification_date])
+          }
         }
       })
       this.thisMonthModification.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
+      this.vaccinationSecond.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
+      this.vaccinationFirst.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
       this.thisMonthDelivery.sort((a, b) => this.parseDate(a[2]).getTime() - this.parseDate(b[2]).getTime());
       this.NotAppraise.sort((a, b) => this.parseDateminus(a[2]).getTime() - this.parseDateminus(b[2]).getTime());
       this.allCow = data.data.length;

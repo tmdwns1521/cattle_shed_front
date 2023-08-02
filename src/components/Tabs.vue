@@ -9,6 +9,8 @@
           :thisMonthModification="thisMonthModification"
           :thisMonthDelivery="thisMonthDelivery"
           :NotAppraise="NotAppraise"
+          :vaccinationFirst="vaccinationFirst"
+          :vaccinationSecond="vaccinationSecond"
         />
         <b-row class="justify-content-end align-items-center">
           <!-- 달력 검색 -->
@@ -259,7 +261,7 @@ import Modal from "@/components/Modal.vue";
 
 export default {
   name: "Tabs",
-  props: ["currentData", "salesItems", "orderItems", "numberItems", "ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise"],
+  props: ["currentData", "salesItems", "orderItems", "numberItems", "ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise", "vaccinationFirst", "vaccinationSecond"],
   components: {
     MonthPicker,
     Modal
@@ -338,6 +340,16 @@ export default {
           thClass: "table-secondary",
         },
         {
+          key: "vaccination_first",
+          label: "주사(1차)",
+          thClass: "table-secondary",
+        },
+        {
+          key: "vaccination_second",
+          label: "주사(2차)",
+          thClass: "table-secondary",
+        },
+        {
           key: "scheduled_delivery_day",
           label: "분만예정일",
           thClass: "table-secondary",
@@ -348,11 +360,9 @@ export default {
           thClass: "table-secondary",
         },
         {
-          key: "id",
-          // isRowHeader: true,
-          // sortable: true,
+          key: "fattening",
+          label: "비육",
           thClass: "table-secondary",
-        // filterByFormatted: true,
         },
       ],
       filter: "",

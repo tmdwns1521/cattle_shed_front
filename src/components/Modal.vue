@@ -21,16 +21,34 @@
         <h3>이번달 수정예정일</h3>
         <ul>
           <li v-for="item in thisMonthModification" :key="item[0]">
-            개체번호: {{ item[0] }} / 개월수: {{ item[1] }} / 예정일: {{ item[2] }}
+            개체번호: {{ item[0] }} / 예정일: {{ item[2] }}
           </li>
         </ul>
       </div>
 
       <!-- NotAppraise 데이터 -->
       <div class="data-container">
-        <h3>감정미확인</h3>
+        <h3>감정미확인 (40일 경과)</h3>
         <ul>
           <li v-for="item in NotAppraise" :key="item[0]">
+            개체번호: {{ item[0] }} / 수정일: {{ item[2] }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="data-container">
+        <h3>이번달 주사 1차</h3>
+        <ul>
+          <li v-for="item in vaccinationFirst" :key="item[0]">
+            개체번호: {{ item[0] }} / 예정일: {{ item[2] }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="data-container">
+        <h3>이번달 주사 2차</h3>
+        <ul>
+          <li v-for="item in vaccinationSecond" :key="item[0]">
             개체번호: {{ item[0] }} / 예정일: {{ item[2] }}
           </li>
         </ul>
@@ -53,7 +71,7 @@
 <script>
 export default {
   name: "Modal",
-  props: ["ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise"],
+  props: ["ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise", "vaccinationFirst", "vaccinationSecond"],
   data() {
     return {
       isOpen: false, // 모달의 초기 상태는 닫혀있음
