@@ -69,7 +69,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.entity_identification_number"
+                      v-model="currentData.entityIdentificationNumber"
                       @keyup="oninput_entity_identification_number()"
                     ></b-form-input>
                   </template>
@@ -90,7 +90,7 @@
                     ></b-form-input>
                     <b-form-select
                       v-else
-                      v-model="genderType"
+                      v-model="currentData.gender"
                       :disabled="!updateTag"
                     >
                       <b-form-select-option value="female"
@@ -124,7 +124,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.parent_entity_identification_number"
+                      v-model="currentData.parentEntityIdentificationNumber"
                       @keyup="oninput_parent_entity_identification_number()"
                     ></b-form-input>
                   </template>
@@ -148,7 +148,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.modification_date"
+                      v-model="currentData.modificationDate"
                     ></b-form-input>
                   </template>
                   <template v-else>
@@ -169,7 +169,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.semen_num"
+                      v-model="currentData.semenNum"
                     ></b-form-input>
                   </template>
                   <template v-else>
@@ -189,7 +189,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.attempts_num"
+                      v-model="currentData.attemptsNum"
                     ></b-form-input>
                   </template>
                   <template v-else>
@@ -234,7 +234,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.delivery_day"
+                      v-model="currentData.deliveryDay"
                       @keyup="delivery_day_Formated()"
                     ></b-form-input>
                   </template>
@@ -254,7 +254,7 @@
                     ></b-form-input>
                     <b-form-select
                       v-else
-                      v-model="appraiseType"
+                      v-model="currentData.appraise"
                       :disabled="!updateTag"
                     >
                       <b-form-select-option value=true
@@ -289,7 +289,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.father_number"
+                      v-model="currentData.fatherNumber"
                     ></b-form-input>
                   </template>
                   <template v-else>
@@ -309,7 +309,7 @@
                     <b-form-input
                       v-else
                       :disabled="!updateTag"
-                      v-model="currentData.mo_father_number"
+                      v-model="currentData.moFatherNumber"
                     ></b-form-input>
                   </template>
                   <template v-else>
@@ -328,7 +328,7 @@
                     ></b-form-input>
                     <b-form-select
                       v-else
-                      v-model="fattening"
+                      v-model="currentData.fattening"
                       :disabled="!updateTag"
                     >
                       <b-form-select-option value=true
@@ -404,7 +404,7 @@
       @onMonthsalesData="onMonthsalesData"
       @getCurrentMonthsalesData="getCurrentMonthsalesData"
       @getSalesData="getSalesData"
-      :salesItems="salesItems"
+      :liveStocks="liveStocks"
       :ModificationRequired="ModificationRequired"
       :thisMonthModification="thisMonthModification"
       :thisMonthDelivery="thisMonthDelivery"
@@ -417,12 +417,15 @@
 
 <script>
 import Tabs from "@/components/Tabs.vue";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Sales",
   components: { Tabs },
   data() {
     return {
+      apiPath: 'http://localhost:5000',
+      // apiPath: 'http://49.247.39.189:5000',
       id: '',
       salesItems: null,
       ModificationRequired: [],
@@ -461,6 +464,11 @@ export default {
       managerPricePredicted: null,
       managerPriceConfirm: null,
     };
+  },
+  computed: {
+    ...mapGetters({
+      liveStocks: (['liveStocks']),
+    }),
   },
   methods: {
     newAdd() {
@@ -598,7 +606,7 @@ export default {
             // console.log(item);
             // const data =
             this.$axios
-              .delete("http://49.247.39.189:5000/api/deleteData", {
+              .delete(`${this.apiPath}/api/deleteData`, {
                 data: { id: item },
                 headers: {},
               })
@@ -673,7 +681,7 @@ export default {
         attempts_num,
         fattening
       }
-      await this.$axios.post('http://49.247.39.189:5000/api/createNew', data);
+      await this.$axios.post(`${this.apiPath}/api/createNew`, data);
       // console.log(createNew);
       location.reload();
     },
@@ -683,66 +691,10 @@ export default {
     },
     // 수정 완료
     async updateData() {
-      let birth;
-      let modification_date;
-      let appraise;
-      let gender;
-      let delivery_day;
-      let mo_father_number;
-      let father_number;
-      let semen_num;
-      let attempts_num;
-      let fattening;
-      const entity_identification_number = this.currentData.entity_identification_number;
-      const parent_entity_identification_number = this.currentData.parent_entity_identification_number;
-      if (this.currentData.semen_num) {
-        semen_num = this.currentData.semen_num;
-      }
-      if (this.currentData.birth) {
-        birth = this.currentData.birth;
-      }
-      if (this.currentData.modification_date) {
-        modification_date = this.currentData.modification_date;
-      }
-      if (this.currentData.delivery_day) {
-        delivery_day = this.currentData.delivery_day;
-      }
-      if (this.currentData.mo_father_number) {
-        mo_father_number = this.currentData.mo_father_number;
-      }
-      if (this.currentData.father_number) {
-        father_number = this.currentData.father_number;
-      }
-      if (this.currentData.fattening) {
-        fattening = this.fattening;
-      }
-      if (this.currentData.appraise) {
-        appraise = this.appraiseType;
-      }
-      if (this.currentData.gender) {
-        gender = this.genderType;
-      }
-      if (this.currentData.attempts_num) {
-        attempts_num = this.currentData.attempts_num;
-      }
-      const data = {
-        id: this.currentData.id,
-        entity_identification_number,
-        gender,
-        parent_entity_identification_number,
-        birth,
-        modification_date,
-        appraise,
-        delivery_day,
-        father_number,
-        mo_father_number,
-        semen_num,
-        attempts_num,
-        fattening
-      }
-      await this.$axios.post('http://49.247.39.189:5000/api/updateNew', data);
-      await this.updatedData(data);
-      this.updateTag = false;
+      console.log(this.currentData);
+      // await this.$axios.post(`${this.apiPath}/api/updateNew`, data);
+      // await this.updatedData(data);
+      // this.updateTag = false;
     },
     async updatedData(data) {
       this.salesItems.map((e) => {
@@ -777,74 +729,28 @@ export default {
       this.updateTag = false;
     },
     onRowSelected(items) {
+      this.updateTag = true;
       this.addTag = false;
-      let item = items[0];
-      this.currentData = { ...item };
-
-      this.cachedData = Object.assign({}, this.currentData);
-      this.cachedData.cardData = Object.assign({}, this.currentData.cardData);
-
-
-      this.managerPricePredicted = 0;
-      this.managerPriceConfirm = 0;
-      const managerDataList = [];
-      const managerPList = [];
-      const managerCList = [];
-
-      this.salesItems.filter((el) => {
-        if (el.manager === this.currentData.manager) {
-          managerDataList.push(el);
-        }
-      });
-      for (const i of managerDataList) {
-        managerPList.push(i.AmountOfPayment);
-        if (i.Approved === true) {
-          managerCList.push(i.AmountOfPayment);
-        }
-      }
-
-      this.managerPList = managerPList;
-      this.managerCList = managerCList;
-
-      this.managerPList.forEach((item) => {
-        item = parseInt(item);
-        if (isNaN(item) === false) {
-          this.managerPricePredicted += parseInt(item);
-        }
-      });
-      this.managerCList.forEach((item) => {
-        item = parseInt(item);
-        if (isNaN(item) === false) {
-          this.managerPriceConfirm += parseInt(item);
-        }
-      });
-      if ( this.currentData.appraise === 'O') {
-        this.appraiseType = true;
-      } else {
-        this.appraiseType = false;
-      }
-
-      if ( this.currentData.fattening === 'O') {
-        this.fattening = true;
-      } else {
-        this.fattening = false;
-      }
-
-      if ( this.currentData.gender === '암') {
-        this.genderType = "female";
-      } else {
-        this.genderType = "male";
-      }
+      console.log(items[0]);
+      items[0].modificationDate = items[0].modificationDate ? items[0].modificationDate.split('T')[0] : '';
+      items[0].scheduledModificationDate = items[0].scheduledModificationDate ? items[0].scheduledModificationDate.split('T')[0] : '';
+      items[0].deliveryDay = items[0].deliveryDay ? items[0].deliveryDay.split('T')[0] : '';
+      items[0].birth = items[0].birth ? items[0].birth.split('T')[0] : '';
+      items[0].semenNum = items[0].semenNum === 'NULL' || items[0].semenNum === null ? '' : items[0].semenNum;
+      items[0].attemptsNum = items[0].attemptsNum === 'NULL' || items[0].attemptsNum === null ? '' : items[0].attemptsNum;
+      items[0].fatherNumber = items[0].fatherNumber === 'NULL' || items[0].fatherNumber === null ? '' : items[0].fatherNumber;
+      items[0].moFatherNumber = items[0].moFatherNumber === 'NULL' || items[0].moFatherNumber === null ? '' : items[0].moFatherNumber;
+      this.currentData = items[0];
     },
     async getCurrentMonthsalesData() {
       const data = await this.$axios.get(
-        "http://49.247.39.189:5000/api/getCattleShed"
+        `${this.apiPath}/api/getCattleShed`
       );
       this.onList(data);
     },
     async getSalesData() {
       const data = await this.$axios.get(
-        "http://49.247.39.189:5000/api/getCattleShed"
+        `${this.apiPath}/api/getCattleShed`
       );
       // console.log(data.data);
       this.onList(data);
@@ -982,10 +888,9 @@ export default {
       });
     },
   },
-  mounted() {
-    this.getCurrentMonthsalesData();
+  async mounted() {
+    await this.$store.dispatch('getliveStock');
   },
-  computed: {},
 };
 </script>
 

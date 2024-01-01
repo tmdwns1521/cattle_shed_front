@@ -90,11 +90,14 @@
         select-mode="single"
         @row-selected="onRowSelected"
         :sticky-header="true"
-        :items="salesItems"
+        :items="liveStocks"
         :fields="fields"
         class="dataTable salesTable"
         :filter="filter"
         ref="selectableTable"
+        label-sort-asc=""
+        label-sort-desc=""
+        label-sort-clear=""
         show-empty
         emptyFilteredText="찾으시는 검색어와 일치하는 정보가 없습니다."
         emptyText="데이터 정보가 없습니다."
@@ -112,140 +115,66 @@
 
         <!-- No -->
         <template #cell(index)="row">
-          {{ row.item.index + 1 }}
+          {{ row.index + 1 }}
         </template>
-        <!-- 계약번호 -->
-        <template #cell(ContractNumber)="row">
-          <span>
-            {{ dateFormat1(row.item.ContractNumber) }}
-          </span>
+        <!-- 성별 -->
+        <template #cell(gender)="row">
+          <span v-if="row.item.gender.includes('female')"> 암</span>
+          <span v-else>수</span>
         </template>
-        <!-- 실시간트래픽 -->
-        <template #cell(trafficDataTodayCount)="row">
-          <span>
-            {{
-              row.item.trafficData
-                ? isNegative(row.item.trafficData.today_remain_count)
-                : empty
-            }}
-          </span>
+        <!-- 출생일자 -->
+        <template #cell(birth)="row">
+          <span> {{ row.item.birth.split('T')[0] }} </span>
         </template>
-        <!-- 디자인 -->
-        <template #cell(Design)="row">
-          <div class="text-center">
-            <font-awesome-icon
-              v-if="row.item.Design"
-              class="fa-xl text-success"
-              icon="fa-solid fa-circle-check"
-            />
-            <font-awesome-icon
-              v-else
-              style="color: #ced4da"
-              class="fa-xl"
-              icon="fa-solid fa-circle-xmark"
-            />
-          </div>
+        <!-- 수정예정일 -->
+        <template #cell(scheduledModificationDate)="row">
+          <span v-if="row.item.scheduledModificationDate"> {{ row.item.scheduledModificationDate.split('T')[0] }} </span>
         </template>
-        <!-- 트래픽 -->
-        <template #cell(Traffic)="row">
-          <div class="text-center">
-            <font-awesome-icon
-              v-if="row.item.Traffic"
-              class="fa-xl text-success"
-              icon="fa-solid fa-circle-check"
-            />
-            <font-awesome-icon
-              v-else
-              style="color: #ced4da"
-              class="fa-xl"
-              icon="fa-solid fa-circle-xmark"
-            />
-          </div>
+        <!-- 수정일자 -->
+        <template #cell(modificationDate)="row">
+          <span v-if="row.item.modificationDate"> {{ row.item.modificationDate.split('T')[0] }} </span>
         </template>
-        <!-- 확인 -->
-        <template #cell(Approved)="row">
-          <div class="text-center">
-            <font-awesome-icon
-              v-if="row.item.Approved"
-              class="fa-xl text-success"
-              icon="fa-solid fa-circle-check"
-            />
-            <font-awesome-icon
-              v-else
-              style="color: #ced4da"
-              class="fa-xl"
-              icon="fa-solid fa-circle-xmark"
-            />
-          </div>
+        <!-- 정액번호 -->
+        <template #cell(semenNum)="row">
+          <span v-if="row.item.semenNum != null && row.item.semenNum != 'NULL'"> {{ row.item.semenNum }} </span>
         </template>
-        <!-- 결제금액 -->
-        <template #cell(AmountOfPayment)="row">
-          <span>
-            {{
-              row.item.AmountOfPayment
-                ? numberToString(row.item.AmountOfPayment)
-                : empty
-            }}
-          </span>
+        <!-- 정액번호 -->
+        <template #cell(attemptsNum)="row">
+          <span v-if="row.item.attemptsNum != null && row.item.attemptsNum != 'NULL'"> {{ row.item.attemptsNum }} </span>
         </template>
-        <!-- 이메일 -->
-        <template #cell(email)="row">
-          <span>
-            {{ row.item.blogId ? row.item.blogId + "@naver.com" : empty }}
-          </span>
+        <!-- 아비번호 -->
+        <template #cell(fatherNumber)="row">
+          <span v-if="row.item.fatherNumber != null && row.item.fatherNumber != 'NULL'"> {{ row.item.fatherNumber }} </span>
         </template>
-        <!-- 주소 -->
-        <!-- <template #head(address)="data">
-          <div @click="isEllipsis = !isEllipsis" class="cursor-pointer">
-            {{ data.label }}
-          </div>
-        </template> -->
-        <template #cell(address)="row">
-          <div>
-            {{ row.item.address ? row.item.address : empty }}
-          </div>
+        <!-- 감정 -->
+        <template #cell(appraise)="row">
+          <span v-if="row.item.appraise === false || row.item.appraise === 'false'">X</span>
+          <span v-else>O</span>
         </template>
-        <!-- URL -->
-        <!-- <template #head(url)="data">
-          <div @click="isEllipsis = !isEllipsis" class="cursor-pointer">
-            {{ data.label }}
-          </div>
-        </template> -->
-        <template #cell(url)="row">
-          <a
-            v-if="row.item.blogId"
-            :class="{ ellipsis: isEllipsis }"
-            :href="'https://m.blog.naver.com/' + row.item.blogId"
-            target="_blank">
-            {{ "https://blog.naver.com/" + row.item.blogId }}
-          </a>
-          <span v-else>{{ empty }}</span>
+        <!-- 분만예정일 -->
+        <template #cell(bornSchedule)="row">
+          <span v-if="row.item.bornSchedule"> {{ row.item.bornSchedule.split('T')[0] }} </span>
         </template>
-        <!-- 결제일 -->
-        <template #cell(payDate)="row">
-          <span>
-            {{ dateFormat2(row.item.ContractNumber) }}
-          </span>
+        <!-- 주사(1차) -->
+        <template #cell(vaccinationFirst)="row">
+          <span v-if="row.item.vaccinationFirst"> {{ row.item.vaccinationFirst.split('T')[0] }} </span>
         </template>
-        <!-- 시작일 -->
-        <template #cell(trafficDataCreated)="row">
-          <span>
-            {{
-              row.item.trafficData
-                ? dateFormat2(row.item.trafficData.start_date)
-                : empty
-            }}
-          </span>
+        <!-- 주사(2차) -->
+        <template #cell(vaccinationSecond)="row">
+          <span v-if="row.item.vaccinationSecond"> {{ row.item.vaccinationSecond.split('T')[0] }} </span>
         </template>
-        <!-- 종료일 -->
-        <template #cell(trafficDataExpiration)="row">
-          <span>
-            {{
-              row.item.trafficData
-                ? dateFormat2(row.item.trafficData.cexpiration_date)
-                : empty
-            }}
-          </span>
+        <!-- 아비번호 -->
+        <template #cell(moFatherNumber)="row">
+          <span v-if="row.item.moFatherNumber != null && row.item.moFatherNumber != 'NULL'"> {{ row.item.moFatherNumber }} </span>
+        </template>
+        <!-- 비육 -->
+        <template #cell(fattening)="row">
+          <span v-if="row.item.fattening === false || row.item.fattening === 'false'">X</span>
+          <span v-else>O</span>
+        </template>
+        <!-- 분만일자 -->
+        <template #cell(deliveryDay)="row">
+          <span v-if="row.item.deliveryDay"> {{ row.item.deliveryDay.split('T')[0] }} </span>
         </template>
       </b-table>
 <!--    </b-tab>-->
@@ -261,7 +190,7 @@ import Modal from "@/components/Modal.vue";
 
 export default {
   name: "Tabs",
-  props: ["currentData", "salesItems", "orderItems", "numberItems", "ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise", "vaccinationFirst", "vaccinationSecond"],
+  props: ["currentData", "liveStocks", "orderItems", "numberItems", "ModificationRequired", "thisMonthModification", "thisMonthDelivery", "NotAppraise", "vaccinationFirst", "vaccinationSecond"],
   components: {
     MonthPicker,
     Modal
@@ -280,22 +209,28 @@ export default {
           // filterByFormatted: true,
         },
         {
-          key: "entity_identification_number",
+          key: "fattening",
+          label: "비육",
+          sortable: true,
+          thClass: "table-secondary",
+        },
+        {
+          key: "entityIdentificationNumber",
           label: "개체식별번호",
           thClass: "table-secondary",
         },
         {
-          key: "father_number",
+          key: "fatherNumber",
           label: "아비번호",
           thClass: "table-secondary",
         },
         {
-          key: "parent_entity_identification_number",
+          key: "parentEntityIdentificationNumber",
           label: "모 개체식별번호",
           thClass: "table-secondary",
         },
         {
-          key: "mo_father_number",
+          key: "moFatherNumber",
           label: "모 아비번호",
           thClass: "table-secondary",
         },
@@ -305,63 +240,66 @@ export default {
           thClass: "table-secondary",
         },
         {
-          key: "month_old",
+          key: "birthMonth",
           label: "개월령",
+          sortable: true,
           thClass: "table-secondary",
         },
         {
           key: "birth",
           label: "출생일자",
+          sortable: true,
           thClass: "table-secondary",
         },
         {
-          key: "scheduled_modification_date",
+          key: "scheduledModificationDate",
           label: "수정예정일",
+          sortable: true,
           thClass: "table-secondary",
         },
         {
-          key: "modification_date",
+          key: "modificationDate",
           label: "수정일자",
+          sortable: true,
           thClass: "table-secondary",
         },
         {
-          key: "semen_num",
+          key: "semenNum",
           label: "정액번호",
           thClass: "table-secondary",
         },
         {
-          key: "attempts_num",
+          key: "attemptsNum",
           label: "차수",
+          sortable: true,
           thClass: "table-secondary",
         },
         {
           key: "appraise",
           label: "감정",
+          sortable: true,
           thClass: "table-secondary",
         },
         {
-          key: "vaccination_first",
+          key: "vaccinationFirst",
           label: "주사(1차)",
           thClass: "table-secondary",
         },
         {
-          key: "vaccination_second",
+          key: "vaccinationSecond",
           label: "주사(2차)",
           thClass: "table-secondary",
         },
         {
-          key: "scheduled_delivery_day",
+          key: "bornSchedule",
           label: "분만예정일",
+          sortable: true,
           thClass: "table-secondary",
         },
         {
-          key: "delivery_day",
+          key: "deliveryDay",
           label: "분만일자",
-          thClass: "table-secondary",
-        },
-        {
-          key: "fattening",
-          label: "비육",
+          sortable: true,
           thClass: "table-secondary",
         },
       ],

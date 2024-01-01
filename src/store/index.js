@@ -4,6 +4,7 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
+
 export default new Vuex.Store({
   state: {
     readyNumber: null,
@@ -18,8 +19,10 @@ export default new Vuex.Store({
     // name: null,
     role: null,
     token: null,
+    liveStocks: [],
   },
   getters: {
+    liveStocks: (state) => state.liveStocks,
     readyNumber: (state) => state.readyNumber,
     readyNumberCount: (state) => state.readyNumberCount,
     onNumber: (state) => state.onNumber,
@@ -67,6 +70,9 @@ export default new Vuex.Store({
     //   state.name = _name;
     //   localStorage.setItem("name", JSON.stringify(_name));
     // },
+    setLiveStocks(state, data) {
+      state.liveStocks = data;
+    },
     logout() {
       localStorage.clear();
       axios.defaults.headers.common["Authorization"] = undefined;
@@ -74,6 +80,15 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async getliveStock({ commit }) {
+      try {
+        console.log(`${process.env.VUE_APP_API_URL}/livestocks`);
+        const res = await axios.get(`${process.env.VUE_APP_API_URL}/livestocks`);
+        commit("setLiveStocks", res?.data);
+      } catch (err) {
+        console.log('API오류', err);
+      }
+    },
     setToken: ({ commit }, _token) => {
       commit("setToken", _token);
     },
